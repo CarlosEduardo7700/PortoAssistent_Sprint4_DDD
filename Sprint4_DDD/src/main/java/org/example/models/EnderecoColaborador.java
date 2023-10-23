@@ -1,25 +1,24 @@
 package org.example.models;
 
+import java.sql.Timestamp;
 import java.util.Date;
 import java.util.List;
 
 public class EnderecoColaborador {
 
     //Atributos
-    private int id;
     private Colaborador colaborador; //composição
     private Logradouro logradouro; //composição
     private int numLogradouroColaborador;
     private String descLogradouroColaborador;
-    private Date dtCadastro;
+    private Timestamp dtCadastro;
     private String nomeUsuario;
 
 
 
 
     //Construtor
-    public EnderecoColaborador(int id, Colaborador colaborador, Logradouro logradouro, int numLogradouroColaborador, String descLogradouroColaborador, Date dtCadastro, String nomeUsuario) {
-        this.id = id;
+    public EnderecoColaborador(Colaborador colaborador, Logradouro logradouro, int numLogradouroColaborador, String descLogradouroColaborador, Timestamp dtCadastro, String nomeUsuario) {
         this.colaborador = colaborador;
         this.logradouro = logradouro;
         this.numLogradouroColaborador = numLogradouroColaborador;
@@ -69,11 +68,11 @@ public class EnderecoColaborador {
         this.descLogradouroColaborador = descLogradouroColaborador;
     }
 
-    public Date getDtCadastro() {
+    public Timestamp getDtCadastro() {
         return dtCadastro;
     }
 
-    public void setDtCadastro(Date dtCadastro) {
+    public void setDtCadastro(Timestamp dtCadastro) {
         this.dtCadastro = dtCadastro;
     }
 
@@ -83,14 +82,6 @@ public class EnderecoColaborador {
 
     public void setNomeUsuario(String nomeUsuario) {
         this.nomeUsuario = nomeUsuario;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 }
 
