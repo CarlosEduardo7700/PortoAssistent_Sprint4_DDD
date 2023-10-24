@@ -1,25 +1,27 @@
 package org.example.models;
 
+import jdk.jfr.Timespan;
+
+import java.sql.Timestamp;
 import java.util.Date;
 import java.util.List;
 
 public class EnderecoCliente {
 
     // Atributos
-    private int idEnderecoCliente;
     private Cliente cliente; // composição
     private Logradouro logradouro; // composição
     private int numLogradouroCliente;
     private String descLogradouroCliente;
-    private Date dtCadastro;
+    private Timestamp dtCadastro;
     private String nomeUsuario;
 
 
 
     // Construtor
 
-    public EnderecoCliente(int idEnderecoCliente, Cliente cliente, Logradouro logradouro, int numLogradouroCliente, String descLogradouroCliente, Date dtCadastro, String nomeUsuario) {
-        this.idEnderecoCliente = idEnderecoCliente;
+
+    public EnderecoCliente(Cliente cliente, Logradouro logradouro, int numLogradouroCliente, String descLogradouroCliente, Timestamp dtCadastro, String nomeUsuario) {
         this.cliente = cliente;
         this.logradouro = logradouro;
         this.numLogradouroCliente = numLogradouroCliente;
@@ -62,10 +64,10 @@ public class EnderecoCliente {
         this.descLogradouroCliente = descLogradouroCliente;
     }
 
-    public Date getDtCadastro() {
+    public Timestamp getDtCadastro() {
         return dtCadastro;
     }
-    public void setDtCadastro(Date dtCadastro) {
+    public void setDtCadastro(Timestamp dtCadastro) {
         this.dtCadastro = dtCadastro;
     }
 
@@ -76,10 +78,4 @@ public class EnderecoCliente {
         this.nomeUsuario = nomeUsuario;
     }
 
-    public int getIdEnderecoCliente() {
-        return idEnderecoCliente;
-    }
-    public void setIdEnderecoCliente(int idEnderecoCliente) {
-        this.idEnderecoCliente = idEnderecoCliente;
-    }
 }

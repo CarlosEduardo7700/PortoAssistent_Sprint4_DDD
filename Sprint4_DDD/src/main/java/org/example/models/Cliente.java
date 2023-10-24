@@ -1,5 +1,7 @@
 package org.example.models;
 
+import java.sql.Time;
+import java.sql.Timestamp;
 import java.util.Date;
 import java.util.List;
 
@@ -9,16 +11,14 @@ public class Cliente {
     private int idCliente;
     private String caminhoImagem;
     private Genero genero; //composição
-    private EnderecoCliente enderecoCliente;
     private String nomeCliente;
     private String cpfCliente;
     private String rgCliente;
-    private Date dataNascimentoCliente;
-    private Telefone telefone;
+    private Timestamp dataNascimentoCliente;
     private String cnhCliente;
     private String emailCliente;
     private String senhaCliente;
-    private Date dtCadastro;
+    private Timestamp dtCadastro;
     private String nomeUsuario;
 
 
@@ -26,16 +26,15 @@ public class Cliente {
 
     // Construtor
 
-    public Cliente(int idCliente, String caminhoImagem, Genero genero, EnderecoCliente enderecoCliente, String nomeCliente, String cpfCliente, String rgCliente, Date dataNascimentoCliente, Telefone telefone, String cnhCliente, String emailCliente, String senhaCliente, Date dtCadastro, String nomeUsuario) {
+
+    public Cliente(int idCliente, String caminhoImagem, Genero genero, String nomeCliente, String cpfCliente, String rgCliente, Timestamp dataNascimentoCliente, String cnhCliente, String emailCliente, String senhaCliente, Timestamp dtCadastro, String nomeUsuario) {
         this.idCliente = idCliente;
         this.caminhoImagem = caminhoImagem;
         this.genero = genero;
-        this.enderecoCliente = enderecoCliente;
         this.nomeCliente = nomeCliente;
         this.cpfCliente = cpfCliente;
         this.rgCliente = rgCliente;
         this.dataNascimentoCliente = dataNascimentoCliente;
-        this.telefone = telefone;
         this.cnhCliente = cnhCliente;
         this.emailCliente = emailCliente;
         this.senhaCliente = senhaCliente;
@@ -69,14 +68,6 @@ public class Cliente {
         this.genero = genero;
     }
 
-    public EnderecoCliente getEnderecoCliente() {
-        return enderecoCliente;
-    }
-
-    public void setEnderecoCliente(EnderecoCliente enderecoCliente) {
-        this.enderecoCliente = enderecoCliente;
-    }
-
     public String getNomeCliente() {
         return nomeCliente;
     }
@@ -101,20 +92,12 @@ public class Cliente {
         this.rgCliente = rgCliente;
     }
 
-    public Date getDataNascimentoCliente() {
+    public Timestamp getDataNascimentoCliente() {
         return dataNascimentoCliente;
     }
 
-    public void setDataNascimentoCliente(Date dataNascimentoCliente) {
+    public void setDataNascimentoCliente(Timestamp dataNascimentoCliente) {
         this.dataNascimentoCliente = dataNascimentoCliente;
-    }
-
-    public Telefone getTelefone() {
-        return telefone;
-    }
-
-    public void setTelefone(Telefone telefone) {
-        this.telefone = telefone;
     }
 
     public String getCnhCliente() {
@@ -141,11 +124,11 @@ public class Cliente {
         this.senhaCliente = senhaCliente;
     }
 
-    public Date getDtCadastro() {
+    public Timestamp getDtCadastro() {
         return dtCadastro;
     }
 
-    public void setDtCadastro(Date dtCadastro) {
+    public void setDtCadastro(Timestamp dtCadastro) {
         this.dtCadastro = dtCadastro;
     }
 
