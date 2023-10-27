@@ -1,6 +1,8 @@
 package org.example.models.repositories;
 
 import org.example.infrascture.database.DataBaseFactory;
+import org.example.models.Tipo_Chassi;
+import org.example.models.Tipo_Eixo;
 import org.example.models.Veiculo;
 
 import java.sql.*;
@@ -9,6 +11,9 @@ import java.util.List;
 import java.util.Optional;
 
 public class VeiculoRepository {
+    private Tipo_EixoRepository tipoEixoRepository = new Tipo_EixoRepository();
+    private Tipo_ChassiRepository tipoChassiRepository = new Tipo_ChassiRepository();
+    private MedidaRepository medidaRepository = new MedidaRepository();
 
     public List<Veiculo> findAll() throws SQLException {
         List<Veiculo> veiculos = new ArrayList<Veiculo>();
@@ -19,11 +24,24 @@ public class VeiculoRepository {
              ResultSet rs = ps.executeQuery()) {
 
             while(rs.next()){
-                Veiculo veiculo = new Veiculo();
-                veiculo.setIdVeiculo(rs.getInt("id_veiculo"));
-                veiculo.setMarca(rs.getString("nm_marca"));
-                veiculo.setModelo(rs.getString("nm_modelo"));
-                veiculo.setDtCadastro(rs.getTimestamp("dt_cadastro"));
+                Veiculo veiculo = new Veiculo(
+                        rs.getInt("ID_VEICULO"),
+                        rs.getString("IMG_VEICULO"),
+                        tipoEixoRepository.find(rs.getInt("ID_TIPO_EIXO")).orElse(null),
+                        tipoChassiRepository.find(rs.getInt("ID_TIPO_CHASSI")).orElse(null),
+                        medidaRepository.find(rs.getInt("ID_MEDIDA")).orElse(null),
+                        rs.getInt("APOLICE_VEICULO"),
+                        rs.getString("MODELO_VEICULO"),
+                        rs.getString("COR_VEICULO"),
+                        rs.getString("MARCA_VEICULO"),
+                        rs.getString("PLACA_VEICULO"),
+                        rs.getInt("ANO_VEICULO"),
+                        rs.getInt("QUANTIDADE_EIXOS_VEICULO"),
+                        rs.getString("RENAVAN_VEICULO"),
+                        rs.getInt("NR_CHASSI"),
+                        rs.getTimestamp("DT_CADASTRO"),
+                        rs.getString("NM_USUARIO")
+                );
 
                 veiculos.add(veiculo);
             }
@@ -50,11 +68,24 @@ public class VeiculoRepository {
             ps.setInt(1, id);
             try(ResultSet rs = ps.executeQuery()){
                 if(rs.next()) {
-                    Veiculo veiculo = new Veiculo();
-                    veiculo.setIdVeiculo(rs.getInt("id_veiculo"));
-                    veiculo.setMarca(rs.getString("nm_marca"));
-                    veiculo.setModelo(rs.getString("nm_modelo"));
-                    veiculo.setDtCadastro(rs.getTimestamp("dt_cadastro"));
+                    Veiculo veiculo = new Veiculo(
+                            rs.getInt("ID_VEICULO"),
+                            rs.getString("IMG_VEICULO"),
+                            tipoEixoRepository.find(rs.getInt("ID_TIPO_EIXO")).orElse(null),
+                            tipoChassiRepository.find(rs.getInt("ID_TIPO_CHASSI")).orElse(null),
+                            medidaRepository.find(rs.getInt("ID_MEDIDA")).orElse(null),
+                            rs.getInt("APOLICE_VEICULO"),
+                            rs.getString("MODELO_VEICULO"),
+                            rs.getString("COR_VEICULO"),
+                            rs.getString("MARCA_VEICULO"),
+                            rs.getString("PLACA_VEICULO"),
+                            rs.getInt("ANO_VEICULO"),
+                            rs.getInt("QUANTIDADE_EIXOS_VEICULO"),
+                            rs.getString("RENAVAN_VEICULO"),
+                            rs.getInt("NR_CHASSI"),
+                            rs.getTimestamp("DT_CADASTRO"),
+                            rs.getString("NM_USUARIO")
+                    );
 
                     return Optional.ofNullable(veiculo);
                 }
@@ -75,15 +106,27 @@ public class VeiculoRepository {
     }
 
     public void add(Veiculo veiculo) throws SQLException {
-        String query = "INSERT INTO T_PA_VEICULO (ID_VEICULO, NM_MARCA, NM_MODELO, DT_CADASTRO) VALUES (?, ?, ?, ?)";
+        String query = "INSERT INTO T_PA_VEICULO (ID_VEICULO, IMG_VEICULO, ID_TIPO_EIXO, ID_TIPO_CHASSI, ID_MEDIDA, APOLICE_VEICULO, MODELO_VEICULO, COR_VEICULO, MARCA_VEICULO, PLACA_VEICULO, ANO_VEICULO, QUANTIDADE_EIXOS_VEICULO, RENAVAN_VEICULO, NR_CHASSI, DT_CADASTRO, NM_USUARIO) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
         try (Connection connection = DataBaseFactory.getConnection();
              PreparedStatement ps = connection.prepareStatement(query)) {
 
             ps.setInt(1, veiculo.getIdVeiculo());
-            ps.setString(2, veiculo.getMarca());
-            ps.setString(3, veiculo.getModelo());
-            ps.setTimestamp(4, veiculo.getDtCadastro());
+            ps.setString(2, veiculo.getCaminhoImagem());
+            ps.setInt(3, veiculo.getTipoEixo().getIdEixo());
+            ps.setInt(4, veiculo.getTipoChassi().getIdChassi());
+            ps.setInt(5, veiculo.getMedidaVeiculo().getIdMedida());
+            ps.setInt(6, veiculo.getApolice());
+            ps.setString(7, veiculo.getModelo());
+            ps.setString(8, veiculo.getCor());
+            ps.setString(9, veiculo.getMarca());
+            ps.setString(10, veiculo.getPlaca());
+            ps.setInt(11, veiculo.getAnoFabricacao());
+            ps.setInt(12, veiculo.getQuantidadeEixos());
+            ps.setString(13, veiculo.getRenavan());
+            ps.setInt(14, veiculo.getNumChassi());
+            ps.setTimestamp(15, veiculo.getDtCadastro());
+            ps.setString(16, veiculo.getNomeUsuario());
 
             ps.executeUpdate();
         } catch (SQLException e) {
@@ -92,15 +135,27 @@ public class VeiculoRepository {
     }
 
     public void update(Veiculo veiculo) throws SQLException {
-        String query = "UPDATE T_PA_VEICULO SET NM_MARCA = ?, NM_MODELO = ?, DT_CADASTRO = ? WHERE ID_VEICULO = ?";
+        String query = "UPDATE T_PA_VEICULO SET IMG_VEICULO = ?, ID_TIPO_EIXO = ?, ID_TIPO_CHASSI = ?, ID_MEDIDA = ?, APOLICE_VEICULO = ?, MODELO_VEICULO = ?, COR_VEICULO = ?, MARCA_VEICULO = ?, PLACA_VEICULO = ?, ANO_VEICULO = ?, QUANTIDADE_EIXOS_VEICULO = ?, RENAVAN_VEICULO = ?, NR_CHASSI = ?, DT_CADASTRO = ?, NM_USUARIO = ? WHERE ID_VEICULO = ?";
 
         try (Connection connection = DataBaseFactory.getConnection();
              PreparedStatement ps = connection.prepareStatement(query)) {
 
-            ps.setString(1, veiculo.getMarca());
-            ps.setString(2, veiculo.getModelo());
-            ps.setTimestamp(3, veiculo.getDtCadastro());
-            ps.setInt(4, veiculo.getIdVeiculo());
+            ps.setString(1, veiculo.getCaminhoImagem());
+            ps.setInt(2, veiculo.getTipoEixo().getIdEixo());
+            ps.setInt(3, veiculo.getTipoChassi().getIdChassi());
+            ps.setInt(4, veiculo.getMedidaVeiculo().getIdMedida());
+            ps.setInt(5, veiculo.getApolice());
+            ps.setString(6, veiculo.getModelo());
+            ps.setString(7, veiculo.getCor());
+            ps.setString(8, veiculo.getMarca());
+            ps.setString(9, veiculo.getPlaca());
+            ps.setInt(10, veiculo.getAnoFabricacao());
+            ps.setInt(11, veiculo.getQuantidadeEixos());
+            ps.setString(12, veiculo.getRenavan());
+            ps.setInt(13, veiculo.getNumChassi());
+            ps.setTimestamp(14, veiculo.getDtCadastro());
+            ps.setString(15, veiculo.getNomeUsuario());
+            ps.setInt(16, veiculo.getIdVeiculo());
 
             ps.executeUpdate();
         } catch (SQLException e) {

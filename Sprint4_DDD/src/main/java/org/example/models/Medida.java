@@ -1,5 +1,6 @@
 package org.example.models;
 
+import java.sql.Timestamp;
 import java.util.Date;
 import java.util.List;
 
@@ -12,14 +13,14 @@ public class Medida {
     private double comprimento;
     private double pesoVeiculo;
     private double pesoSuportadoModal;
-    private Date dtCadastro;
+    private Timestamp dtCadastro;
     private String nomeUsuario;
 
 
 
 
     //Construtor
-    public Medida(int idMedida, double altura, double largura, double comprimento, double pesoVeiculo, double pesoSuportadoModal, Date dtCadastro, String nomeUsuario) {
+    public Medida(int idMedida, double altura, double largura, double comprimento, double pesoVeiculo, double pesoSuportadoModal, Timestamp dtCadastro, String nomeUsuario) {
         this.idMedida = idMedida;
         this.altura = altura;
         this.largura = largura;
@@ -88,11 +89,11 @@ public class Medida {
         this.pesoSuportadoModal = pesoSuportadoModal;
     }
 
-    public Date getDtCadastro() {
+    public Timestamp getDtCadastro() {
         return dtCadastro;
     }
 
-    public void setDtCadastro(Date dtCadastro) {
+    public void setDtCadastro(Timestamp dtCadastro) {
         this.dtCadastro = dtCadastro;
     }
 

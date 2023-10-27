@@ -1,5 +1,6 @@
 package org.example.models;
 
+import java.sql.Timestamp;
 import java.util.Date;
 import java.util.List;
 
@@ -14,14 +15,14 @@ public class Modal {
     private String placaModal;
     private String marcaModal;
     private int anoModal;
-    private Date dtCadastro;
+    private Timestamp dtCadastro;
     private String nomeUsuario;
 
 
 
     // Construtor
 
-    public Modal(int idModal, String caminhaImagem, Tipo_Modal tipoModal, Medida medidaModal, String modeloModal, String placaModal, String marcaModal, int anoModal, Date dtCadastro, String nomeUsuario) {
+    public Modal(int idModal, String caminhaImagem, Tipo_Modal tipoModal, Medida medidaModal, String modeloModal, String placaModal, String marcaModal, int anoModal, Timestamp dtCadastro, String nomeUsuario) {
         this.idModal = idModal;
         this.caminhaImagem = caminhaImagem;
         this.tipoModal = tipoModal;
@@ -98,11 +99,11 @@ public class Modal {
         this.anoModal = anoModal;
     }
 
-    public Date getDtCadastro() {
+    public Timestamp getDtCadastro() {
         return dtCadastro;
     }
 
-    public void setDtCadastro(Date dtCadastro) {
+    public void setDtCadastro(Timestamp dtCadastro) {
         this.dtCadastro = dtCadastro;
     }
 

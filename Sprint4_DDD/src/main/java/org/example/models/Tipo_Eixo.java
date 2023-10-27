@@ -1,5 +1,6 @@
 package org.example.models;
 
+import java.sql.Timestamp;
 import java.util.Date;
 import java.util.List;
 
@@ -9,14 +10,14 @@ public class Tipo_Eixo {
     private int idEixo;
     private String nomeTipoEixo;
     private String descTipoEixo;
-    private Date dtCadastro;
+    private Timestamp dtCadastro;
     private String nomeUsuario;
 
 
 
 
     // Construtor
-    public Tipo_Eixo(int idEixo, String nomeTipoEixo, String descTipoEixo, Date dtCadastro, String nomeUsuario) {
+    public Tipo_Eixo(int idEixo, String nomeTipoEixo, String descTipoEixo, Timestamp dtCadastro, String nomeUsuario) {
         this.idEixo = idEixo;
         this.nomeTipoEixo = nomeTipoEixo;
         this.descTipoEixo = descTipoEixo;
@@ -56,11 +57,11 @@ public class Tipo_Eixo {
         this.descTipoEixo = descTipoEixo;
     }
 
-    public Date getDtCadastro() {
+    public Timestamp getDtCadastro() {
         return dtCadastro;
     }
 
-    public void setDtCadastro(Date dtCadastro) {
+    public void setDtCadastro(Timestamp dtCadastro) {
         this.dtCadastro = dtCadastro;
     }
 

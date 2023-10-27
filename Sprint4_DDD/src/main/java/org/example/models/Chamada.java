@@ -1,5 +1,7 @@
 package org.example.models;
 
+import java.sql.Time;
+import java.sql.Timestamp;
 import java.util.Date;
 import java.util.List;
 
@@ -8,16 +10,17 @@ public class Chamada {
     // Atributos
     private int idChamada;
     private String caminhosImagens;
+    private Cliente cliente;
+    private Colaborador colaborador;
     private Veiculo veiculo;//composição
     private Modal modal; //composição
-    private Date dataInicio;
-    private Date dataFim;
+    private Timestamp dataInicio;
+    private Timestamp dataFim;
     private String local;
     private String destino;
     private String descLocal;
-    private boolean cargaVeiculo;
     private String descProblema;
-    private Date dtCadastro;
+    private Timestamp dtCadastro;
     private String nomeUsuario;
 
 
@@ -25,9 +28,11 @@ public class Chamada {
 
 
     // Construtor
-    public Chamada(int idChamada, String caminhosImagens, Veiculo veiculo, Modal modal, Date dataInicio, Date dataFim, String local, String destino, String descLocal, boolean cargaVeiculo, String descProblema, Date dtCadastro, String nomeUsuario) {
+    public Chamada(int idChamada, String caminhosImagens, Cliente cliente, Colaborador colaborador, Veiculo veiculo, Modal modal, Timestamp dataInicio, Timestamp dataFim, String local, String destino, String descLocal, String descProblema, Timestamp dtCadastro, String nomeUsuario) {
         this.idChamada = idChamada;
         this.caminhosImagens = caminhosImagens;
+        this.cliente = cliente;
+        this.colaborador = colaborador;
         this.veiculo = veiculo;
         this.modal = modal;
         this.dataInicio = dataInicio;
@@ -35,7 +40,6 @@ public class Chamada {
         this.local = local;
         this.destino = destino;
         this.descLocal = descLocal;
-        this.cargaVeiculo = cargaVeiculo;
         this.descProblema = descProblema;
         this.dtCadastro = dtCadastro;
         this.nomeUsuario = nomeUsuario;
@@ -73,19 +77,19 @@ public class Chamada {
         this.modal = modal;
     }
 
-    public Date getDataInicio() {
+    public Timestamp getDataInicio() {
         return dataInicio;
     }
 
-    public void setDataInicio(Date dataInicio) {
+    public void setDataInicio(Timestamp dataInicio) {
         this.dataInicio = dataInicio;
     }
 
-    public Date getDataFim() {
+    public Timestamp getDataFim() {
         return dataFim;
     }
 
-    public void setDataFim(Date dataFim) {
+    public void setDataFim(Timestamp dataFim) {
         this.dataFim = dataFim;
     }
 
@@ -113,14 +117,6 @@ public class Chamada {
         this.descLocal = descLocal;
     }
 
-    public boolean isCargaVeiculo() {
-        return cargaVeiculo;
-    }
-
-    public void setCargaVeiculo(boolean cargaVeiculo) {
-        this.cargaVeiculo = cargaVeiculo;
-    }
-
     public String getDescProblema() {
         return descProblema;
     }
@@ -129,11 +125,11 @@ public class Chamada {
         this.descProblema = descProblema;
     }
 
-    public Date getDtCadastro() {
+    public Timestamp getDtCadastro() {
         return dtCadastro;
     }
 
-    public void setDtCadastro(Date dtCadastro) {
+    public void setDtCadastro(Timestamp dtCadastro) {
         this.dtCadastro = dtCadastro;
     }
 
@@ -153,5 +149,19 @@ public class Chamada {
         this.caminhosImagens = caminhosImagens;
     }
 
+    public Cliente getCliente() {
+        return cliente;
+    }
 
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
+    }
+
+    public Colaborador getColaborador() {
+        return colaborador;
+    }
+
+    public void setColaborador(Colaborador colaborador) {
+        this.colaborador = colaborador;
+    }
 }

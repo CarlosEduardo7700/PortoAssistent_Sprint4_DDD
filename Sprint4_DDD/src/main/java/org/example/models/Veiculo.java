@@ -11,7 +11,6 @@ public class Veiculo {
     private String caminhoImagem;
     private Tipo_Eixo tipoEixo; //composição
     private Tipo_Chassi tipoChassi; //composição
-    private Cat_Tarifa catTarifaria; //composição
     private Medida medidaVeiculo; //composição
     private int apolice;
     private String modelo;
@@ -29,12 +28,13 @@ public class Veiculo {
 
 
     // Construtor
-    public Veiculo(int idVeiculo, String caminhoImagem, Tipo_Eixo tipoEixo, Tipo_Chassi tipoChassi, Cat_Tarifa catTarifaria, Medida medidaVeiculo, int apolice, String modelo, String cor, String marca, String placa, int anoFabricacao, int quantidadeEixos, String renavan, int numChassi, Timestamp dtCadastro, String nomeUsuario) {
+
+
+    public Veiculo(int idVeiculo, String caminhoImagem, Tipo_Eixo tipoEixo, Tipo_Chassi tipoChassi, Medida medidaVeiculo, int apolice, String modelo, String cor, String marca, String placa, int anoFabricacao, int quantidadeEixos, String renavan, int numChassi, Timestamp dtCadastro, String nomeUsuario) {
         this.idVeiculo = idVeiculo;
         this.caminhoImagem = caminhoImagem;
         this.tipoEixo = tipoEixo;
         this.tipoChassi = tipoChassi;
-        this.catTarifaria = catTarifaria;
         this.medidaVeiculo = medidaVeiculo;
         this.apolice = apolice;
         this.modelo = modelo;
@@ -80,13 +80,6 @@ public class Veiculo {
     }
     public void setTipoChassi(Tipo_Chassi tipoChassi) {
         this.tipoChassi = tipoChassi;
-    }
-
-    public Cat_Tarifa getCatTarifaria() {
-        return catTarifaria;
-    }
-    public void setCatTarifaria(Cat_Tarifa catTarifaria) {
-        this.catTarifaria = catTarifaria;
     }
 
     public Medida getMedidaVeiculo() {
