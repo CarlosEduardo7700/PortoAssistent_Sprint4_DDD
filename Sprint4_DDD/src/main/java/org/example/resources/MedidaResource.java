@@ -4,7 +4,6 @@ import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
 import org.example.models.Medida;
-import org.example.models.Tipo_Modal;
 import org.example.models.repositories.MedidaRepository;
 
 import java.sql.SQLException;

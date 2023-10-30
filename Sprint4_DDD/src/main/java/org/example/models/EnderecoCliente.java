@@ -1,10 +1,6 @@
 package org.example.models;
 
-import jdk.jfr.Timespan;
-
 import java.sql.Timestamp;
-import java.util.Date;
-import java.util.List;
 
 public class EnderecoCliente {
 

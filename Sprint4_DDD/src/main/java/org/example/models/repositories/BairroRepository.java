@@ -2,7 +2,6 @@ package org.example.models.repositories;
 
 import org.example.infrascture.database.DataBaseFactory;
 import org.example.models.Bairro;
-import org.example.models.Cidade;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

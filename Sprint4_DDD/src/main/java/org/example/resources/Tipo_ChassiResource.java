@@ -4,7 +4,6 @@ import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
 import org.example.models.Tipo_Chassi;
-import org.example.models.Tipo_Eixo;
 import org.example.models.repositories.Tipo_ChassiRepository;
 
 import java.sql.SQLException;

@@ -4,7 +4,6 @@ import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
 import org.example.models.Modal_Colab;
-import org.example.models.Veic_Cliente;
 import org.example.models.repositories.Modal_ColabRepository;
 
 import java.sql.SQLException;

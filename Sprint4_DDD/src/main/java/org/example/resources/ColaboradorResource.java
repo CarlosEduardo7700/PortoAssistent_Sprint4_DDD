@@ -4,7 +4,6 @@ import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
 import org.example.models.Colaborador;
-import org.example.models.Logradouro;
 import org.example.models.repositories.ColaboradorRepository;
 
 import java.sql.SQLException;

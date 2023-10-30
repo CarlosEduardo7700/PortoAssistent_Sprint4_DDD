@@ -4,7 +4,6 @@ import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
 import org.example.models.Estado;
-import org.example.models.Veiculo;
 import org.example.models.repositories.EstadoRepository;
 
 import java.sql.SQLException;

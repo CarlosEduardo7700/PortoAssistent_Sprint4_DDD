@@ -3,7 +3,6 @@ package org.example.resources;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
-import org.example.models.TelefoneCliente;
 import org.example.models.Veic_Cliente;
 import org.example.models.repositories.Veic_ClienteRepository;
 

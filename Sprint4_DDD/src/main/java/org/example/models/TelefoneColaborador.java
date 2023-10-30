@@ -1,7 +1,6 @@
 package org.example.models;
 
 import java.sql.Timestamp;
-import java.util.Date;
 
 public class TelefoneColaborador {
 

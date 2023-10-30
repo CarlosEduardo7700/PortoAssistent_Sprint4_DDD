@@ -4,7 +4,6 @@ import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
 import org.example.models.Genero;
-import org.example.models.Logradouro;
 import org.example.models.repositories.GeneroRepository;
 
 import java.sql.SQLException;

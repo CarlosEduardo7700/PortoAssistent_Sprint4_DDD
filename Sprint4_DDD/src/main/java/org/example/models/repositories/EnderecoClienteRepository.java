@@ -2,7 +2,6 @@ package org.example.models.repositories;
 
 import org.example.infrascture.database.DataBaseFactory;
 import org.example.models.EnderecoCliente;
-import org.example.models.EnderecoColaborador;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

@@ -1,11 +1,9 @@
 package org.example.resources;
 
-import com.sun.org.apache.xpath.internal.operations.Mod;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
 import org.example.models.Modal;
-import org.example.models.Tipo_Modal;
 import org.example.models.repositories.ModalRepository;
 
 import java.sql.SQLException;

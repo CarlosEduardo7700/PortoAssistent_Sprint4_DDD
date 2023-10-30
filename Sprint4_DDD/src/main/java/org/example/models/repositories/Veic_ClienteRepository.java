@@ -1,7 +1,6 @@
 package org.example.models.repositories;
 
 import org.example.infrascture.database.DataBaseFactory;
-import org.example.models.TelefoneCliente;
 import org.example.models.Veic_Cliente;
 
 import java.sql.Connection;

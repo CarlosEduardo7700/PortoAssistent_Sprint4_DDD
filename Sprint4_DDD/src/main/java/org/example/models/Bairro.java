@@ -1,8 +1,6 @@
 package org.example.models;
 
 import java.sql.Timestamp;
-import java.util.Date;
-import java.util.List;
 
 public class Bairro {
 

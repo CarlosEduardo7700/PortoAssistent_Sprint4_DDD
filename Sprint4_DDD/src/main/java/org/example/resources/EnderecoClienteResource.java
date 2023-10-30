@@ -4,7 +4,6 @@ import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
 import org.example.models.EnderecoCliente;
-import org.example.models.EnderecoColaborador;
 import org.example.models.repositories.EnderecoClienteRepository;
 
 import java.sql.SQLException;

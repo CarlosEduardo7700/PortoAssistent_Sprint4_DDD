@@ -4,7 +4,6 @@ import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
 import org.example.models.Bairro;
-import org.example.models.Cidade;
 import org.example.models.repositories.BairroRepository;
 
 import java.sql.SQLException;
