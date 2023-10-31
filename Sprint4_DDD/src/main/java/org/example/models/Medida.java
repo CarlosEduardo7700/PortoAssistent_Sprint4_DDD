@@ -5,28 +5,28 @@ import java.sql.Timestamp;
 public class Medida {
 
     //Atributos
-    private int idMedida;
+    private int id;
     private double altura;
     private double largura;
     private double comprimento;
     private double pesoVeiculo;
     private double pesoSuportadoModal;
-    private Timestamp dtCadastro;
-    private String nomeUsuario;
+    private Timestamp dataCadastro;
+    private String usuario;
 
 
 
 
     //Construtor
-    public Medida(int idMedida, double altura, double largura, double comprimento, double pesoVeiculo, double pesoSuportadoModal, Timestamp dtCadastro, String nomeUsuario) {
-        this.idMedida = idMedida;
+    public Medida(int id, double altura, double largura, double comprimento, double pesoVeiculo, double pesoSuportadoModal, Timestamp dataCadastro, String usuario) {
+        this.id = id;
         this.altura = altura;
         this.largura = largura;
         this.comprimento = comprimento;
         this.pesoVeiculo = pesoVeiculo;
         this.pesoSuportadoModal = pesoSuportadoModal;
-        this.dtCadastro = dtCadastro;
-        this.nomeUsuario = nomeUsuario;
+        this.dataCadastro = dataCadastro;
+        this.usuario = usuario;
     }
     public Medida() {}
 
@@ -39,12 +39,12 @@ public class Medida {
 
 
     // GetterSetter
-    public int getIdMedida() {
-        return idMedida;
+    public int getId() {
+        return id;
     }
 
-    public void setIdMedida(int idMedida) {
-        this.idMedida = idMedida;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public double getAltura() {
@@ -87,19 +87,19 @@ public class Medida {
         this.pesoSuportadoModal = pesoSuportadoModal;
     }
 
-    public Timestamp getDtCadastro() {
-        return dtCadastro;
+    public Timestamp getDataCadastro() {
+        return dataCadastro;
     }
 
-    public void setDtCadastro(Timestamp dtCadastro) {
-        this.dtCadastro = dtCadastro;
+    public void setDataCadastro(Timestamp dataCadastro) {
+        this.dataCadastro = dataCadastro;
     }
 
-    public String getNomeUsuario() {
-        return nomeUsuario;
+    public String getUsuario() {
+        return usuario;
     }
 
-    public void setNomeUsuario(String nomeUsuario) {
-        this.nomeUsuario = nomeUsuario;
+    public void setUsuario(String usuario) {
+        this.usuario = usuario;
     }
 }

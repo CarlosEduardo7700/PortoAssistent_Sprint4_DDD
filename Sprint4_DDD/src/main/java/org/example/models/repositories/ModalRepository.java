@@ -99,16 +99,16 @@ public class ModalRepository {
         try (Connection connection = DataBaseFactory.getConnection();
              PreparedStatement ps = connection.prepareStatement(query)) {
 
-            ps.setInt(1, modal.getIdModal());
+            ps.setInt(1, modal.getId());
             ps.setString(2, modal.getCaminhaImagem());
-            ps.setInt(3, modal.getTipoModal().getIdTipoModal());
-            ps.setInt(4, modal.getMedidaModal().getIdMedida());
-            ps.setString(5, modal.getModeloModal());
-            ps.setString(6, modal.getPlacaModal());
-            ps.setString(7, modal.getMarcaModal());
-            ps.setInt(8, modal.getAnoModal());
-            ps.setTimestamp(9, modal.getDtCadastro());
-            ps.setString(10, modal.getNomeUsuario());
+            ps.setInt(3, modal.getTipoModal().getId());
+            ps.setInt(4, modal.getMedidaModal().getId());
+            ps.setString(5, modal.getModelo());
+            ps.setString(6, modal.getPlaca());
+            ps.setString(7, modal.getMarca());
+            ps.setInt(8, modal.getAnoFabricacao());
+            ps.setTimestamp(9, modal.getDataCadastro());
+            ps.setString(10, modal.getUsuario());
 
             ps.executeUpdate();
         } catch (SQLException e) {
@@ -123,15 +123,15 @@ public class ModalRepository {
              PreparedStatement ps = connection.prepareStatement(query)) {
 
             ps.setString(1, modal.getCaminhaImagem());
-            ps.setInt(2, modal.getTipoModal().getIdTipoModal());
-            ps.setInt(3, modal.getMedidaModal().getIdMedida());
-            ps.setString(4, modal.getModeloModal());
-            ps.setString(5, modal.getPlacaModal());
-            ps.setString(6, modal.getMarcaModal());
-            ps.setInt(7, modal.getAnoModal());
-            ps.setTimestamp(8, modal.getDtCadastro());
-            ps.setString(9, modal.getNomeUsuario());
-            ps.setInt(10, modal.getIdModal());
+            ps.setInt(2, modal.getTipoModal().getId());
+            ps.setInt(3, modal.getMedidaModal().getId());
+            ps.setString(4, modal.getModelo());
+            ps.setString(5, modal.getPlaca());
+            ps.setString(6, modal.getMarca());
+            ps.setInt(7, modal.getAnoFabricacao());
+            ps.setTimestamp(8, modal.getDataCadastro());
+            ps.setString(9, modal.getUsuario());
+            ps.setInt(10, modal.getId());
 
             ps.executeUpdate();
         } catch (SQLException e) {

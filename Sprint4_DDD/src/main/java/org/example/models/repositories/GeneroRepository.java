@@ -84,10 +84,10 @@ public class GeneroRepository {
         try (Connection connection = DataBaseFactory.getConnection();
              PreparedStatement ps = connection.prepareStatement(query)) {
 
-            ps.setInt(1, genero.getIdGenero());
-            ps.setString(2, genero.getNomeGenero());
-            ps.setTimestamp(3, genero.getDtCadastro());
-            ps.setString(4, genero.getNomeUsuario());
+            ps.setInt(1, genero.getId());
+            ps.setString(2, genero.getNome());
+            ps.setTimestamp(3, genero.getDataCadastro());
+            ps.setString(4, genero.getUsuario());
 
             ps.executeUpdate();
         } catch (SQLException e) {
@@ -101,10 +101,10 @@ public class GeneroRepository {
         try (Connection connection = DataBaseFactory.getConnection();
              PreparedStatement ps = connection.prepareStatement(query)) {
 
-            ps.setString(1, genero.getNomeGenero());
-            ps.setTimestamp(2, genero.getDtCadastro());
-            ps.setString(3, genero.getNomeUsuario());
-            ps.setInt(4, genero.getIdGenero());
+            ps.setString(1, genero.getNome());
+            ps.setTimestamp(2, genero.getDataCadastro());
+            ps.setString(3, genero.getUsuario());
+            ps.setInt(4, genero.getId());
 
             ps.executeUpdate();
         } catch (SQLException e) {

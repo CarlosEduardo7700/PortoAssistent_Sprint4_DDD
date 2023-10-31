@@ -41,7 +41,7 @@ public class Tipo_ModalResource {
     @Produces(MediaType.APPLICATION_JSON)
     public Response update(@PathParam("id") int id, Tipo_Modal tipoModal) throws SQLException {
         if (repository.find(id).isPresent()) {
-            tipoModal.setIdTipoModal(id);
+            tipoModal.setId(id);
             repository.update(tipoModal);
             Optional<Tipo_Modal> tipoModalAtualizado = repository.find(id);
             return Response.status(Response.Status.OK).entity(tipoModalAtualizado).build();

@@ -41,7 +41,7 @@ public class LogradouroResource {
     @Produces(MediaType.APPLICATION_JSON)
     public Response update(@PathParam("id") int id, Logradouro logradouro) throws SQLException {
         if (repository.find(id).isPresent()) {
-            logradouro.setIdLogradouro(id);
+            logradouro.setId(id);
             repository.update(logradouro);
             Optional<Logradouro> logradouroAtualizado = repository.find(id);
             return Response.status(Response.Status.OK).entity(logradouroAtualizado).build();

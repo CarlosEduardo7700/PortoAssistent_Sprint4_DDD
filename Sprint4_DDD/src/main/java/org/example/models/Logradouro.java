@@ -5,25 +5,25 @@ import java.sql.Timestamp;
 public class Logradouro {
 
     // Atributos
-    private int idLogradouro;
-    private Bairro bairro; //composição
-    private String nomeLogradouro;
+    private int id;
+    private Bairro bairro;
+    private String nome;
     private String cep;
-    private Timestamp dtCadastro;
-    private String nomeUsuario;
+    private Timestamp dataCadastro;
+    private String usuario;
 
 
 
 
 
     // Construtor
-    public Logradouro(int idLogradouro, Bairro bairro, String nomeLogradouro, String cep, Timestamp dtCadastro, String nomeUsuario) {
-        this.idLogradouro = idLogradouro;
+    public Logradouro(int id, Bairro bairro, String nome, String cep, Timestamp dataCadastro, String usuario) {
+        this.id = id;
         this.bairro = bairro;
-        this.nomeLogradouro = nomeLogradouro;
+        this.nome = nome;
         this.cep = cep;
-        this.dtCadastro = dtCadastro;
-        this.nomeUsuario = nomeUsuario;
+        this.dataCadastro = dataCadastro;
+        this.usuario = usuario;
     }
     public Logradouro() {}
 
@@ -34,11 +34,11 @@ public class Logradouro {
 
 
     // GetterSetter
-    public int getIdLogradouro() {
-        return idLogradouro;
+    public int getId() {
+        return id;
     }
-    public void setIdLogradouro(int idLogradouro) {
-        this.idLogradouro = idLogradouro;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public Bairro getBairro() {
@@ -48,11 +48,11 @@ public class Logradouro {
         this.bairro = bairro;
     }
 
-    public String getNomeLogradouro() {
-        return nomeLogradouro;
+    public String getNome() {
+        return nome;
     }
-    public void setNomeLogradouro(String nomeLogradouro) {
-        this.nomeLogradouro = nomeLogradouro;
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
     public String getCep() {
@@ -62,17 +62,17 @@ public class Logradouro {
         this.cep = cep;
     }
 
-    public Timestamp getDtCadastro() {
-        return dtCadastro;
+    public Timestamp getDataCadastro() {
+        return dataCadastro;
     }
-    public void setDtCadastro(Timestamp dtCadastro) {
-        this.dtCadastro = dtCadastro;
+    public void setDataCadastro(Timestamp dataCadastro) {
+        this.dataCadastro = dataCadastro;
     }
 
-    public String getNomeUsuario() {
-        return nomeUsuario;
+    public String getUsuario() {
+        return usuario;
     }
-    public void setNomeUsuario(String nomeUsuario) {
-        this.nomeUsuario = nomeUsuario;
+    public void setUsuario(String usuario) {
+        this.usuario = usuario;
     }
 }

@@ -41,7 +41,7 @@ public class Tipo_EixoResource {
     @Produces(MediaType.APPLICATION_JSON)
     public Response update(@PathParam("id") int id, Tipo_Eixo tipoEixo) throws SQLException {
         if (repository.find(id).isPresent()) {
-            tipoEixo.setIdEixo(id);
+            tipoEixo.setId(id);
             repository.update(tipoEixo);
             Optional<Tipo_Eixo> tipoEixoAtualizado = repository.find(id);
             return Response.status(Response.Status.OK).entity(tipoEixoAtualizado).build();

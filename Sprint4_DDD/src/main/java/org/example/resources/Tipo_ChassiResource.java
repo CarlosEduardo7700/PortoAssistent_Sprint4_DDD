@@ -41,7 +41,7 @@ public class Tipo_ChassiResource {
     @Produces(MediaType.APPLICATION_JSON)
     public Response update(@PathParam("id") int id, Tipo_Chassi tipoChassi) throws SQLException {
         if (repository.find(id).isPresent()) {
-            tipoChassi.setIdChassi(id);
+            tipoChassi.setId(id);
             repository.update(tipoChassi);
             Optional<Tipo_Chassi> tipoChassiAtualizado = repository.find(id);
             return Response.status(Response.Status.OK).entity(tipoChassiAtualizado).build();

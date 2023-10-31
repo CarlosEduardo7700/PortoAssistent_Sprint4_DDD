@@ -5,20 +5,20 @@ import java.sql.Timestamp;
 public class Tipo_Modal {
 
     // Atributos
-    private int idTipoModal;
-    private String nomeTipoModal;
-    private Timestamp dtCadastro;
-    private String nomeUsuario;
+    private int id;
+    private String nome;
+    private Timestamp dataCadastro;
+    private String usuario;
 
 
 
 
     // Construtor
     public Tipo_Modal(int idTipoModal, String nomeTipoModal, Timestamp dtCadastro, String nomeUsuario) {
-        this.idTipoModal = idTipoModal;
-        this.nomeTipoModal = nomeTipoModal;
-        this.dtCadastro = dtCadastro;
-        this.nomeUsuario = nomeUsuario;
+        this.id = idTipoModal;
+        this.nome = nomeTipoModal;
+        this.dataCadastro = dtCadastro;
+        this.usuario = nomeUsuario;
     }
     public Tipo_Modal() {}
 
@@ -31,31 +31,31 @@ public class Tipo_Modal {
 
 
     // GetterSetter
-    public int getIdTipoModal() {
-        return idTipoModal;
+    public int getId() {
+        return id;
     }
-    public void setIdTipoModal(int idTipoModal) {
-        this.idTipoModal = idTipoModal;
-    }
-
-    public String getNomeTipoModal() {
-        return nomeTipoModal;
-    }
-    public void setNomeTipoModal(String nomeTipoModal) {
-        this.nomeTipoModal = nomeTipoModal;
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public Timestamp getDtCadastro() {
-        return dtCadastro;
+    public String getNome() {
+        return nome;
     }
-    public void setDtCadastro(Timestamp dtCadastro) {
-        this.dtCadastro = dtCadastro;
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
-    public String getNomeUsuario() {
-        return nomeUsuario;
+    public Timestamp getDataCadastro() {
+        return dataCadastro;
     }
-    public void setNomeUsuario(String nomeUsuario) {
-        this.nomeUsuario = nomeUsuario;
+    public void setDataCadastro(Timestamp dataCadastro) {
+        this.dataCadastro = dataCadastro;
+    }
+
+    public String getUsuario() {
+        return usuario;
+    }
+    public void setUsuario(String usuario) {
+        this.usuario = usuario;
     }
 }

@@ -5,26 +5,26 @@ import java.sql.Timestamp;
 public class TelefoneCliente {
 
     // Atributos
-    private Cliente cliente;//composição
-    private String tipoTelefone;
-    private String numeroTelefone;
-    private String dddTelefone;
-    private String ddiTelefone;
-    private Timestamp dtCadastro;
-    private String nomeUsuario;
+    private Cliente cliente;
+    private String tipo;
+    private String numero;
+    private String ddd;
+    private String ddi;
+    private Timestamp dataCadastro;
+    private String usuario;
 
 
 
 
     // Construtor
-    public TelefoneCliente(Cliente cliente, String tipoTelefone, String numeroTelefone, String dddTelefone, String ddiTelefone, Timestamp dtCadastro, String nomeUsuario) {
+    public TelefoneCliente(Cliente cliente, String tipo, String numero, String ddd, String ddi, Timestamp dataCadastro, String usuario) {
         this.cliente = cliente;
-        this.tipoTelefone = tipoTelefone;
-        this.numeroTelefone = numeroTelefone;
-        this.dddTelefone = dddTelefone;
-        this.ddiTelefone = ddiTelefone;
-        this.dtCadastro = dtCadastro;
-        this.nomeUsuario = nomeUsuario;
+        this.tipo = tipo;
+        this.numero = numero;
+        this.ddd = ddd;
+        this.ddi = ddi;
+        this.dataCadastro = dataCadastro;
+        this.usuario = usuario;
     }
 
     public TelefoneCliente() {}
@@ -43,52 +43,52 @@ public class TelefoneCliente {
         this.cliente = cliente;
     }
 
-    public String getTipoTelefone() {
-        return tipoTelefone;
+    public String getTipo() {
+        return tipo;
     }
 
-    public void setTipoTelefone(String tipoTelefone) {
-        this.tipoTelefone = tipoTelefone;
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
     }
 
-    public String getNumeroTelefone() {
-        return numeroTelefone;
+    public String getNumero() {
+        return numero;
     }
 
-    public void setNumeroTelefone(String numeroTelefone) {
-        this.numeroTelefone = numeroTelefone;
+    public void setNumero(String numero) {
+        this.numero = numero;
     }
 
-    public String getDddTelefone() {
-        return dddTelefone;
+    public String getDdd() {
+        return ddd;
     }
 
-    public void setDddTelefone(String dddTelefone) {
-        this.dddTelefone = dddTelefone;
+    public void setDdd(String ddd) {
+        this.ddd = ddd;
     }
 
-    public String getDdiTelefone() {
-        return ddiTelefone;
+    public String getDdi() {
+        return ddi;
     }
 
-    public void setDdiTelefone(String ddiTelefone) {
-        this.ddiTelefone = ddiTelefone;
+    public void setDdi(String ddi) {
+        this.ddi = ddi;
     }
 
-    public Timestamp getDtCadastro() {
-        return dtCadastro;
+    public Timestamp getDataCadastro() {
+        return dataCadastro;
     }
 
-    public void setDtCadastro(Timestamp dtCadastro) {
-        this.dtCadastro = dtCadastro;
+    public void setDataCadastro(Timestamp dataCadastro) {
+        this.dataCadastro = dataCadastro;
     }
 
-    public String getNomeUsuario() {
-        return nomeUsuario;
+    public String getUsuario() {
+        return usuario;
     }
 
-    public void setNomeUsuario(String nomeUsuario) {
-        this.nomeUsuario = nomeUsuario;
+    public void setUsuario(String usuario) {
+        this.usuario = usuario;
     }
 }
 

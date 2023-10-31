@@ -86,11 +86,11 @@ public class EstadoRepository {
         try (Connection connection = DataBaseFactory.getConnection();
              PreparedStatement ps = connection.prepareStatement(query)) {
 
-            ps.setInt(1, estado.getIdEstado());
+            ps.setInt(1, estado.getId());
             ps.setString(2, estado.getSigla());
-            ps.setString(3, estado.getNomeEstado());
-            ps.setTimestamp(4, estado.getDtCadastro());
-            ps.setString(5, estado.getNomeUsuario());
+            ps.setString(3, estado.getNome());
+            ps.setTimestamp(4, estado.getDataCadastro());
+            ps.setString(5, estado.getUsuario());
 
             ps.executeUpdate();
         } catch (SQLException e) {
@@ -105,10 +105,10 @@ public class EstadoRepository {
              PreparedStatement ps = connection.prepareStatement(query)) {
 
             ps.setString(1, estado.getSigla());
-            ps.setString(2, estado.getNomeEstado());
-            ps.setTimestamp(3, estado.getDtCadastro());
-            ps.setString(4, estado.getNomeUsuario());
-            ps.setInt(5, estado.getIdEstado());
+            ps.setString(2, estado.getNome());
+            ps.setTimestamp(3, estado.getDataCadastro());
+            ps.setString(4, estado.getUsuario());
+            ps.setInt(5, estado.getId());
 
             ps.executeUpdate();
         } catch (SQLException e) {

@@ -86,11 +86,11 @@ public class Tipo_ChassiRepository {
         try (Connection connection = DataBaseFactory.getConnection();
              PreparedStatement ps = connection.prepareStatement(query)) {
 
-            ps.setInt(1, tipoChassi.getIdChassi());
-            ps.setString(2, tipoChassi.getNomeTipoChassi());
-            ps.setString(3, tipoChassi.getDescTipoChassi());
-            ps.setTimestamp(4, tipoChassi.getDtCadastro());
-            ps.setString(5, tipoChassi.getNomeUsuario());
+            ps.setInt(1, tipoChassi.getId());
+            ps.setString(2, tipoChassi.getNome());
+            ps.setString(3, tipoChassi.getDescricao());
+            ps.setTimestamp(4, tipoChassi.getDataCadastro());
+            ps.setString(5, tipoChassi.getUsuario());
 
             ps.executeUpdate();
         } catch (SQLException e) {
@@ -104,11 +104,11 @@ public class Tipo_ChassiRepository {
         try (Connection connection = DataBaseFactory.getConnection();
              PreparedStatement ps = connection.prepareStatement(query)) {
 
-            ps.setString(1, tipoChassi.getNomeTipoChassi());
-            ps.setString(2, tipoChassi.getDescTipoChassi());
-            ps.setTimestamp(3, tipoChassi.getDtCadastro());
-            ps.setString(4, tipoChassi.getNomeUsuario());
-            ps.setInt(5, tipoChassi.getIdChassi());
+            ps.setString(1, tipoChassi.getNome());
+            ps.setString(2, tipoChassi.getDescricao());
+            ps.setTimestamp(3, tipoChassi.getDataCadastro());
+            ps.setString(4, tipoChassi.getUsuario());
+            ps.setInt(5, tipoChassi.getId());
 
             ps.executeUpdate();
         } catch (SQLException e) {

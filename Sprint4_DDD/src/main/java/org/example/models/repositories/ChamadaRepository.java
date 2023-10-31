@@ -109,20 +109,20 @@ public class ChamadaRepository {
         try (Connection connection = DataBaseFactory.getConnection();
              PreparedStatement ps = connection.prepareStatement(query)) {
 
-            ps.setInt(1, chamada.getIdChamada());
+            ps.setInt(1, chamada.getId());
             ps.setString(2, chamada.getCaminhosImagens());
-            ps.setInt(3, chamada.getCliente().getIdCliente());
-            ps.setInt(4, chamada.getColaborador().getIdColaborador());
-            ps.setInt(5, chamada.getVeiculo().getIdVeiculo());
-            ps.setInt(6, chamada.getModal().getIdModal());
+            ps.setInt(3, chamada.getCliente().getId());
+            ps.setInt(4, chamada.getColaborador().getId());
+            ps.setInt(5, chamada.getVeiculo().getId());
+            ps.setInt(6, chamada.getModal().getId());
             ps.setTimestamp(7, chamada.getDataInicio());
             ps.setTimestamp(8, chamada.getDataFim());
             ps.setString(9, chamada.getLocal());
             ps.setString(10, chamada.getDestino());
             ps.setString(11, chamada.getDescLocal());
             ps.setString(12, chamada.getDescProblema());
-            ps.setTimestamp(13, chamada.getDtCadastro());
-            ps.setString(14, chamada.getNomeUsuario());
+            ps.setTimestamp(13, chamada.getDataCadastro());
+            ps.setString(14, chamada.getUsuario());
 
             ps.executeUpdate();
         } catch (SQLException e) {
@@ -137,19 +137,19 @@ public class ChamadaRepository {
              PreparedStatement ps = connection.prepareStatement(query)) {
 
             ps.setString(1, chamada.getCaminhosImagens());
-            ps.setInt(2, chamada.getCliente().getIdCliente());
-            ps.setInt(3, chamada.getColaborador().getIdColaborador());
-            ps.setInt(4, chamada.getVeiculo().getIdVeiculo());
-            ps.setInt(5, chamada.getModal().getIdModal());
+            ps.setInt(2, chamada.getCliente().getId());
+            ps.setInt(3, chamada.getColaborador().getId());
+            ps.setInt(4, chamada.getVeiculo().getId());
+            ps.setInt(5, chamada.getModal().getId());
             ps.setTimestamp(6, chamada.getDataInicio());
             ps.setTimestamp(7, chamada.getDataFim());
             ps.setString(8, chamada.getLocal());
             ps.setString(9, chamada.getDestino());
             ps.setString(10, chamada.getDescLocal());
             ps.setString(11, chamada.getDescProblema());
-            ps.setTimestamp(12, chamada.getDtCadastro());
-            ps.setString(13, chamada.getNomeUsuario());
-            ps.setInt(14, chamada.getIdChamada());
+            ps.setTimestamp(12, chamada.getDataCadastro());
+            ps.setString(13, chamada.getUsuario());
+            ps.setInt(14, chamada.getId());
 
             ps.executeUpdate();
         } catch (SQLException e) {

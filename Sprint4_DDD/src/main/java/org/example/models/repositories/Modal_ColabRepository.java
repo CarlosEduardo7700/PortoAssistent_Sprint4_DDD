@@ -83,8 +83,8 @@ public class Modal_ColabRepository {
         try (Connection connection = DataBaseFactory.getConnection();
              PreparedStatement ps = connection.prepareStatement(query)) {
 
-            ps.setInt(1, modalColab.getColaborador().getIdColaborador());
-            ps.setInt(2, modalColab.getModal().getIdModal());
+            ps.setInt(1, modalColab.getColaborador().getId());
+            ps.setInt(2, modalColab.getModal().getId());
 
             ps.executeUpdate();
         } catch (SQLException e) {
@@ -98,8 +98,8 @@ public class Modal_ColabRepository {
         try (Connection connection = DataBaseFactory.getConnection();
              PreparedStatement ps = connection.prepareStatement(query)) {
 
-            ps.setInt(1, modalColab.getModal().getIdModal());
-            ps.setInt(2, modalColab.getColaborador().getIdColaborador());
+            ps.setInt(1, modalColab.getModal().getId());
+            ps.setInt(2, modalColab.getColaborador().getId());
 
             ps.executeUpdate();
         } catch (SQLException e) {

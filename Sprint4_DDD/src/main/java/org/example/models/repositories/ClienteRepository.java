@@ -102,18 +102,18 @@ public class ClienteRepository {
         try (Connection connection = DataBaseFactory.getConnection();
              PreparedStatement ps = connection.prepareStatement(query)) {
 
-            ps.setInt(1, cliente.getIdCliente());
+            ps.setInt(1, cliente.getId());
             ps.setString(2, cliente.getCaminhoImagem());
-            ps.setInt(3, cliente.getGenero().getIdGenero());
-            ps.setString(4, cliente.getNomeCliente());
-            ps.setString(5, cliente.getCpfCliente());
-            ps.setString(6, cliente.getRgCliente());
-            ps.setString(7, cliente.getEmailCliente());
-            ps.setString(8, cliente.getSenhaCliente());
-            ps.setString(9, cliente.getCnhCliente());
-            ps.setTimestamp(10, cliente.getDataNascimentoCliente());
-            ps.setTimestamp(11, cliente.getDtCadastro());
-            ps.setString(12, cliente.getNomeUsuario());
+            ps.setInt(3, cliente.getGenero().getId());
+            ps.setString(4, cliente.getCliente());
+            ps.setString(5, cliente.getCpf());
+            ps.setString(6, cliente.getRg());
+            ps.setString(7, cliente.getEmail());
+            ps.setString(8, cliente.getSenha());
+            ps.setString(9, cliente.getCnh());
+            ps.setTimestamp(10, cliente.getDataNascimento());
+            ps.setTimestamp(11, cliente.getDataCadastro());
+            ps.setString(12, cliente.getUsuario());
 
             ps.executeUpdate();
         } catch (SQLException e) {
@@ -128,17 +128,17 @@ public class ClienteRepository {
              PreparedStatement ps = connection.prepareStatement(query)) {
 
             ps.setString(1, cliente.getCaminhoImagem());
-            ps.setInt(2, cliente.getGenero().getIdGenero());
-            ps.setString(3, cliente.getNomeCliente());
-            ps.setString(4, cliente.getCpfCliente());
-            ps.setString(5, cliente.getRgCliente());
-            ps.setString(6, cliente.getEmailCliente());
-            ps.setString(7, cliente.getSenhaCliente());
-            ps.setString(8, cliente.getCnhCliente());
-            ps.setTimestamp(9, cliente.getDataNascimentoCliente());
-            ps.setTimestamp(10, cliente.getDtCadastro());
-            ps.setString(11, cliente.getNomeUsuario());
-            ps.setInt(12, cliente.getIdCliente());
+            ps.setInt(2, cliente.getGenero().getId());
+            ps.setString(3, cliente.getCliente());
+            ps.setString(4, cliente.getCpf());
+            ps.setString(5, cliente.getRg());
+            ps.setString(6, cliente.getEmail());
+            ps.setString(7, cliente.getSenha());
+            ps.setString(8, cliente.getCnh());
+            ps.setTimestamp(9, cliente.getDataNascimento());
+            ps.setTimestamp(10, cliente.getDataCadastro());
+            ps.setString(11, cliente.getUsuario());
+            ps.setInt(12, cliente.getId());
 
             ps.executeUpdate();
         } catch (SQLException e) {

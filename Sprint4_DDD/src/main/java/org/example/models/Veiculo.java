@@ -5,11 +5,11 @@ import java.sql.Timestamp;
 public class Veiculo {
 
     // Atributos
-    private int idVeiculo;
+    private int id;
     private String caminhoImagem;
-    private Tipo_Eixo tipoEixo; //composição
-    private Tipo_Chassi tipoChassi; //composição
-    private Medida medidaVeiculo; //composição
+    private Tipo_Eixo tipoEixo;
+    private Tipo_Chassi tipoChassi;
+    private Medida medidaVeiculo;
     private int apolice;
     private String modelo;
     private String cor;
@@ -19,8 +19,8 @@ public class Veiculo {
     private int quantidadeEixos;
     private String renavan;
     private int numChassi;
-    private Timestamp dtCadastro;
-    private String nomeUsuario;
+    private Timestamp dataCadastro;
+    private String usuario;
 
 
 
@@ -29,7 +29,7 @@ public class Veiculo {
 
 
     public Veiculo(int idVeiculo, String caminhoImagem, Tipo_Eixo tipoEixo, Tipo_Chassi tipoChassi, Medida medidaVeiculo, int apolice, String modelo, String cor, String marca, String placa, int anoFabricacao, int quantidadeEixos, String renavan, int numChassi, Timestamp dtCadastro, String nomeUsuario) {
-        this.idVeiculo = idVeiculo;
+        this.id = idVeiculo;
         this.caminhoImagem = caminhoImagem;
         this.tipoEixo = tipoEixo;
         this.tipoChassi = tipoChassi;
@@ -43,8 +43,8 @@ public class Veiculo {
         this.quantidadeEixos = quantidadeEixos;
         this.renavan = renavan;
         this.numChassi = numChassi;
-        this.dtCadastro = dtCadastro;
-        this.nomeUsuario = nomeUsuario;
+        this.dataCadastro = dtCadastro;
+        this.usuario = nomeUsuario;
     }
 
     public Veiculo() {}
@@ -59,11 +59,11 @@ public class Veiculo {
 
 
     // GetterSetter
-    public int getIdVeiculo() {
-        return idVeiculo;
+    public int getId() {
+        return id;
     }
-    public void setIdVeiculo(int idVeiculo) {
-        this.idVeiculo = idVeiculo;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public Tipo_Eixo getTipoEixo() {
@@ -143,18 +143,18 @@ public class Veiculo {
         this.renavan = renavan;
     }
 
-    public Timestamp getDtCadastro() {
-        return dtCadastro;
+    public Timestamp getDataCadastro() {
+        return dataCadastro;
     }
-    public void setDtCadastro(Timestamp dtCadastro) {
-        this.dtCadastro = dtCadastro;
+    public void setDataCadastro(Timestamp dataCadastro) {
+        this.dataCadastro = dataCadastro;
     }
 
-    public String getNomeUsuario() {
-        return nomeUsuario;
+    public String getUsuario() {
+        return usuario;
     }
-    public void setNomeUsuario(String nomeUsuario) {
-        this.nomeUsuario = nomeUsuario;
+    public void setUsuario(String usuario) {
+        this.usuario = usuario;
     }
 
     public String getCaminhoImagem() {

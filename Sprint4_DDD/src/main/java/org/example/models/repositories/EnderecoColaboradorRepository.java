@@ -92,12 +92,12 @@ public class EnderecoColaboradorRepository {
         try (Connection connection = DataBaseFactory.getConnection();
              PreparedStatement ps = connection.prepareStatement(query)) {
 
-            ps.setInt(1, enderecoColaborador.getColaborador().getIdColaborador());
-            ps.setInt(2, enderecoColaborador.getLogradouro().getIdLogradouro());
-            ps.setInt(3, enderecoColaborador.getNumLogradouroColaborador());
-            ps.setString(4, enderecoColaborador.getDescLogradouroColaborador());
-            ps.setTimestamp(5, enderecoColaborador.getDtCadastro());
-            ps.setString(6, enderecoColaborador.getNomeUsuario());
+            ps.setInt(1, enderecoColaborador.getColaborador().getId());
+            ps.setInt(2, enderecoColaborador.getLogradouro().getId());
+            ps.setInt(3, enderecoColaborador.getNumLogradouro());
+            ps.setString(4, enderecoColaborador.getDescLogradouro());
+            ps.setTimestamp(5, enderecoColaborador.getDataCadastro());
+            ps.setString(6, enderecoColaborador.getUsuario());
 
             ps.executeUpdate();
         } catch (SQLException e) {
@@ -111,12 +111,12 @@ public class EnderecoColaboradorRepository {
         try (Connection connection = DataBaseFactory.getConnection();
              PreparedStatement ps = connection.prepareStatement(query)) {
 
-            ps.setInt(1, enderecoColaborador.getLogradouro().getIdLogradouro());
-            ps.setInt(2, enderecoColaborador.getNumLogradouroColaborador());
-            ps.setString(3, enderecoColaborador.getDescLogradouroColaborador());
-            ps.setTimestamp(4, enderecoColaborador.getDtCadastro());
-            ps.setString(5, enderecoColaborador.getNomeUsuario());
-            ps.setInt(6, enderecoColaborador.getColaborador().getIdColaborador());
+            ps.setInt(1, enderecoColaborador.getLogradouro().getId());
+            ps.setInt(2, enderecoColaborador.getNumLogradouro());
+            ps.setString(3, enderecoColaborador.getDescLogradouro());
+            ps.setTimestamp(4, enderecoColaborador.getDataCadastro());
+            ps.setString(5, enderecoColaborador.getUsuario());
+            ps.setInt(6, enderecoColaborador.getColaborador().getId());
 
             ps.executeUpdate();
         } catch (SQLException e) {

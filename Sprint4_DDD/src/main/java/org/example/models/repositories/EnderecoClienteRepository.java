@@ -91,12 +91,12 @@ public class EnderecoClienteRepository {
         try (Connection connection = DataBaseFactory.getConnection();
              PreparedStatement ps = connection.prepareStatement(query)) {
 
-            ps.setInt(1, enderecoCliente.getCliente().getIdCliente());
-            ps.setInt(2, enderecoCliente.getLogradouro().getIdLogradouro());
-            ps.setInt(3, enderecoCliente.getNumLogradouroCliente());
-            ps.setString(4, enderecoCliente.getDescLogradouroCliente());
-            ps.setTimestamp(5, enderecoCliente.getDtCadastro());
-            ps.setString(6, enderecoCliente.getNomeUsuario());
+            ps.setInt(1, enderecoCliente.getCliente().getId());
+            ps.setInt(2, enderecoCliente.getLogradouro().getId());
+            ps.setInt(3, enderecoCliente.getNumLogradouro());
+            ps.setString(4, enderecoCliente.getDescLogradouro());
+            ps.setTimestamp(5, enderecoCliente.getDataCadastro());
+            ps.setString(6, enderecoCliente.getUsuario());
 
             ps.executeUpdate();
         } catch (SQLException e) {
@@ -110,12 +110,12 @@ public class EnderecoClienteRepository {
         try (Connection connection = DataBaseFactory.getConnection();
              PreparedStatement ps = connection.prepareStatement(query)) {
 
-            ps.setInt(1, enderecoCliente.getLogradouro().getIdLogradouro());
-            ps.setInt(2, enderecoCliente.getNumLogradouroCliente());
-            ps.setString(3, enderecoCliente.getDescLogradouroCliente());
-            ps.setTimestamp(4, enderecoCliente.getDtCadastro());
-            ps.setString(5, enderecoCliente.getNomeUsuario());
-            ps.setInt(6, enderecoCliente.getCliente().getIdCliente());
+            ps.setInt(1, enderecoCliente.getLogradouro().getId());
+            ps.setInt(2, enderecoCliente.getNumLogradouro());
+            ps.setString(3, enderecoCliente.getDescLogradouro());
+            ps.setTimestamp(4, enderecoCliente.getDataCadastro());
+            ps.setString(5, enderecoCliente.getUsuario());
+            ps.setInt(6, enderecoCliente.getCliente().getId());
 
             ps.executeUpdate();
         } catch (SQLException e) {

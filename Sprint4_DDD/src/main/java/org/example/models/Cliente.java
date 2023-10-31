@@ -5,18 +5,18 @@ import java.sql.Timestamp;
 public class Cliente {
 
     // Atributos
-    private int idCliente;
+    private int id;
     private String caminhoImagem;
-    private Genero genero; //composição
-    private String nomeCliente;
-    private String cpfCliente;
-    private String rgCliente;
-    private Timestamp dataNascimentoCliente;
-    private String cnhCliente;
-    private String emailCliente;
-    private String senhaCliente;
-    private Timestamp dtCadastro;
-    private String nomeUsuario;
+    private Genero genero;
+    private String cliente;
+    private String cpf;
+    private String rg;
+    private Timestamp dataNascimento;
+    private String cnh;
+    private String email;
+    private String senha;
+    private Timestamp dataCadastro;
+    private String usuario;
 
 
 
@@ -24,19 +24,19 @@ public class Cliente {
     // Construtor
 
 
-    public Cliente(int idCliente, String caminhoImagem, Genero genero, String nomeCliente, String cpfCliente, String rgCliente, Timestamp dataNascimentoCliente, String cnhCliente, String emailCliente, String senhaCliente, Timestamp dtCadastro, String nomeUsuario) {
-        this.idCliente = idCliente;
+    public Cliente(int id, String caminhoImagem, Genero genero, String cliente, String cpf, String rg, Timestamp dataNascimento, String cnh, String email, String senha, Timestamp dataCadastro, String usuario) {
+        this.id = id;
         this.caminhoImagem = caminhoImagem;
         this.genero = genero;
-        this.nomeCliente = nomeCliente;
-        this.cpfCliente = cpfCliente;
-        this.rgCliente = rgCliente;
-        this.dataNascimentoCliente = dataNascimentoCliente;
-        this.cnhCliente = cnhCliente;
-        this.emailCliente = emailCliente;
-        this.senhaCliente = senhaCliente;
-        this.dtCadastro = dtCadastro;
-        this.nomeUsuario = nomeUsuario;
+        this.cliente = cliente;
+        this.cpf = cpf;
+        this.rg = rg;
+        this.dataNascimento = dataNascimento;
+        this.cnh = cnh;
+        this.email = email;
+        this.senha = senha;
+        this.dataCadastro = dataCadastro;
+        this.usuario = usuario;
     }
 
     public Cliente() {}
@@ -49,12 +49,12 @@ public class Cliente {
 
 
     // GetterSetter
-    public int getIdCliente() {
-        return idCliente;
+    public int getId() {
+        return id;
     }
 
-    public void setIdCliente(int idCliente) {
-        this.idCliente = idCliente;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public Genero getGenero() {
@@ -65,76 +65,76 @@ public class Cliente {
         this.genero = genero;
     }
 
-    public String getNomeCliente() {
-        return nomeCliente;
+    public String getCliente() {
+        return cliente;
     }
 
-    public void setNomeCliente(String nomeCliente) {
-        this.nomeCliente = nomeCliente;
+    public void setCliente(String cliente) {
+        this.cliente = cliente;
     }
 
-    public String getCpfCliente() {
-        return cpfCliente;
+    public String getCpf() {
+        return cpf;
     }
 
-    public void setCpfCliente(String cpfCliente) {
-        this.cpfCliente = cpfCliente;
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
     }
 
-    public String getRgCliente() {
-        return rgCliente;
+    public String getRg() {
+        return rg;
     }
 
-    public void setRgCliente(String rgCliente) {
-        this.rgCliente = rgCliente;
+    public void setRg(String rg) {
+        this.rg = rg;
     }
 
-    public Timestamp getDataNascimentoCliente() {
-        return dataNascimentoCliente;
+    public Timestamp getDataNascimento() {
+        return dataNascimento;
     }
 
-    public void setDataNascimentoCliente(Timestamp dataNascimentoCliente) {
-        this.dataNascimentoCliente = dataNascimentoCliente;
+    public void setDataNascimento(Timestamp dataNascimento) {
+        this.dataNascimento = dataNascimento;
     }
 
-    public String getCnhCliente() {
-        return cnhCliente;
+    public String getCnh() {
+        return cnh;
     }
 
-    public void setCnhCliente(String cnhCliente) {
-        this.cnhCliente = cnhCliente;
+    public void setCnh(String cnh) {
+        this.cnh = cnh;
     }
 
-    public String getEmailCliente() {
-        return emailCliente;
+    public String getEmail() {
+        return email;
     }
 
-    public void setEmailCliente(String emailCliente) {
-        this.emailCliente = emailCliente;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
-    public String getSenhaCliente() {
-        return senhaCliente;
+    public String getSenha() {
+        return senha;
     }
 
-    public void setSenhaCliente(String senhaCliente) {
-        this.senhaCliente = senhaCliente;
+    public void setSenha(String senha) {
+        this.senha = senha;
     }
 
-    public Timestamp getDtCadastro() {
-        return dtCadastro;
+    public Timestamp getDataCadastro() {
+        return dataCadastro;
     }
 
-    public void setDtCadastro(Timestamp dtCadastro) {
-        this.dtCadastro = dtCadastro;
+    public void setDataCadastro(Timestamp dataCadastro) {
+        this.dataCadastro = dataCadastro;
     }
 
-    public String getNomeUsuario() {
-        return nomeUsuario;
+    public String getUsuario() {
+        return usuario;
     }
 
-    public void setNomeUsuario(String nomeUsuario) {
-        this.nomeUsuario = nomeUsuario;
+    public void setUsuario(String usuario) {
+        this.usuario = usuario;
     }
 
     public String getCaminhoImagem() {

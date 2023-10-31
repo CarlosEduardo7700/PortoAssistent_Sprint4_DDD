@@ -83,8 +83,8 @@ public class Veic_ClienteRepository {
         try (Connection connection = DataBaseFactory.getConnection();
              PreparedStatement ps = connection.prepareStatement(query)) {
 
-            ps.setInt(1, veicCliente.getIdCliente().getIdCliente());
-            ps.setInt(2, veicCliente.getIdVeiculo().getIdVeiculo());
+            ps.setInt(1, veicCliente.getIdCliente().getId());
+            ps.setInt(2, veicCliente.getIdVeiculo().getId());
 
             ps.executeUpdate();
         } catch (SQLException e) {
@@ -98,8 +98,8 @@ public class Veic_ClienteRepository {
         try (Connection connection = DataBaseFactory.getConnection();
              PreparedStatement ps = connection.prepareStatement(query)) {
 
-            ps.setInt(1, veicCliente.getIdVeiculo().getIdVeiculo());
-            ps.setInt(2, veicCliente.getIdCliente().getIdCliente());
+            ps.setInt(1, veicCliente.getIdVeiculo().getId());
+            ps.setInt(2, veicCliente.getIdCliente().getId());
 
             ps.executeUpdate();
         } catch (SQLException e) {

@@ -41,7 +41,7 @@ public class MedidaResource {
     @Produces(MediaType.APPLICATION_JSON)
     public Response update(@PathParam("id") int id, Medida medida) throws SQLException {
         if (repository.find(id).isPresent()) {
-            medida.setIdMedida(id);
+            medida.setId(id);
             repository.update(medida);
             Optional<Medida> medidaAtualizada = repository.find(id);
             return Response.status(Response.Status.OK).entity(medidaAtualizada).build();

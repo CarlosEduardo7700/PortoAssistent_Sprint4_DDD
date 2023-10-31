@@ -90,12 +90,12 @@ public class BairroRepository {
         try (Connection connection = DataBaseFactory.getConnection();
              PreparedStatement ps = connection.prepareStatement(query)) {
 
-            ps.setInt(1, bairro.getIdBairro());
-            ps.setInt(2, bairro.getCidade().getIdCidade());
-            ps.setString(3, bairro.getNomeBairro());
-            ps.setString(4, bairro.getNomeZona());
-            ps.setTimestamp(5, bairro.getDtCadastro());
-            ps.setString(6, bairro.getNomeUsuario());
+            ps.setInt(1, bairro.getId());
+            ps.setInt(2, bairro.getCidade().getId());
+            ps.setString(3, bairro.getNome());
+            ps.setString(4, bairro.getZona());
+            ps.setTimestamp(5, bairro.getDataCadastro());
+            ps.setString(6, bairro.getUsuario());
 
             ps.executeUpdate();
         } catch (SQLException e) {
@@ -109,12 +109,12 @@ public class BairroRepository {
         try (Connection connection = DataBaseFactory.getConnection();
              PreparedStatement ps = connection.prepareStatement(query)) {
 
-            ps.setInt(1, bairro.getCidade().getIdCidade());
-            ps.setString(2, bairro.getNomeUsuario());
-            ps.setString(3, bairro.getNomeZona());
-            ps.setTimestamp(4, bairro.getDtCadastro());
-            ps.setString(5, bairro.getNomeUsuario());
-            ps.setInt(6, bairro.getIdBairro());
+            ps.setInt(1, bairro.getCidade().getId());
+            ps.setString(2, bairro.getUsuario());
+            ps.setString(3, bairro.getZona());
+            ps.setTimestamp(4, bairro.getDataCadastro());
+            ps.setString(5, bairro.getUsuario());
+            ps.setInt(6, bairro.getId());
 
             ps.executeUpdate();
         } catch (SQLException e) {

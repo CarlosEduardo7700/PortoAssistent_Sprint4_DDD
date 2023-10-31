@@ -41,7 +41,7 @@ public class EnderecoColaboradorResource {
     @Produces(MediaType.APPLICATION_JSON)
     public Response updateByIdColaborador(@PathParam("id") int idColaborador, EnderecoColaborador enderecoColaborador) throws SQLException {
         if (repository.findByColaborador(idColaborador).isPresent()) {
-            enderecoColaborador.getColaborador().setIdColaborador(idColaborador);
+            enderecoColaborador.getColaborador().setId(idColaborador);
             repository.updateByIdColaborador(enderecoColaborador);
             Optional<EnderecoColaborador> enderecoColaboradorAtualizado = repository.findByColaborador(idColaborador);
             return Response.status(Response.Status.OK).entity(enderecoColaboradorAtualizado).build();

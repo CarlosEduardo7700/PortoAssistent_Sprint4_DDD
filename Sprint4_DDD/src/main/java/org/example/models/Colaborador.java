@@ -5,39 +5,39 @@ import java.sql.Timestamp;
 public class Colaborador {
 
     // Atributos
-    private int idColaborador;
+    private int id;
     private String caminhoImagem;
-    private Genero genero;//composição
-    private String nomeColaborador;
-    private String cpfColaborador;
-    private String rgColaborador;
-    private String telefoneColaborador;
-    private String emailColaborador;
-    private String senhaColaborador;
-    private String cnhColaborador;
-    private Timestamp dataNascimentoColaborador;
-    private Timestamp dtCadastro;
-    private String nomeUsuario;
+    private Genero genero;
+    private String nome;
+    private String cpf;
+    private String rg;
+    private String telefone;
+    private String email;
+    private String senha;
+    private String cnh;
+    private Timestamp dataNascimento;
+    private Timestamp dataCadastro;
+    private String usuario;
 
 
 
     // Construtor
 
 
-    public Colaborador(int idColaborador, String caminhoImagem, Genero genero, String nomeColaborador, String cpfColaborador, String rgColaborador, String telefoneColaborador, String emailColaborador, String senhaColaborador, String cnhColaborador, Timestamp dataNascimentoColaborador, Timestamp dtCadastro, String nomeUsuario) {
-        this.idColaborador = idColaborador;
+    public Colaborador(int id, String caminhoImagem, Genero genero, String nome, String cpf, String rg, String telefone, String email, String senha, String cnh, Timestamp dataNascimento, Timestamp dataCadastro, String usuario) {
+        this.id = id;
         this.caminhoImagem = caminhoImagem;
         this.genero = genero;
-        this.nomeColaborador = nomeColaborador;
-        this.cpfColaborador = cpfColaborador;
-        this.rgColaborador = rgColaborador;
-        this.telefoneColaborador = telefoneColaborador;
-        this.emailColaborador = emailColaborador;
-        this.senhaColaborador = senhaColaborador;
-        this.cnhColaborador = cnhColaborador;
-        this.dataNascimentoColaborador = dataNascimentoColaborador;
-        this.dtCadastro = dtCadastro;
-        this.nomeUsuario = nomeUsuario;
+        this.nome = nome;
+        this.cpf = cpf;
+        this.rg = rg;
+        this.telefone = telefone;
+        this.email = email;
+        this.senha = senha;
+        this.cnh = cnh;
+        this.dataNascimento = dataNascimento;
+        this.dataCadastro = dataCadastro;
+        this.usuario = usuario;
     }
 
     public Colaborador() {}
@@ -49,12 +49,12 @@ public class Colaborador {
 
 
     // GetterSetter
-    public int getIdColaborador() {
-        return idColaborador;
+    public int getId() {
+        return id;
     }
 
-    public void setIdColaborador(int idColaborador) {
-        this.idColaborador = idColaborador;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public Genero getGenero() {
@@ -65,76 +65,76 @@ public class Colaborador {
         this.genero = genero;
     }
 
-    public String getNomeColaborador() {
-        return nomeColaborador;
+    public String getNome() {
+        return nome;
     }
 
-    public void setNomeColaborador(String nomeColaborador) {
-        this.nomeColaborador = nomeColaborador;
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
-    public String getCpfColaborador() {
-        return cpfColaborador;
+    public String getCpf() {
+        return cpf;
     }
 
-    public void setCpfColaborador(String cpfColaborador) {
-        this.cpfColaborador = cpfColaborador;
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
     }
 
-    public String getRgColaborador() {
-        return rgColaborador;
+    public String getRg() {
+        return rg;
     }
 
-    public void setRgColaborador(String rgColaborador) {
-        this.rgColaborador = rgColaborador;
+    public void setRg(String rg) {
+        this.rg = rg;
     }
 
-    public String getEmailColaborador() {
-        return emailColaborador;
+    public String getEmail() {
+        return email;
     }
 
-    public void setEmailColaborador(String emailColaborador) {
-        this.emailColaborador = emailColaborador;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
-    public String getSenhaColaborador() {
-        return senhaColaborador;
+    public String getSenha() {
+        return senha;
     }
 
-    public void setSenhaColaborador(String senhaColaborador) {
-        this.senhaColaborador = senhaColaborador;
+    public void setSenha(String senha) {
+        this.senha = senha;
     }
 
-    public String getCnhColaborador() {
-        return cnhColaborador;
+    public String getCnh() {
+        return cnh;
     }
 
-    public void setCnhColaborador(String cnhColaborador) {
-        this.cnhColaborador = cnhColaborador;
+    public void setCnh(String cnh) {
+        this.cnh = cnh;
     }
 
-    public Timestamp getDataNascimentoColaborador() {
-        return dataNascimentoColaborador;
+    public Timestamp getDataNascimento() {
+        return dataNascimento;
     }
 
-    public void setDataNascimentoColaborador(Timestamp dataNascimentoColaborador) {
-        this.dataNascimentoColaborador = dataNascimentoColaborador;
+    public void setDataNascimento(Timestamp dataNascimento) {
+        this.dataNascimento = dataNascimento;
     }
 
-    public Timestamp getDtCadastro() {
-        return dtCadastro;
+    public Timestamp getDataCadastro() {
+        return dataCadastro;
     }
 
-    public void setDtCadastro(Timestamp dtCadastro) {
-        this.dtCadastro = dtCadastro;
+    public void setDataCadastro(Timestamp dataCadastro) {
+        this.dataCadastro = dataCadastro;
     }
 
-    public String getNomeUsuario() {
-        return nomeUsuario;
+    public String getUsuario() {
+        return usuario;
     }
 
-    public void setNomeUsuario(String nomeUsuario) {
-        this.nomeUsuario = nomeUsuario;
+    public void setUsuario(String usuario) {
+        this.usuario = usuario;
     }
 
     public String getCaminhoImagem() {
@@ -145,11 +145,11 @@ public class Colaborador {
         this.caminhoImagem = caminhoImagem;
     }
 
-    public String getTelefoneColaborador() {
-        return telefoneColaborador;
+    public String getTelefone() {
+        return telefone;
     }
 
-    public void setTelefoneColaborador(String telefoneColaborador) {
-        this.telefoneColaborador = telefoneColaborador;
+    public void setTelefone(String telefone) {
+        this.telefone = telefone;
     }
 }

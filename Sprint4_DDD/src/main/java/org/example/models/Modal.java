@@ -5,32 +5,32 @@ import java.sql.Timestamp;
 public class Modal {
 
     // Atributos
-    private int idModal;
+    private int id;
     private String caminhaImagem;
-    private Tipo_Modal tipoModal; //composição
-    private Medida medidaModal; //composição
-    private String modeloModal;
-    private String placaModal;
-    private String marcaModal;
-    private int anoModal;
-    private Timestamp dtCadastro;
-    private String nomeUsuario;
+    private Tipo_Modal tipoModal;
+    private Medida medidaModal;
+    private String modelo;
+    private String placa;
+    private String marca;
+    private int anoFabricacao;
+    private Timestamp dataCadastro;
+    private String usuario;
 
 
 
     // Construtor
 
-    public Modal(int idModal, String caminhaImagem, Tipo_Modal tipoModal, Medida medidaModal, String modeloModal, String placaModal, String marcaModal, int anoModal, Timestamp dtCadastro, String nomeUsuario) {
-        this.idModal = idModal;
+    public Modal(int id, String caminhaImagem, Tipo_Modal tipoModal, Medida medidaModal, String modelo, String placa, String marca, int anoFabricacao, Timestamp dataCadastro, String usuario) {
+        this.id = id;
         this.caminhaImagem = caminhaImagem;
         this.tipoModal = tipoModal;
         this.medidaModal = medidaModal;
-        this.modeloModal = modeloModal;
-        this.placaModal = placaModal;
-        this.marcaModal = marcaModal;
-        this.anoModal = anoModal;
-        this.dtCadastro = dtCadastro;
-        this.nomeUsuario = nomeUsuario;
+        this.modelo = modelo;
+        this.placa = placa;
+        this.marca = marca;
+        this.anoFabricacao = anoFabricacao;
+        this.dataCadastro = dataCadastro;
+        this.usuario = usuario;
     }
 
     public Modal() {}
@@ -41,12 +41,12 @@ public class Modal {
 
 
     // GetterSetter
-    public int getIdModal() {
-        return idModal;
+    public int getId() {
+        return id;
     }
 
-    public void setIdModal(int idModal) {
-        this.idModal = idModal;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public Tipo_Modal getTipoModal() {
@@ -65,52 +65,52 @@ public class Modal {
         this.medidaModal = medidaModal;
     }
 
-    public String getModeloModal() {
-        return modeloModal;
+    public String getModelo() {
+        return modelo;
     }
 
-    public void setModeloModal(String modeloModal) {
-        this.modeloModal = modeloModal;
+    public void setModelo(String modelo) {
+        this.modelo = modelo;
     }
 
-    public String getPlacaModal() {
-        return placaModal;
+    public String getPlaca() {
+        return placa;
     }
 
-    public void setPlacaModal(String placaModal) {
-        this.placaModal = placaModal;
+    public void setPlaca(String placa) {
+        this.placa = placa;
     }
 
-    public String getMarcaModal() {
-        return marcaModal;
+    public String getMarca() {
+        return marca;
     }
 
-    public void setMarcaModal(String marcaModal) {
-        this.marcaModal = marcaModal;
+    public void setMarca(String marca) {
+        this.marca = marca;
     }
 
-    public int getAnoModal() {
-        return anoModal;
+    public int getAnoFabricacao() {
+        return anoFabricacao;
     }
 
-    public void setAnoModal(int anoModal) {
-        this.anoModal = anoModal;
+    public void setAnoFabricacao(int anoFabricacao) {
+        this.anoFabricacao = anoFabricacao;
     }
 
-    public Timestamp getDtCadastro() {
-        return dtCadastro;
+    public Timestamp getDataCadastro() {
+        return dataCadastro;
     }
 
-    public void setDtCadastro(Timestamp dtCadastro) {
-        this.dtCadastro = dtCadastro;
+    public void setDataCadastro(Timestamp dataCadastro) {
+        this.dataCadastro = dataCadastro;
     }
 
-    public String getNomeUsuario() {
-        return nomeUsuario;
+    public String getUsuario() {
+        return usuario;
     }
 
-    public void setNomeUsuario(String nomeUsuario) {
-        this.nomeUsuario = nomeUsuario;
+    public void setUsuario(String usuario) {
+        this.usuario = usuario;
     }
 
     public String getCaminhaImagem() {

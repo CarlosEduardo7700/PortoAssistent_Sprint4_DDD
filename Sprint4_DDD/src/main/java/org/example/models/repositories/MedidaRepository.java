@@ -92,14 +92,14 @@ public class MedidaRepository {
         try (Connection connection = DataBaseFactory.getConnection();
              PreparedStatement ps = connection.prepareStatement(query)) {
 
-            ps.setInt(1, medida.getIdMedida());
+            ps.setInt(1, medida.getId());
             ps.setDouble(2, medida.getAltura());
             ps.setDouble(3, medida.getLargura());
             ps.setDouble(4, medida.getComprimento());
             ps.setDouble(5, medida.getPesoVeiculo());
             ps.setDouble(6, medida.getPesoSuportadoModal());
-            ps.setTimestamp(7, medida.getDtCadastro());
-            ps.setString(8, medida.getNomeUsuario());
+            ps.setTimestamp(7, medida.getDataCadastro());
+            ps.setString(8, medida.getUsuario());
 
             ps.executeUpdate();
         } catch (SQLException e) {
@@ -118,9 +118,9 @@ public class MedidaRepository {
             ps.setDouble(3, medida.getComprimento());
             ps.setDouble(4, medida.getPesoVeiculo());
             ps.setDouble(5, medida.getPesoSuportadoModal());
-            ps.setTimestamp(6, medida.getDtCadastro());
-            ps.setString(7, medida.getNomeUsuario());
-            ps.setInt(8, medida.getIdMedida());
+            ps.setTimestamp(6, medida.getDataCadastro());
+            ps.setString(7, medida.getUsuario());
+            ps.setInt(8, medida.getId());
 
             ps.executeUpdate();
         } catch (SQLException e) {

@@ -92,13 +92,13 @@ public class CidadeRepository {
         try (Connection connection = DataBaseFactory.getConnection();
              PreparedStatement ps = connection.prepareStatement(query)) {
 
-            ps.setInt(1, cidade.getIdCidade());
-            ps.setInt(2, cidade.getEstado().getIdEstado());
-            ps.setString(3, cidade.getNomeCidade());
+            ps.setInt(1, cidade.getId());
+            ps.setInt(2, cidade.getEstado().getId());
+            ps.setString(3, cidade.getNome());
             ps.setInt(4, cidade.getIbgeCodigo());
             ps.setInt(5, cidade.getDdd());
-            ps.setTimestamp(6, cidade.getDtCadastro());
-            ps.setString(7, cidade.getNomeUsuario());
+            ps.setTimestamp(6, cidade.getDataCadastro());
+            ps.setString(7, cidade.getUsuario());
 
             ps.executeUpdate();
         } catch (SQLException e) {
@@ -112,13 +112,13 @@ public class CidadeRepository {
         try (Connection connection = DataBaseFactory.getConnection();
              PreparedStatement ps = connection.prepareStatement(query)) {
 
-            ps.setInt(1, cidade.getEstado().getIdEstado());
-            ps.setString(2, cidade.getNomeCidade());
+            ps.setInt(1, cidade.getEstado().getId());
+            ps.setString(2, cidade.getNome());
             ps.setInt(3, cidade.getIbgeCodigo());
             ps.setInt(4, cidade.getDdd());
-            ps.setTimestamp(5, cidade.getDtCadastro());
-            ps.setString(6, cidade.getNomeUsuario());
-            ps.setInt(7, cidade.getIdCidade());
+            ps.setTimestamp(5, cidade.getDataCadastro());
+            ps.setString(6, cidade.getUsuario());
+            ps.setInt(7, cidade.getId());
 
             ps.executeUpdate();
         } catch (SQLException e) {

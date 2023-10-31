@@ -41,7 +41,7 @@ public class Modal_ColabResource {
     @Produces(MediaType.APPLICATION_JSON)
     public Response update(@PathParam("id") int id, Modal_Colab modalColab) throws SQLException {
         if (repository.find(id).isPresent()) {
-            modalColab.getColaborador().setIdColaborador(id);
+            modalColab.getColaborador().setId(id);
             repository.update(modalColab);
             Optional<Modal_Colab> modalColabAtualizado = repository.find(id);
             return Response.status(Response.Status.OK).entity(modalColabAtualizado).build();

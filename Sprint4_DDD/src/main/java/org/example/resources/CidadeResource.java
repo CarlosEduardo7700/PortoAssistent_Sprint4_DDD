@@ -41,7 +41,7 @@ public class CidadeResource {
     @Produces(MediaType.APPLICATION_JSON)
     public Response update(@PathParam("id") int id, Cidade cidade) throws SQLException {
         if (repository.find(id).isPresent()) {
-            cidade.setIdCidade(id);
+            cidade.setId(id);
             repository.update(cidade);
             Optional<Cidade> cidadeAtualizado = repository.find(id);
             return Response.status(Response.Status.OK).entity(cidadeAtualizado).build();

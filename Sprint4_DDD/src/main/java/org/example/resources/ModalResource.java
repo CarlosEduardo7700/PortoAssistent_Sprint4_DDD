@@ -41,7 +41,7 @@ public class ModalResource {
     @Produces(MediaType.APPLICATION_JSON)
     public Response update(@PathParam("id") int id, Modal modal) throws SQLException {
         if (repository.find(id).isPresent()) {
-            modal.setIdModal(id);
+            modal.setId(id);
             repository.update(modal);
             Optional<Modal> modalAtualizado = repository.find(id);
             return Response.status(Response.Status.OK).entity(modalAtualizado).build();

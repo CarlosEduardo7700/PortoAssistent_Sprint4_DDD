@@ -86,11 +86,11 @@ public class Tipo_EixoRepository {
         try (Connection connection = DataBaseFactory.getConnection();
              PreparedStatement ps = connection.prepareStatement(query)) {
 
-            ps.setInt(1, tipoEixo.getIdEixo());
-            ps.setString(2, tipoEixo.getNomeTipoEixo());
-            ps.setString(3, tipoEixo.getDescTipoEixo());
-            ps.setTimestamp(4, tipoEixo.getDtCadastro());
-            ps.setString(5, tipoEixo.getNomeUsuario());
+            ps.setInt(1, tipoEixo.getId());
+            ps.setString(2, tipoEixo.getNome());
+            ps.setString(3, tipoEixo.getDescricao());
+            ps.setTimestamp(4, tipoEixo.getDataCadastro());
+            ps.setString(5, tipoEixo.getUsuario());
 
             ps.executeUpdate();
         } catch (SQLException e) {
@@ -104,11 +104,11 @@ public class Tipo_EixoRepository {
         try (Connection connection = DataBaseFactory.getConnection();
              PreparedStatement ps = connection.prepareStatement(query)) {
 
-            ps.setString(1, tipoEixo.getNomeTipoEixo());
-            ps.setString(2, tipoEixo.getDescTipoEixo());
-            ps.setTimestamp(3, tipoEixo.getDtCadastro());
-            ps.setString(4, tipoEixo.getNomeUsuario());
-            ps.setInt(5, tipoEixo.getIdEixo());
+            ps.setString(1, tipoEixo.getNome());
+            ps.setString(2, tipoEixo.getDescricao());
+            ps.setTimestamp(3, tipoEixo.getDataCadastro());
+            ps.setString(4, tipoEixo.getUsuario());
+            ps.setInt(5, tipoEixo.getId());
 
             ps.executeUpdate();
         } catch (SQLException e) {

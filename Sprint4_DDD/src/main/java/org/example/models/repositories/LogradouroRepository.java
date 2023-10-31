@@ -90,12 +90,12 @@ public class LogradouroRepository {
         try (Connection connection = DataBaseFactory.getConnection();
              PreparedStatement ps = connection.prepareStatement(query)) {
 
-            ps.setInt(1, logradouro.getIdLogradouro());
-            ps.setInt(2, logradouro.getBairro().getIdBairro());
-            ps.setString(3, logradouro.getNomeLogradouro());
+            ps.setInt(1, logradouro.getId());
+            ps.setInt(2, logradouro.getBairro().getId());
+            ps.setString(3, logradouro.getNome());
             ps.setString(4, logradouro.getCep());
-            ps.setTimestamp(5, logradouro.getDtCadastro());
-            ps.setString(6, logradouro.getNomeUsuario());
+            ps.setTimestamp(5, logradouro.getDataCadastro());
+            ps.setString(6, logradouro.getUsuario());
 
             ps.executeUpdate();
         } catch (SQLException e) {
@@ -109,12 +109,12 @@ public class LogradouroRepository {
         try (Connection connection = DataBaseFactory.getConnection();
              PreparedStatement ps = connection.prepareStatement(query)) {
 
-            ps.setInt(1, logradouro.getBairro().getIdBairro());
-            ps.setString(2, logradouro.getNomeLogradouro());
+            ps.setInt(1, logradouro.getBairro().getId());
+            ps.setString(2, logradouro.getNome());
             ps.setString(3, logradouro.getCep());
-            ps.setTimestamp(4, logradouro.getDtCadastro());
-            ps.setString(5, logradouro.getNomeUsuario());
-            ps.setInt(6, logradouro.getIdLogradouro());
+            ps.setTimestamp(4, logradouro.getDataCadastro());
+            ps.setString(5, logradouro.getUsuario());
+            ps.setInt(6, logradouro.getId());
 
             ps.executeUpdate();
         } catch (SQLException e) {

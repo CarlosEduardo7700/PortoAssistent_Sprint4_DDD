@@ -92,13 +92,13 @@ public class TelefoneClienteRepository {
         try (Connection connection = DataBaseFactory.getConnection();
              PreparedStatement ps = connection.prepareStatement(query)) {
 
-            ps.setInt(1, telefoneCliente.getCliente().getIdCliente());
-            ps.setString(2, telefoneCliente.getTipoTelefone());
-            ps.setString(3, telefoneCliente.getNumeroTelefone());
-            ps.setString(4, telefoneCliente.getDddTelefone());
-            ps.setString(5, telefoneCliente.getDdiTelefone());
-            ps.setTimestamp(6, telefoneCliente.getDtCadastro());
-            ps.setString(7, telefoneCliente.getNomeUsuario());
+            ps.setInt(1, telefoneCliente.getCliente().getId());
+            ps.setString(2, telefoneCliente.getTipo());
+            ps.setString(3, telefoneCliente.getNumero());
+            ps.setString(4, telefoneCliente.getDdd());
+            ps.setString(5, telefoneCliente.getDdi());
+            ps.setTimestamp(6, telefoneCliente.getDataCadastro());
+            ps.setString(7, telefoneCliente.getUsuario());
 
             ps.executeUpdate();
         } catch (SQLException e) {
@@ -112,13 +112,13 @@ public class TelefoneClienteRepository {
         try (Connection connection = DataBaseFactory.getConnection();
              PreparedStatement ps = connection.prepareStatement(query)) {
 
-            ps.setString(1, telefoneCliente.getTipoTelefone());
-            ps.setString(2, telefoneCliente.getNumeroTelefone());
-            ps.setString(3, telefoneCliente.getDddTelefone());
-            ps.setString(4, telefoneCliente.getDdiTelefone());
-            ps.setTimestamp(5, telefoneCliente.getDtCadastro());
-            ps.setString(6, telefoneCliente.getNomeUsuario());
-            ps.setInt(7, telefoneCliente.getCliente().getIdCliente());
+            ps.setString(1, telefoneCliente.getTipo());
+            ps.setString(2, telefoneCliente.getNumero());
+            ps.setString(3, telefoneCliente.getDdd());
+            ps.setString(4, telefoneCliente.getDdi());
+            ps.setTimestamp(5, telefoneCliente.getDataCadastro());
+            ps.setString(6, telefoneCliente.getUsuario());
+            ps.setInt(7, telefoneCliente.getCliente().getId());
 
             ps.executeUpdate();
         } catch (SQLException e) {

@@ -84,10 +84,10 @@ public class Tipo_ModalRepository {
         try (Connection connection = DataBaseFactory.getConnection();
              PreparedStatement ps = connection.prepareStatement(query)) {
 
-            ps.setInt(1, tipoModal.getIdTipoModal());
-            ps.setString(2, tipoModal.getNomeTipoModal());
-            ps.setTimestamp(3, tipoModal.getDtCadastro());
-            ps.setString(4, tipoModal.getNomeUsuario());
+            ps.setInt(1, tipoModal.getId());
+            ps.setString(2, tipoModal.getNome());
+            ps.setTimestamp(3, tipoModal.getDataCadastro());
+            ps.setString(4, tipoModal.getUsuario());
 
             ps.executeUpdate();
         } catch (SQLException e) {
@@ -101,10 +101,10 @@ public class Tipo_ModalRepository {
         try (Connection connection = DataBaseFactory.getConnection();
              PreparedStatement ps = connection.prepareStatement(query)) {
 
-            ps.setString(1, tipoModal.getNomeTipoModal());
-            ps.setTimestamp(2, tipoModal.getDtCadastro());
-            ps.setString(3, tipoModal.getNomeUsuario());
-            ps.setInt(4, tipoModal.getIdTipoModal());
+            ps.setString(1, tipoModal.getNome());
+            ps.setTimestamp(2, tipoModal.getDataCadastro());
+            ps.setString(3, tipoModal.getUsuario());
+            ps.setInt(4, tipoModal.getId());
 
             ps.executeUpdate();
         } catch (SQLException e) {

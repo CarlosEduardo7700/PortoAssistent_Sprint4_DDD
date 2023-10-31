@@ -41,7 +41,7 @@ public class ChamadaResource {
     @Produces(MediaType.APPLICATION_JSON)
     public Response update(@PathParam("id") int id, Chamada chamada) throws SQLException {
         if (repository.find(id).isPresent()) {
-            chamada.setIdChamada(id);
+            chamada.setId(id);
             repository.update(chamada);
             Optional<Chamada> chamadaAtualizada = repository.find(id);
             return Response.status(Response.Status.OK).entity(chamadaAtualizada).build();

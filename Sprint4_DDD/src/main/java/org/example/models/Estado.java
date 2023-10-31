@@ -5,23 +5,23 @@ import java.sql.Timestamp;
 public class Estado{
 
     // Atributos
-    private int idEstado;
+    private int id;
     private String sigla;
-    private String nomeEstado;
-    private Timestamp dtCadastro;
-    private String nomeUsuario;
+    private String nome;
+    private Timestamp dataCadastro;
+    private String usuario;
 
 
 
 
 
     // Construtor
-    public Estado(int idEstado, String sigla, String nomeEstado, Timestamp dtCadastro, String nomeUsuario) {
-        this.idEstado = idEstado;
+    public Estado(int id, String sigla, String nome, Timestamp dataCadastro, String usuario) {
+        this.id = id;
         this.sigla = sigla;
-        this.nomeEstado = nomeEstado;
-        this.dtCadastro = dtCadastro;
-        this.nomeUsuario = nomeUsuario;
+        this.nome = nome;
+        this.dataCadastro = dataCadastro;
+        this.usuario = usuario;
     }
     public Estado() {}
 
@@ -31,11 +31,11 @@ public class Estado{
 
 
     // GetterSetter
-    public int getIdEstado() {
-        return idEstado;
+    public int getId() {
+        return id;
     }
-    public void setIdEstado(int idEstado) {
-        this.idEstado = idEstado;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getSigla() {
@@ -45,24 +45,24 @@ public class Estado{
         this.sigla = sigla;
     }
 
-    public String getNomeEstado() {
-        return nomeEstado;
+    public String getNome() {
+        return nome;
     }
-    public void setNomeEstado(String nomeEstado) {
-        this.nomeEstado = nomeEstado;
-    }
-
-    public Timestamp getDtCadastro() {
-        return dtCadastro;
-    }
-    public void setDtCadastro(Timestamp dtCadastro) {
-        this.dtCadastro = dtCadastro;
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
-    public String getNomeUsuario() {
-        return nomeUsuario;
+    public Timestamp getDataCadastro() {
+        return dataCadastro;
     }
-    public void setNomeUsuario(String nomeUsuario) {
-        this.nomeUsuario = nomeUsuario;
+    public void setDataCadastro(Timestamp dataCadastro) {
+        this.dataCadastro = dataCadastro;
+    }
+
+    public String getUsuario() {
+        return usuario;
+    }
+    public void setUsuario(String usuario) {
+        this.usuario = usuario;
     }
 }

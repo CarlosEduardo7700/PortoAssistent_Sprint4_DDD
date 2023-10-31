@@ -104,19 +104,19 @@ public class ColaboradorRepository {
         try (Connection connection = DataBaseFactory.getConnection();
              PreparedStatement ps = connection.prepareStatement(query)) {
 
-            ps.setInt(1, colaborador.getIdColaborador());
+            ps.setInt(1, colaborador.getId());
             ps.setString(2, colaborador.getCaminhoImagem());
-            ps.setInt(3, colaborador.getGenero().getIdGenero());
-            ps.setString(4, colaborador.getNomeColaborador());
-            ps.setString(5, colaborador.getCpfColaborador());
-            ps.setString(6, colaborador.getRgColaborador());
-            ps.setString(7, colaborador.getTelefoneColaborador());
-            ps.setString(8, colaborador.getEmailColaborador());
-            ps.setString(9, colaborador.getSenhaColaborador());
-            ps.setString(10, colaborador.getCnhColaborador());
-            ps.setTimestamp(11, colaborador.getDataNascimentoColaborador());
-            ps.setTimestamp(12, colaborador.getDtCadastro());
-            ps.setString(13, colaborador.getNomeUsuario());
+            ps.setInt(3, colaborador.getGenero().getId());
+            ps.setString(4, colaborador.getNome());
+            ps.setString(5, colaborador.getCpf());
+            ps.setString(6, colaborador.getRg());
+            ps.setString(7, colaborador.getTelefone());
+            ps.setString(8, colaborador.getEmail());
+            ps.setString(9, colaborador.getSenha());
+            ps.setString(10, colaborador.getCnh());
+            ps.setTimestamp(11, colaborador.getDataNascimento());
+            ps.setTimestamp(12, colaborador.getDataCadastro());
+            ps.setString(13, colaborador.getUsuario());
 
             ps.executeUpdate();
         } catch (SQLException e) {
@@ -131,18 +131,18 @@ public class ColaboradorRepository {
              PreparedStatement ps = connection.prepareStatement(query)) {
 
             ps.setString(1, colaborador.getCaminhoImagem());
-            ps.setInt(2, colaborador.getGenero().getIdGenero());
-            ps.setString(3, colaborador.getNomeColaborador());
-            ps.setString(4, colaborador.getCpfColaborador());
-            ps.setString(5, colaborador.getRgColaborador());
-            ps.setString(6, colaborador.getTelefoneColaborador());
-            ps.setString(7, colaborador.getEmailColaborador());
-            ps.setString(8, colaborador.getSenhaColaborador());
-            ps.setString(9, colaborador.getCnhColaborador());
-            ps.setTimestamp(10, colaborador.getDataNascimentoColaborador());
-            ps.setTimestamp(11, colaborador.getDtCadastro());
-            ps.setString(12, colaborador.getNomeUsuario());
-            ps.setInt(13, colaborador.getIdColaborador());
+            ps.setInt(2, colaborador.getGenero().getId());
+            ps.setString(3, colaborador.getNome());
+            ps.setString(4, colaborador.getCpf());
+            ps.setString(5, colaborador.getRg());
+            ps.setString(6, colaborador.getTelefone());
+            ps.setString(7, colaborador.getEmail());
+            ps.setString(8, colaborador.getSenha());
+            ps.setString(9, colaborador.getCnh());
+            ps.setTimestamp(10, colaborador.getDataNascimento());
+            ps.setTimestamp(11, colaborador.getDataCadastro());
+            ps.setString(12, colaborador.getUsuario());
+            ps.setInt(13, colaborador.getId());
 
             ps.executeUpdate();
         } catch (SQLException e) {

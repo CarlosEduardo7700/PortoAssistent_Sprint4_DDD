@@ -3,30 +3,28 @@ package org.example.models;
 import java.sql.Timestamp;
 
 public class Chamada {
-
     // Atributos
-    private int idChamada;
+    private int id;
     private String caminhosImagens;
     private Cliente cliente;
     private Colaborador colaborador;
-    private Veiculo veiculo;//composição
-    private Modal modal; //composição
+    private Veiculo veiculo;
+    private Modal modal;
     private Timestamp dataInicio;
     private Timestamp dataFim;
     private String local;
     private String destino;
     private String descLocal;
     private String descProblema;
-    private Timestamp dtCadastro;
-    private String nomeUsuario;
-
+    private Timestamp dataCadastro;
+    private String usuario;
 
 
 
 
     // Construtor
-    public Chamada(int idChamada, String caminhosImagens, Cliente cliente, Colaborador colaborador, Veiculo veiculo, Modal modal, Timestamp dataInicio, Timestamp dataFim, String local, String destino, String descLocal, String descProblema, Timestamp dtCadastro, String nomeUsuario) {
-        this.idChamada = idChamada;
+    public Chamada(int id, String caminhosImagens, Cliente cliente, Colaborador colaborador, Veiculo veiculo, Modal modal, Timestamp dataInicio, Timestamp dataFim, String local, String destino, String descLocal, String descProblema, Timestamp dataCadastro, String usuario) {
+        this.id = id;
         this.caminhosImagens = caminhosImagens;
         this.cliente = cliente;
         this.colaborador = colaborador;
@@ -38,8 +36,8 @@ public class Chamada {
         this.destino = destino;
         this.descLocal = descLocal;
         this.descProblema = descProblema;
-        this.dtCadastro = dtCadastro;
-        this.nomeUsuario = nomeUsuario;
+        this.dataCadastro = dataCadastro;
+        this.usuario = usuario;
     }
 
     public Chamada() {}
@@ -47,15 +45,13 @@ public class Chamada {
 
 
 
-
-
     // GetterSetter
-    public int getIdChamada() {
-        return idChamada;
+    public int getId() {
+        return id;
     }
 
-    public void setIdChamada(int idChamada) {
-        this.idChamada = idChamada;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public Veiculo getVeiculo() {
@@ -122,20 +118,20 @@ public class Chamada {
         this.descProblema = descProblema;
     }
 
-    public Timestamp getDtCadastro() {
-        return dtCadastro;
+    public Timestamp getDataCadastro() {
+        return dataCadastro;
     }
 
-    public void setDtCadastro(Timestamp dtCadastro) {
-        this.dtCadastro = dtCadastro;
+    public void setDataCadastro(Timestamp dataCadastro) {
+        this.dataCadastro = dataCadastro;
     }
 
-    public String getNomeUsuario() {
-        return nomeUsuario;
+    public String getUsuario() {
+        return usuario;
     }
 
-    public void setNomeUsuario(String nomeUsuario) {
-        this.nomeUsuario = nomeUsuario;
+    public void setUsuario(String usuario) {
+        this.usuario = usuario;
     }
 
     public String getCaminhosImagens() {

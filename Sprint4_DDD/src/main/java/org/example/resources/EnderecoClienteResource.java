@@ -41,7 +41,7 @@ public class EnderecoClienteResource {
     @Produces(MediaType.APPLICATION_JSON)
     public Response updateByIdCliente(@PathParam("id") int idCliente, EnderecoCliente enderecoCliente) throws SQLException {
         if (repository.findByCliente(idCliente).isPresent()) {
-            enderecoCliente.getCliente().setIdCliente(idCliente);
+            enderecoCliente.getCliente().setId(idCliente);
             repository.updateByIdCliente(enderecoCliente);
             Optional<EnderecoCliente> enderecoClienteAtualizado = repository.findByCliente(idCliente);
             return Response.status(Response.Status.OK).entity(enderecoClienteAtualizado).build();

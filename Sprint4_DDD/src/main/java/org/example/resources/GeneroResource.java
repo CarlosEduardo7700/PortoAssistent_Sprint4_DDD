@@ -41,7 +41,7 @@ public class GeneroResource {
     @Produces(MediaType.APPLICATION_JSON)
     public Response update(@PathParam("id") int id, Genero genero) throws SQLException {
         if (repository.find(id).isPresent()) {
-            genero.setIdGenero(id);
+            genero.setId(id);
             repository.update(genero);
             Optional<Genero> generoAtualizado = repository.find(id);
             return Response.status(Response.Status.OK).entity(generoAtualizado).build();

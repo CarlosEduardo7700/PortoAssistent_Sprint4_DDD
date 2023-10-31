@@ -5,22 +5,22 @@ import java.sql.Timestamp;
 public class Tipo_Eixo {
 
     // Atributos
-    private int idEixo;
-    private String nomeTipoEixo;
-    private String descTipoEixo;
-    private Timestamp dtCadastro;
-    private String nomeUsuario;
+    private int id;
+    private String nome;
+    private String descricao;
+    private Timestamp dataCadastro;
+    private String usuario;
 
 
 
 
     // Construtor
     public Tipo_Eixo(int idEixo, String nomeTipoEixo, String descTipoEixo, Timestamp dtCadastro, String nomeUsuario) {
-        this.idEixo = idEixo;
-        this.nomeTipoEixo = nomeTipoEixo;
-        this.descTipoEixo = descTipoEixo;
-        this.dtCadastro = dtCadastro;
-        this.nomeUsuario = nomeUsuario;
+        this.id = idEixo;
+        this.nome = nomeTipoEixo;
+        this.descricao = descTipoEixo;
+        this.dataCadastro = dtCadastro;
+        this.usuario = nomeUsuario;
     }
     public Tipo_Eixo() {}
 
@@ -31,43 +31,43 @@ public class Tipo_Eixo {
 
 
     // GetterSetter
-    public int getIdEixo() {
-        return idEixo;
+    public int getId() {
+        return id;
     }
 
-    public void setIdEixo(int idEixo) {
-        this.idEixo = idEixo;
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public String getNomeTipoEixo() {
-        return nomeTipoEixo;
+    public String getNome() {
+        return nome;
     }
 
-    public void setNomeTipoEixo(String nomeTipoEixo) {
-        this.nomeTipoEixo = nomeTipoEixo;
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
-    public String getDescTipoEixo() {
-        return descTipoEixo;
+    public String getDescricao() {
+        return descricao;
     }
 
-    public void setDescTipoEixo(String descTipoEixo) {
-        this.descTipoEixo = descTipoEixo;
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
     }
 
-    public Timestamp getDtCadastro() {
-        return dtCadastro;
+    public Timestamp getDataCadastro() {
+        return dataCadastro;
     }
 
-    public void setDtCadastro(Timestamp dtCadastro) {
-        this.dtCadastro = dtCadastro;
+    public void setDataCadastro(Timestamp dataCadastro) {
+        this.dataCadastro = dataCadastro;
     }
 
-    public String getNomeUsuario() {
-        return nomeUsuario;
+    public String getUsuario() {
+        return usuario;
     }
 
-    public void setNomeUsuario(String nomeUsuario) {
-        this.nomeUsuario = nomeUsuario;
+    public void setUsuario(String usuario) {
+        this.usuario = usuario;
     }
 }

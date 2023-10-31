@@ -5,39 +5,36 @@ import java.sql.Timestamp;
 public class Bairro {
 
     // Atributos
-    private int idBairro;
-    private Cidade cidade; //composição
-    private String nomeBairro;
-    private String nomeZona;
-    private Timestamp dtCadastro;
-    private String nomeUsuario;
+    private int id;
+    private Cidade cidade;
+    private String nome;
+    private String zona;
+    private Timestamp dataCadastro;
+    private String usuario;
 
 
 
 
     // Construtor
-    public Bairro(int idBairro, Cidade cidade, String nomeBairro, String nomeZona, Timestamp dtCadastro, String nomeUsuario) {
-        this.idBairro = idBairro;
+    public Bairro(int id, Cidade cidade, String nome, String zona, Timestamp dataCadastro, String usuario) {
+        this.id = id;
         this.cidade = cidade;
-        this.nomeBairro = nomeBairro;
-        this.nomeZona = nomeZona;
-        this.dtCadastro = dtCadastro;
-        this.nomeUsuario = nomeUsuario;
+        this.nome = nome;
+        this.zona = zona;
+        this.dataCadastro = dataCadastro;
+        this.usuario = usuario;
     }
     public Bairro() {}
 
 
 
 
-
-
-
     // GetterSetter
-    public int getIdBairro() {
-        return idBairro;
+    public int getId() {
+        return id;
     }
-    public void setIdBairro(int idBairro) {
-        this.idBairro = idBairro;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public Cidade getCidade() {
@@ -47,32 +44,32 @@ public class Bairro {
         this.cidade = cidade;
     }
 
-    public String getNomeBairro() {
-        return nomeBairro;
+    public String getNome() {
+        return nome;
     }
-    public void setNomeBairro(String nomeBairro) {
-        this.nomeBairro = nomeBairro;
-    }
-
-    public String getNomeZona() {
-        return nomeZona;
-    }
-    public void setNomeZona(String nomeZona) {
-        this.nomeZona = nomeZona;
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
-    public Timestamp getDtCadastro() {
-        return dtCadastro;
+    public String getZona() {
+        return zona;
     }
-    public void setDtCadastro(Timestamp dtCadastro) {
-        this.dtCadastro = dtCadastro;
+    public void setZona(String zona) {
+        this.zona = zona;
     }
 
-    public String getNomeUsuario() {
-        return nomeUsuario;
+    public Timestamp getDataCadastro() {
+        return dataCadastro;
     }
-    public void setNomeUsuario(String nomeUsuario) {
-        this.nomeUsuario = nomeUsuario;
+    public void setDataCadastro(Timestamp dataCadastro) {
+        this.dataCadastro = dataCadastro;
+    }
+
+    public String getUsuario() {
+        return usuario;
+    }
+    public void setUsuario(String usuario) {
+        this.usuario = usuario;
     }
 
 }

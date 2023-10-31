@@ -41,7 +41,7 @@ public class TelefoneColaboradorResource {
     @Produces(MediaType.APPLICATION_JSON)
     public Response update(@PathParam("id") int id, TelefoneColaborador telefoneColaborador) throws SQLException {
         if (repository.find(id).isPresent()) {
-            telefoneColaborador.getColaborador().setIdColaborador(id);
+            telefoneColaborador.getColaborador().setId(id);
             repository.update(telefoneColaborador);
             Optional<TelefoneColaborador> telefoneColaboradorAtualizado = repository.find(id);
             return Response.status(Response.Status.OK).entity(telefoneColaboradorAtualizado).build();

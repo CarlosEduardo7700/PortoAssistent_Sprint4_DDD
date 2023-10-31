@@ -5,24 +5,24 @@ import java.sql.Timestamp;
 public class EnderecoColaborador {
 
     //Atributos
-    private Colaborador colaborador; //composição
-    private Logradouro logradouro; //composição
-    private int numLogradouroColaborador;
-    private String descLogradouroColaborador;
-    private Timestamp dtCadastro;
-    private String nomeUsuario;
+    private Colaborador colaborador;
+    private Logradouro logradouro;
+    private int numLogradouro;
+    private String descLogradouro;
+    private Timestamp dataCadastro;
+    private String usuario;
 
 
 
 
     //Construtor
-    public EnderecoColaborador(Colaborador colaborador, Logradouro logradouro, int numLogradouroColaborador, String descLogradouroColaborador, Timestamp dtCadastro, String nomeUsuario) {
+    public EnderecoColaborador(Colaborador colaborador, Logradouro logradouro, int numLogradouro, String descLogradouro, Timestamp dataCadastro, String usuario) {
         this.colaborador = colaborador;
         this.logradouro = logradouro;
-        this.numLogradouroColaborador = numLogradouroColaborador;
-        this.descLogradouroColaborador = descLogradouroColaborador;
-        this.dtCadastro = dtCadastro;
-        this.nomeUsuario = nomeUsuario;
+        this.numLogradouro = numLogradouro;
+        this.descLogradouro = descLogradouro;
+        this.dataCadastro = dataCadastro;
+        this.usuario = usuario;
     }
 
     public EnderecoColaborador(){}
@@ -50,36 +50,36 @@ public class EnderecoColaborador {
         this.logradouro = logradouro;
     }
 
-    public int getNumLogradouroColaborador() {
-        return numLogradouroColaborador;
+    public int getNumLogradouro() {
+        return numLogradouro;
     }
 
-    public void setNumLogradouroColaborador(int numLogradouroColaborador) {
-        this.numLogradouroColaborador = numLogradouroColaborador;
+    public void setNumLogradouro(int numLogradouro) {
+        this.numLogradouro = numLogradouro;
     }
 
-    public String getDescLogradouroColaborador() {
-        return descLogradouroColaborador;
+    public String getDescLogradouro() {
+        return descLogradouro;
     }
 
-    public void setDescLogradouroColaborador(String descLogradouroColaborador) {
-        this.descLogradouroColaborador = descLogradouroColaborador;
+    public void setDescLogradouro(String descLogradouro) {
+        this.descLogradouro = descLogradouro;
     }
 
-    public Timestamp getDtCadastro() {
-        return dtCadastro;
+    public Timestamp getDataCadastro() {
+        return dataCadastro;
     }
 
-    public void setDtCadastro(Timestamp dtCadastro) {
-        this.dtCadastro = dtCadastro;
+    public void setDataCadastro(Timestamp dataCadastro) {
+        this.dataCadastro = dataCadastro;
     }
 
-    public String getNomeUsuario() {
-        return nomeUsuario;
+    public String getUsuario() {
+        return usuario;
     }
 
-    public void setNomeUsuario(String nomeUsuario) {
-        this.nomeUsuario = nomeUsuario;
+    public void setUsuario(String usuario) {
+        this.usuario = usuario;
     }
 }
 

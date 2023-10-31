@@ -41,7 +41,7 @@ public class Veic_ClienteResouce {
     @Produces(MediaType.APPLICATION_JSON)
     public Response update(@PathParam("id") int id, Veic_Cliente veicCliente) throws SQLException {
         if (repository.find(id).isPresent()) {
-            veicCliente.getIdCliente().setIdCliente(id);
+            veicCliente.getIdCliente().setId(id);
             repository.update(veicCliente);
             Optional<Veic_Cliente> veicClienteAtualizado = repository.find(id);
             return Response.status(Response.Status.OK).entity(veicClienteAtualizado).build();
