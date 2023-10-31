@@ -1,27 +1,27 @@
 package org.example.models;
 
 public class Veic_Cliente {
-    private Cliente idCliente;
-    private Veiculo idVeiculo;
+    private Cliente cliente;
+    private Veiculo veiculo;
 
-    public Veic_Cliente(Cliente idCliente, Veiculo idVeiculo) {
-        this.idCliente = idCliente;
-        this.idVeiculo = idVeiculo;
+    public Veic_Cliente(Cliente cliente, Veiculo veiculo) {
+        this.cliente = cliente;
+        this.veiculo = veiculo;
     }
 
-    public Cliente getIdCliente() {
-        return idCliente;
+    public Cliente getCliente() {
+        return cliente;
     }
 
-    public void setIdCliente(Cliente idCliente) {
-        this.idCliente = idCliente;
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
     }
 
-    public Veiculo getIdVeiculo() {
-        return idVeiculo;
+    public Veiculo getVeiculo() {
+        return veiculo;
     }
 
-    public void setIdVeiculo(Veiculo idVeiculo) {
-        this.idVeiculo = idVeiculo;
+    public void setVeiculo(Veiculo veiculo) {
+        this.veiculo = veiculo;
     }
 }

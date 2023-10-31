@@ -8,7 +8,7 @@ public class Cliente {
     private int id;
     private String caminhoImagem;
     private Genero genero;
-    private String cliente;
+    private String nome;
     private String cpf;
     private String rg;
     private Timestamp dataNascimento;
@@ -24,11 +24,11 @@ public class Cliente {
     // Construtor
 
 
-    public Cliente(int id, String caminhoImagem, Genero genero, String cliente, String cpf, String rg, Timestamp dataNascimento, String cnh, String email, String senha, Timestamp dataCadastro, String usuario) {
+    public Cliente(int id, String caminhoImagem, Genero genero, String nome, String cpf, String rg, Timestamp dataNascimento, String cnh, String email, String senha, Timestamp dataCadastro, String usuario) {
         this.id = id;
         this.caminhoImagem = caminhoImagem;
         this.genero = genero;
-        this.cliente = cliente;
+        this.nome = nome;
         this.cpf = cpf;
         this.rg = rg;
         this.dataNascimento = dataNascimento;
@@ -65,12 +65,12 @@ public class Cliente {
         this.genero = genero;
     }
 
-    public String getCliente() {
-        return cliente;
+    public String getNome() {
+        return nome;
     }
 
-    public void setCliente(String cliente) {
-        this.cliente = cliente;
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
     public String getCpf() {

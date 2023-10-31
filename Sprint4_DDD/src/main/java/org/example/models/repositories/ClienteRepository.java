@@ -105,7 +105,7 @@ public class ClienteRepository {
             ps.setInt(1, cliente.getId());
             ps.setString(2, cliente.getCaminhoImagem());
             ps.setInt(3, cliente.getGenero().getId());
-            ps.setString(4, cliente.getCliente());
+            ps.setString(4, cliente.getNome());
             ps.setString(5, cliente.getCpf());
             ps.setString(6, cliente.getRg());
             ps.setString(7, cliente.getEmail());
@@ -129,7 +129,7 @@ public class ClienteRepository {
 
             ps.setString(1, cliente.getCaminhoImagem());
             ps.setInt(2, cliente.getGenero().getId());
-            ps.setString(3, cliente.getCliente());
+            ps.setString(3, cliente.getNome());
             ps.setString(4, cliente.getCpf());
             ps.setString(5, cliente.getRg());
             ps.setString(6, cliente.getEmail());
