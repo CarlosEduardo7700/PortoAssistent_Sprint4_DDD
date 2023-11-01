@@ -9,14 +9,12 @@ public class Cliente {
     private String caminhoImagem;
     private Genero genero;
     private String nome;
-    private String cpf;
-    private String rg;
+    private int cpf;
+    private int rg;
     private Timestamp dataNascimento;
     private String cnh;
     private String email;
     private String senha;
-    private Timestamp dataCadastro;
-    private String usuario;
 
 
 
@@ -24,7 +22,7 @@ public class Cliente {
     // Construtor
 
 
-    public Cliente(int id, String caminhoImagem, Genero genero, String nome, String cpf, String rg, Timestamp dataNascimento, String cnh, String email, String senha, Timestamp dataCadastro, String usuario) {
+    public Cliente(int id, String caminhoImagem, Genero genero, String nome, int cpf, int rg, Timestamp dataNascimento, String cnh, String email, String senha) {
         this.id = id;
         this.caminhoImagem = caminhoImagem;
         this.genero = genero;
@@ -35,8 +33,6 @@ public class Cliente {
         this.cnh = cnh;
         this.email = email;
         this.senha = senha;
-        this.dataCadastro = dataCadastro;
-        this.usuario = usuario;
     }
 
     public Cliente() {}
@@ -73,22 +69,6 @@ public class Cliente {
         this.nome = nome;
     }
 
-    public String getCpf() {
-        return cpf;
-    }
-
-    public void setCpf(String cpf) {
-        this.cpf = cpf;
-    }
-
-    public String getRg() {
-        return rg;
-    }
-
-    public void setRg(String rg) {
-        this.rg = rg;
-    }
-
     public Timestamp getDataNascimento() {
         return dataNascimento;
     }
@@ -121,21 +101,6 @@ public class Cliente {
         this.senha = senha;
     }
 
-    public Timestamp getDataCadastro() {
-        return dataCadastro;
-    }
-
-    public void setDataCadastro(Timestamp dataCadastro) {
-        this.dataCadastro = dataCadastro;
-    }
-
-    public String getUsuario() {
-        return usuario;
-    }
-
-    public void setUsuario(String usuario) {
-        this.usuario = usuario;
-    }
 
     public String getCaminhoImagem() {
         return caminhoImagem;
@@ -143,5 +108,21 @@ public class Cliente {
 
     public void setCaminhoImagem(String caminhoImagem) {
         this.caminhoImagem = caminhoImagem;
+    }
+
+    public int getCpf() {
+        return cpf;
+    }
+
+    public void setCpf(int cpf) {
+        this.cpf = cpf;
+    }
+
+    public int getRg() {
+        return rg;
+    }
+
+    public void setRg(int rg) {
+        this.rg = rg;
     }
 }

@@ -5,6 +5,7 @@ import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
 import org.example.models.Bairro;
 import org.example.models.repositories.BairroRepository;
+import org.example.services.BairroService;
 
 import java.sql.SQLException;
 import java.util.List;
@@ -13,6 +14,7 @@ import java.util.Optional;
 @Path("/bairro")
 public class BairroResource {
     private BairroRepository repository = new BairroRepository();
+    private BairroService service = new BairroService();
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
@@ -23,9 +25,8 @@ public class BairroResource {
     @GET
     @Path("{id}")
     @Produces(MediaType.APPLICATION_JSON)
-    public Bairro getById(@PathParam("id") int id) throws SQLException {
-        Bairro bairro = repository.find(id).orElse(null);
-        return bairro;
+    public Response getById(@PathParam("id") int id) throws SQLException {
+        return service.getByIdService(id);
     }
 
     @POST

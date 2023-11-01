@@ -9,20 +9,16 @@ public class EnderecoColaborador {
     private Logradouro logradouro;
     private int numLogradouro;
     private String descLogradouro;
-    private Timestamp dataCadastro;
-    private String usuario;
 
 
 
 
     //Construtor
-    public EnderecoColaborador(Colaborador colaborador, Logradouro logradouro, int numLogradouro, String descLogradouro, Timestamp dataCadastro, String usuario) {
+    public EnderecoColaborador(Colaborador colaborador, Logradouro logradouro, int numLogradouro, String descLogradouro) {
         this.colaborador = colaborador;
         this.logradouro = logradouro;
         this.numLogradouro = numLogradouro;
         this.descLogradouro = descLogradouro;
-        this.dataCadastro = dataCadastro;
-        this.usuario = usuario;
     }
 
     public EnderecoColaborador(){}
@@ -66,21 +62,6 @@ public class EnderecoColaborador {
         this.descLogradouro = descLogradouro;
     }
 
-    public Timestamp getDataCadastro() {
-        return dataCadastro;
-    }
-
-    public void setDataCadastro(Timestamp dataCadastro) {
-        this.dataCadastro = dataCadastro;
-    }
-
-    public String getUsuario() {
-        return usuario;
-    }
-
-    public void setUsuario(String usuario) {
-        this.usuario = usuario;
-    }
 }
 
 

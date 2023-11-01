@@ -81,7 +81,7 @@ public class Tipo_ChassiRepository {
     }
 
     public void add(Tipo_Chassi tipoChassi) throws SQLException {
-        String query = "INSERT INTO T_PA_TIPO_CHASSI (ID_TIPO_CHASSI, NOME_TIPO_CHASSI, DESC_TIPO_CHASSI, DT_CADASTRO, NM_USUARIO) VALUES (?, ?, ?, ?, ?)";
+        String query = "INSERT INTO T_PA_TIPO_CHASSI (ID_TIPO_CHASSI, NOME_TIPO_CHASSI, DESC_TIPO_CHASSI, DT_CADASTRO, NM_USUARIO) VALUES (?, ?, ?, SYSDATE, USER)";
 
         try (Connection connection = DataBaseFactory.getConnection();
              PreparedStatement ps = connection.prepareStatement(query)) {
@@ -89,8 +89,6 @@ public class Tipo_ChassiRepository {
             ps.setInt(1, tipoChassi.getId());
             ps.setString(2, tipoChassi.getNome());
             ps.setString(3, tipoChassi.getDescricao());
-            ps.setTimestamp(4, tipoChassi.getDataCadastro());
-            ps.setString(5, tipoChassi.getUsuario());
 
             ps.executeUpdate();
         } catch (SQLException e) {

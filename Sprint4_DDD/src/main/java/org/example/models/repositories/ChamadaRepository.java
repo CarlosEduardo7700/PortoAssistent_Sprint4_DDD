@@ -38,9 +38,7 @@ public class ChamadaRepository {
                         rs.getString("LOCAL_CHAMADA"),
                         rs.getString("DESTINO_CHAMADA"),
                         rs.getString("DS_LOCAL_CHAMADA"),
-                        rs.getString("DS_PROB_CHAMADA"),
-                        rs.getTimestamp("DT_CADASTRO"),
-                        rs.getString("NM_USUARIO")
+                        rs.getString("DS_PROB_CHAMADA")
                 );
 
                 chamadas.add(chamada);
@@ -80,9 +78,7 @@ public class ChamadaRepository {
                             rs.getString("LOCAL_CHAMADA"),
                             rs.getString("DESTINO_CHAMADA"),
                             rs.getString("DS_LOCAL_CHAMADA"),
-                            rs.getString("DS_PROB_CHAMADA"),
-                            rs.getTimestamp("DT_CADASTRO"),
-                            rs.getString("NM_USUARIO")
+                            rs.getString("DS_PROB_CHAMADA")
                     );
 
                     return Optional.ofNullable(chamada);
@@ -104,34 +100,7 @@ public class ChamadaRepository {
     }
 
     public void add(Chamada chamada) throws SQLException {
-        String query = "INSERT INTO T_PA_CHAMADA (ID_CHAMADA, IMG_CHAMADA, ID_CLIENTE, ID_COLABORADOR, ID_VEICULO, ID_MODAL, DT_INICIO_CHAMADA, DT_FIM_CHAMADA, LOCAL_CHAMADA, DESTINO_CHAMADA, DS_LOCAL_CHAMADA, DS_PROB_CHAMADA, DT_CADASTRO, NM_USUARIO) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-
-        try (Connection connection = DataBaseFactory.getConnection();
-             PreparedStatement ps = connection.prepareStatement(query)) {
-
-            ps.setInt(1, chamada.getId());
-            ps.setString(2, chamada.getCaminhosImagens());
-            ps.setInt(3, chamada.getCliente().getId());
-            ps.setInt(4, chamada.getColaborador().getId());
-            ps.setInt(5, chamada.getVeiculo().getId());
-            ps.setInt(6, chamada.getModal().getId());
-            ps.setTimestamp(7, chamada.getDataInicio());
-            ps.setTimestamp(8, chamada.getDataFim());
-            ps.setString(9, chamada.getLocal());
-            ps.setString(10, chamada.getDestino());
-            ps.setString(11, chamada.getDescLocal());
-            ps.setString(12, chamada.getDescProblema());
-            ps.setTimestamp(13, chamada.getDataCadastro());
-            ps.setString(14, chamada.getUsuario());
-
-            ps.executeUpdate();
-        } catch (SQLException e) {
-            throw new SQLException(e);
-        }
-    }
-
-    public void update(Chamada chamada) throws SQLException {
-        String query = "UPDATE T_PA_CHAMADA SET IMG_CHAMADA = ?, ID_CLIENTE = ?, ID_COLABORADOR = ?, ID_VEICULO = ?, ID_MODAL = ?, DT_INICIO_CHAMADA = ?, DT_FIM_CHAMADA = ?, LOCAL_CHAMADA = ?, DESTINO_CHAMADA = ?, DS_LOCAL_CHAMADA = ?, DS_PROB_CHAMADA = ?, DT_CADASTRO = ?, NM_USUARIO = ? WHERE ID_CHAMADA = ?";
+        String query = "INSERT INTO T_PA_CHAMADA (ID_CHAMADA, IMG_CHAMADA, ID_CLIENTE, ID_COLABORADOR, ID_VEICULO, ID_MODAL, DT_INICIO_CHAMADA, DT_FIM_CHAMADA, LOCAL_CHAMADA, DESTINO_CHAMADA, DS_LOCAL_CHAMADA, DS_PROB_CHAMADA, DT_CADASTRO, NM_USUARIO) VALUES (SQ_PA_CHAMADA.nextval(), ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, SYSDATE, USER)";
 
         try (Connection connection = DataBaseFactory.getConnection();
              PreparedStatement ps = connection.prepareStatement(query)) {
@@ -147,9 +116,31 @@ public class ChamadaRepository {
             ps.setString(9, chamada.getDestino());
             ps.setString(10, chamada.getDescLocal());
             ps.setString(11, chamada.getDescProblema());
-            ps.setTimestamp(12, chamada.getDataCadastro());
-            ps.setString(13, chamada.getUsuario());
-            ps.setInt(14, chamada.getId());
+
+            ps.executeUpdate();
+        } catch (SQLException e) {
+            throw new SQLException(e);
+        }
+    }
+
+    public void update(Chamada chamada) throws SQLException {
+        String query = "UPDATE T_PA_CHAMADA SET IMG_CHAMADA = ?, ID_CLIENTE = ?, ID_COLABORADOR = ?, ID_VEICULO = ?, ID_MODAL = ?, DT_INICIO_CHAMADA = ?, DT_FIM_CHAMADA = ?, LOCAL_CHAMADA = ?, DESTINO_CHAMADA = ?, DS_LOCAL_CHAMADA = ?, DS_PROB_CHAMADA = ? WHERE ID_CHAMADA = ?";
+
+        try (Connection connection = DataBaseFactory.getConnection();
+             PreparedStatement ps = connection.prepareStatement(query)) {
+
+            ps.setString(1, chamada.getCaminhosImagens());
+            ps.setInt(2, chamada.getCliente().getId());
+            ps.setInt(3, chamada.getColaborador().getId());
+            ps.setInt(4, chamada.getVeiculo().getId());
+            ps.setInt(5, chamada.getModal().getId());
+            ps.setTimestamp(6, chamada.getDataInicio());
+            ps.setTimestamp(7, chamada.getDataFim());
+            ps.setString(8, chamada.getLocal());
+            ps.setString(9, chamada.getDestino());
+            ps.setString(10, chamada.getDescLocal());
+            ps.setString(11, chamada.getDescProblema());
+            ps.setInt(12, chamada.getId());
 
             ps.executeUpdate();
         } catch (SQLException e) {

@@ -9,21 +9,19 @@ public class Bairro {
     private Cidade cidade;
     private String nome;
     private String zona;
-    private Timestamp dataCadastro;
-    private String usuario;
 
 
 
 
     // Construtor
-    public Bairro(int id, Cidade cidade, String nome, String zona, Timestamp dataCadastro, String usuario) {
+
+    public Bairro(int id, Cidade cidade, String nome, String zona) {
         this.id = id;
         this.cidade = cidade;
         this.nome = nome;
         this.zona = zona;
-        this.dataCadastro = dataCadastro;
-        this.usuario = usuario;
     }
+
     public Bairro() {}
 
 
@@ -56,20 +54,6 @@ public class Bairro {
     }
     public void setZona(String zona) {
         this.zona = zona;
-    }
-
-    public Timestamp getDataCadastro() {
-        return dataCadastro;
-    }
-    public void setDataCadastro(Timestamp dataCadastro) {
-        this.dataCadastro = dataCadastro;
-    }
-
-    public String getUsuario() {
-        return usuario;
-    }
-    public void setUsuario(String usuario) {
-        this.usuario = usuario;
     }
 
 }

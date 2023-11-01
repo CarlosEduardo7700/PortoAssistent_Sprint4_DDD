@@ -10,22 +10,20 @@ public class Cidade{
     private String nome;
     private int ibgeCodigo;
     private int ddd;
-    private Timestamp dataCadastro;
-    private String usuario;
 
 
 
 
     // Construtor
-    public Cidade(int id, Estado estado, String nome, int ibgeCodigo, int ddd, Timestamp dataCadastro, String usuario) {
+
+    public Cidade(int id, Estado estado, String nome, int ibgeCodigo, int ddd) {
         this.id = id;
         this.estado = estado;
         this.nome = nome;
         this.ibgeCodigo = ibgeCodigo;
         this.ddd = ddd;
-        this.dataCadastro = dataCadastro;
-        this.usuario = usuario;
     }
+
     public Cidade() {}
 
 
@@ -70,17 +68,4 @@ public class Cidade{
         this.ddd = ddd;
     }
 
-    public Timestamp getDataCadastro() {
-        return dataCadastro;
-    }
-    public void setDataCadastro(Timestamp dataCadastro) {
-        this.dataCadastro = dataCadastro;
-    }
-
-    public String getUsuario() {
-        return usuario;
-    }
-    public void setUsuario(String usuario) {
-        this.usuario = usuario;
-    }
 }

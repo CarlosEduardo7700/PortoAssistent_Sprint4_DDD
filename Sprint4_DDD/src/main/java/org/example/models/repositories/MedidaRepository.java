@@ -87,7 +87,7 @@ public class MedidaRepository {
     }
 
     public void add(Medida medida) throws SQLException {
-        String query = "INSERT INTO T_PA_MEDIDA (ID_MEDIDA, ALTURA, LARGURA, COMPRIMENTO, PESO, PESO_SUPORTADO, DT_CADASTRO, NM_USUARIO) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+        String query = "INSERT INTO T_PA_MEDIDA (ID_MEDIDA, ALTURA, LARGURA, COMPRIMENTO, PESO, PESO_SUPORTADO, DT_CADASTRO, NM_USUARIO) VALUES (?, ?, ?, ?, ?, ?, SYSDATE, USER)";
 
         try (Connection connection = DataBaseFactory.getConnection();
              PreparedStatement ps = connection.prepareStatement(query)) {
@@ -98,8 +98,6 @@ public class MedidaRepository {
             ps.setDouble(4, medida.getComprimento());
             ps.setDouble(5, medida.getPesoVeiculo());
             ps.setDouble(6, medida.getPesoSuportadoModal());
-            ps.setTimestamp(7, medida.getDataCadastro());
-            ps.setString(8, medida.getUsuario());
 
             ps.executeUpdate();
         } catch (SQLException e) {

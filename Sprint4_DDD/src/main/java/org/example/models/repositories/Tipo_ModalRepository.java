@@ -79,15 +79,13 @@ public class Tipo_ModalRepository {
     }
 
     public void add(Tipo_Modal tipoModal) throws SQLException {
-        String query = "INSERT INTO T_PA_TIPO_MODAL (ID_TIPO_MODAL, NM_TIPO_MODAL, DT_CADASTRO, NM_USUARIO) VALUES (?, ?, ?, ?)";
+        String query = "INSERT INTO T_PA_TIPO_MODAL (ID_TIPO_MODAL, NM_TIPO_MODAL, DT_CADASTRO, NM_USUARIO) VALUES (?, ?, SYSDATE, USER)";
 
         try (Connection connection = DataBaseFactory.getConnection();
              PreparedStatement ps = connection.prepareStatement(query)) {
 
             ps.setInt(1, tipoModal.getId());
             ps.setString(2, tipoModal.getNome());
-            ps.setTimestamp(3, tipoModal.getDataCadastro());
-            ps.setString(4, tipoModal.getUsuario());
 
             ps.executeUpdate();
         } catch (SQLException e) {

@@ -104,27 +104,24 @@ public class VeiculoRepository {
     }
 
     public void add(Veiculo veiculo) throws SQLException {
-        String query = "INSERT INTO T_PA_VEICULO (ID_VEICULO, IMG_VEICULO, ID_TIPO_EIXO, ID_TIPO_CHASSI, ID_MEDIDA, APOLICE_VEICULO, MODELO_VEICULO, COR_VEICULO, MARCA_VEICULO, PLACA_VEICULO, ANO_VEICULO, QUANTIDADE_EIXOS_VEICULO, RENAVAN_VEICULO, NR_CHASSI, DT_CADASTRO, NM_USUARIO) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        String query = "INSERT INTO T_PA_VEICULO (ID_VEICULO, IMG_VEICULO, ID_TIPO_EIXO, ID_TIPO_CHASSI, ID_MEDIDA, APOLICE_VEICULO, MODELO_VEICULO, COR_VEICULO, MARCA_VEICULO, PLACA_VEICULO, ANO_VEICULO, QUANTIDADE_EIXOS_VEICULO, RENAVAN_VEICULO, NR_CHASSI, DT_CADASTRO, NM_USUARIO) VALUES (SQ_PA_VEICULO.nextval(), ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, SYSDATE, USER)";
 
         try (Connection connection = DataBaseFactory.getConnection();
              PreparedStatement ps = connection.prepareStatement(query)) {
 
-            ps.setInt(1, veiculo.getId());
-            ps.setString(2, veiculo.getCaminhoImagem());
-            ps.setInt(3, veiculo.getTipoEixo().getId());
-            ps.setInt(4, veiculo.getTipoChassi().getId());
-            ps.setInt(5, veiculo.getMedidaVeiculo().getId());
-            ps.setInt(6, veiculo.getApolice());
-            ps.setString(7, veiculo.getModelo());
-            ps.setString(8, veiculo.getCor());
-            ps.setString(9, veiculo.getMarca());
-            ps.setString(10, veiculo.getPlaca());
-            ps.setInt(11, veiculo.getAnoFabricacao());
-            ps.setInt(12, veiculo.getQuantidadeEixos());
-            ps.setString(13, veiculo.getRenavan());
-            ps.setInt(14, veiculo.getNumChassi());
-            ps.setTimestamp(15, veiculo.getDataCadastro());
-            ps.setString(16, veiculo.getUsuario());
+            ps.setString(1, veiculo.getCaminhoImagem());
+            ps.setInt(2, veiculo.getTipoEixo().getId());
+            ps.setInt(3, veiculo.getTipoChassi().getId());
+            ps.setInt(4, veiculo.getMedidaVeiculo().getId());
+            ps.setInt(5, veiculo.getApolice());
+            ps.setString(6, veiculo.getModelo());
+            ps.setString(7, veiculo.getCor());
+            ps.setString(8, veiculo.getMarca());
+            ps.setString(9, veiculo.getPlaca());
+            ps.setInt(10, veiculo.getAnoFabricacao());
+            ps.setInt(11, veiculo.getQuantidadeEixos());
+            ps.setString(12, veiculo.getRenavan());
+            ps.setInt(13, veiculo.getNumChassi());
 
             ps.executeUpdate();
         } catch (SQLException e) {

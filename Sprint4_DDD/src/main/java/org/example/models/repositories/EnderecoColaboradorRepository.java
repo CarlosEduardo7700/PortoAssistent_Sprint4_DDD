@@ -28,9 +28,7 @@ public class EnderecoColaboradorRepository {
                         colaboradorRepository.find(rs.getInt("ID_COLABORADOR")).orElse(null),
                         logradouroRepository.find(rs.getInt("ID_LOGRADOURO")).orElse(null),
                         rs.getInt("NR_LOGRADOURO"),
-                        rs.getString("DS_LOGRADOURO"),
-                        rs.getTimestamp("DT_CADASTRO"),
-                        rs.getString("NM_USUARIO")
+                        rs.getString("DS_LOGRADOURO")
                 );
 
                 enderecosColaboradores.add(enderecoColaborador);
@@ -62,9 +60,7 @@ public class EnderecoColaboradorRepository {
                             colaboradorRepository.find(rs.getInt("ID_COLABORADOR")).orElse(null),
                             logradouroRepository.find(rs.getInt("ID_LOGRADOURO")).orElse(null),
                             rs.getInt("NR_LOGRADOURO"),
-                            rs.getString("DS_LOGRADOURO"),
-                            rs.getTimestamp("DT_CADASTRO"),
-                            rs.getString("NM_USUARIO")
+                            rs.getString("DS_LOGRADOURO")
                     );
 
                     return Optional.ofNullable(enderecoColaborador);
@@ -87,7 +83,7 @@ public class EnderecoColaboradorRepository {
 
 
     public void add(EnderecoColaborador enderecoColaborador) throws SQLException {
-        String query = "INSERT INTO T_PA_ENDERECO_COLABORADOR (ID_COLABORADOR, ID_LOGRADOURO, NR_LOGRADOURO, DS_LOGRADOURO, DT_CADASTRO, NM_USUARIO) VALUES (?, ?, ?, ?, ?, ?)";
+        String query = "INSERT INTO T_PA_ENDERECO_COLABORADOR (ID_COLABORADOR, ID_LOGRADOURO, NR_LOGRADOURO, DS_LOGRADOURO, DT_CADASTRO, NM_USUARIO) VALUES (?, ?, ?, ?, SYSDATE, USER)";
 
         try (Connection connection = DataBaseFactory.getConnection();
              PreparedStatement ps = connection.prepareStatement(query)) {
@@ -96,8 +92,6 @@ public class EnderecoColaboradorRepository {
             ps.setInt(2, enderecoColaborador.getLogradouro().getId());
             ps.setInt(3, enderecoColaborador.getNumLogradouro());
             ps.setString(4, enderecoColaborador.getDescLogradouro());
-            ps.setTimestamp(5, enderecoColaborador.getDataCadastro());
-            ps.setString(6, enderecoColaborador.getUsuario());
 
             ps.executeUpdate();
         } catch (SQLException e) {
@@ -106,7 +100,7 @@ public class EnderecoColaboradorRepository {
     }
 
     public void updateByIdColaborador(EnderecoColaborador enderecoColaborador) throws SQLException {
-        String query = "UPDATE T_PA_ENDERECO_COLABORADOR SET ID_LOGRADOURO = ?, NR_LOGRADOURO = ?, DS_LOGRADOURO = ?, DT_CADASTRO = ?, NM_USUARIO = ? WHERE ID_COLABORADOR = ?";
+        String query = "UPDATE T_PA_ENDERECO_COLABORADOR SET ID_LOGRADOURO = ?, NR_LOGRADOURO = ?, DS_LOGRADOURO = ? WHERE ID_COLABORADOR = ?";
 
         try (Connection connection = DataBaseFactory.getConnection();
              PreparedStatement ps = connection.prepareStatement(query)) {
@@ -114,9 +108,7 @@ public class EnderecoColaboradorRepository {
             ps.setInt(1, enderecoColaborador.getLogradouro().getId());
             ps.setInt(2, enderecoColaborador.getNumLogradouro());
             ps.setString(3, enderecoColaborador.getDescLogradouro());
-            ps.setTimestamp(4, enderecoColaborador.getDataCadastro());
-            ps.setString(5, enderecoColaborador.getUsuario());
-            ps.setInt(6, enderecoColaborador.getColaborador().getId());
+            ps.setInt(4, enderecoColaborador.getColaborador().getId());
 
             ps.executeUpdate();
         } catch (SQLException e) {

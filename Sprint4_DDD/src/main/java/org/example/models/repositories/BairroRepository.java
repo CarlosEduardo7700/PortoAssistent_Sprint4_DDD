@@ -27,9 +27,7 @@ public class BairroRepository {
                         rs.getInt("ID_BAIRRO"),
                         cidadeRepository.find(rs.getInt("ID_CIDADE")).orElse(null),
                         rs.getString("NM_BAIRRO"),
-                        rs.getString("NM_ZONA_BAIRRO"),
-                        rs.getTimestamp("DT_CADASTRO"),
-                        rs.getString("NM_USUARIO")
+                        rs.getString("NM_ZONA_BAIRRO")
                 );
 
                 bairros.add(bairro);
@@ -61,9 +59,7 @@ public class BairroRepository {
                             rs.getInt("ID_BAIRRO"),
                             cidadeRepository.find(rs.getInt("ID_CIDADE")).orElse(null),
                             rs.getString("NM_BAIRRO"),
-                            rs.getString("NM_ZONA_BAIRRO"),
-                            rs.getTimestamp("DT_CADASTRO"),
-                            rs.getString("NM_USUARIO")
+                            rs.getString("NM_ZONA_BAIRRO")
                     );
 
                     return Optional.ofNullable(bairro);
@@ -85,7 +81,7 @@ public class BairroRepository {
     }
 
     public void add(Bairro bairro) throws SQLException {
-        String query = "INSERT INTO T_PA_BAIRRO (ID_BAIRRO, ID_CIDADE, NM_BAIRRO, NM_ZONA_BAIRRO, DT_CADASTRO, NM_USUARIO) VALUES (?, ?, ?, ?, ?, ?)";
+        String query = "INSERT INTO T_PA_BAIRRO (ID_BAIRRO, ID_CIDADE, NM_BAIRRO, NM_ZONA_BAIRRO, DT_CADASTRO, NM_USUARIO) VALUES (?, ?, ?, ?, SYSDATE, USER)";
 
         try (Connection connection = DataBaseFactory.getConnection();
              PreparedStatement ps = connection.prepareStatement(query)) {
@@ -94,8 +90,6 @@ public class BairroRepository {
             ps.setInt(2, bairro.getCidade().getId());
             ps.setString(3, bairro.getNome());
             ps.setString(4, bairro.getZona());
-            ps.setTimestamp(5, bairro.getDataCadastro());
-            ps.setString(6, bairro.getUsuario());
 
             ps.executeUpdate();
         } catch (SQLException e) {
@@ -104,17 +98,15 @@ public class BairroRepository {
     }
 
     public void update(Bairro bairro) throws SQLException {
-        String query = "UPDATE T_PA_BAIRRO SET ID_CIDADE = ?, NM_BAIRRO = ?, NM_ZONA_BAIRRO = ?, DT_CADASTRO = ?, NM_USUARIO = ? WHERE ID_BAIRRO = ?";
+        String query = "UPDATE T_PA_BAIRRO SET ID_CIDADE = ?, NM_BAIRRO = ?, NM_ZONA_BAIRRO = ? WHERE ID_BAIRRO = ?";
 
         try (Connection connection = DataBaseFactory.getConnection();
              PreparedStatement ps = connection.prepareStatement(query)) {
 
             ps.setInt(1, bairro.getCidade().getId());
-            ps.setString(2, bairro.getUsuario());
+            ps.setString(2, bairro.getNome());
             ps.setString(3, bairro.getZona());
-            ps.setTimestamp(4, bairro.getDataCadastro());
-            ps.setString(5, bairro.getUsuario());
-            ps.setInt(6, bairro.getId());
+            ps.setInt(4, bairro.getId());
 
             ps.executeUpdate();
         } catch (SQLException e) {

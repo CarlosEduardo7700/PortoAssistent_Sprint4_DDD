@@ -23,9 +23,7 @@ public class GeneroRepository {
             while(rs.next()){
                 Genero genero = new Genero(
                         rs.getInt("ID_GENERO"),
-                        rs.getString("NOME_GENERO"),
-                        rs.getTimestamp("DT_CADASTRO"),
-                        rs.getString("NM_USUARIO")
+                        rs.getString("NOME_GENERO")
                 );
 
                 generos.add(genero);
@@ -55,9 +53,7 @@ public class GeneroRepository {
                 if(rs.next()) {
                     Genero genero = new Genero(
                             rs.getInt("ID_GENERO"),
-                            rs.getString("NOME_GENERO"),
-                            rs.getTimestamp("DT_CADASTRO"),
-                            rs.getString("NM_USUARIO")
+                            rs.getString("NOME_GENERO")
                     );
 
                     return Optional.ofNullable(genero);
@@ -79,15 +75,13 @@ public class GeneroRepository {
     }
 
     public void add(Genero genero) throws SQLException {
-        String query = "INSERT INTO T_PA_GENERO (ID_GENERO, NOME_GENERO, DT_CADASTRO, NM_USUARIO) VALUES (?, ?, ?, ?)";
+        String query = "INSERT INTO T_PA_GENERO (ID_GENERO, NOME_GENERO, DT_CADASTRO, NM_USUARIO) VALUES (?, ?, SYSDATE, USER)";
 
         try (Connection connection = DataBaseFactory.getConnection();
              PreparedStatement ps = connection.prepareStatement(query)) {
 
             ps.setInt(1, genero.getId());
             ps.setString(2, genero.getNome());
-            ps.setTimestamp(3, genero.getDataCadastro());
-            ps.setString(4, genero.getUsuario());
 
             ps.executeUpdate();
         } catch (SQLException e) {
@@ -96,15 +90,13 @@ public class GeneroRepository {
     }
 
     public void update(Genero genero) throws SQLException {
-        String query = "UPDATE T_PA_GENERO SET NOME_GENERO = ? DT_CADASTRO = ?, NM_USUARIO = ? WHERE ID_GENERO = ?";
+        String query = "UPDATE T_PA_GENERO SET NOME_GENERO = ? WHERE ID_GENERO = ?";
 
         try (Connection connection = DataBaseFactory.getConnection();
              PreparedStatement ps = connection.prepareStatement(query)) {
 
             ps.setString(1, genero.getNome());
-            ps.setTimestamp(2, genero.getDataCadastro());
-            ps.setString(3, genero.getUsuario());
-            ps.setInt(4, genero.getId());
+            ps.setInt(2, genero.getId());
 
             ps.executeUpdate();
         } catch (SQLException e) {

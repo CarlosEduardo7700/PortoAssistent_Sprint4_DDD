@@ -81,7 +81,7 @@ public class Tipo_EixoRepository {
     }
 
     public void add(Tipo_Eixo tipoEixo) throws SQLException {
-        String query = "INSERT INTO T_PA_TIPO_EIXO (ID_TIPO_EIXO, NOME_TIPO_EIXO, DESC_TIPO_EIXO, DT_CADASTRO, NM_USUARIO) VALUES (?, ?, ?, ?, ?)";
+        String query = "INSERT INTO T_PA_TIPO_EIXO (ID_TIPO_EIXO, NOME_TIPO_EIXO, DESC_TIPO_EIXO, DT_CADASTRO, NM_USUARIO) VALUES (?, ?, ?, SYSDATE, USER)";
 
         try (Connection connection = DataBaseFactory.getConnection();
              PreparedStatement ps = connection.prepareStatement(query)) {
@@ -89,8 +89,6 @@ public class Tipo_EixoRepository {
             ps.setInt(1, tipoEixo.getId());
             ps.setString(2, tipoEixo.getNome());
             ps.setString(3, tipoEixo.getDescricao());
-            ps.setTimestamp(4, tipoEixo.getDataCadastro());
-            ps.setString(5, tipoEixo.getUsuario());
 
             ps.executeUpdate();
         } catch (SQLException e) {

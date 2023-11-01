@@ -7,18 +7,15 @@ public class Genero {
     // Atributos
     private int id;
     private String nome;
-    private Timestamp dataCadastro;
-    private String usuario;
 
 
 
     // Construtor
-    public Genero(int id, String nome, Timestamp dataCadastro, String usuario) {
+    public Genero(int id, String nome) {
         this.id = id;
         this.nome = nome;
-        this.dataCadastro = dataCadastro;
-        this.usuario = usuario;
     }
+
     public Genero() {}
 
 
@@ -41,17 +38,4 @@ public class Genero {
         this.nome = nome;
     }
 
-    public Timestamp getDataCadastro() {
-        return dataCadastro;
-    }
-    public void setDataCadastro(Timestamp dataCadastro) {
-        this.dataCadastro = dataCadastro;
-    }
-
-    public String getUsuario() {
-        return usuario;
-    }
-    public void setUsuario(String usuario) {
-        this.usuario = usuario;
-    }
 }

@@ -16,14 +16,14 @@ public class Chamada {
     private String destino;
     private String descLocal;
     private String descProblema;
-    private Timestamp dataCadastro;
-    private String usuario;
 
 
 
 
     // Construtor
-    public Chamada(int id, String caminhosImagens, Cliente cliente, Colaborador colaborador, Veiculo veiculo, Modal modal, Timestamp dataInicio, Timestamp dataFim, String local, String destino, String descLocal, String descProblema, Timestamp dataCadastro, String usuario) {
+
+
+    public Chamada(int id, String caminhosImagens, Cliente cliente, Colaborador colaborador, Veiculo veiculo, Modal modal, Timestamp dataInicio, Timestamp dataFim, String local, String destino, String descLocal, String descProblema) {
         this.id = id;
         this.caminhosImagens = caminhosImagens;
         this.cliente = cliente;
@@ -36,8 +36,6 @@ public class Chamada {
         this.destino = destino;
         this.descLocal = descLocal;
         this.descProblema = descProblema;
-        this.dataCadastro = dataCadastro;
-        this.usuario = usuario;
     }
 
     public Chamada() {}
@@ -116,22 +114,6 @@ public class Chamada {
 
     public void setDescProblema(String descProblema) {
         this.descProblema = descProblema;
-    }
-
-    public Timestamp getDataCadastro() {
-        return dataCadastro;
-    }
-
-    public void setDataCadastro(Timestamp dataCadastro) {
-        this.dataCadastro = dataCadastro;
-    }
-
-    public String getUsuario() {
-        return usuario;
-    }
-
-    public void setUsuario(String usuario) {
-        this.usuario = usuario;
     }
 
     public String getCaminhosImagens() {

@@ -10,21 +10,19 @@ public class Colaborador {
     private Genero genero;
     private String nome;
     private String cpf;
-    private String rg;
+    private int rg;
     private String telefone;
     private String email;
     private String senha;
     private String cnh;
     private Timestamp dataNascimento;
-    private Timestamp dataCadastro;
-    private String usuario;
 
 
 
     // Construtor
 
 
-    public Colaborador(int id, String caminhoImagem, Genero genero, String nome, String cpf, String rg, String telefone, String email, String senha, String cnh, Timestamp dataNascimento, Timestamp dataCadastro, String usuario) {
+    public Colaborador(int id, String caminhoImagem, Genero genero, String nome, String cpf, int rg, String telefone, String email, String senha, String cnh, Timestamp dataNascimento) {
         this.id = id;
         this.caminhoImagem = caminhoImagem;
         this.genero = genero;
@@ -36,8 +34,6 @@ public class Colaborador {
         this.senha = senha;
         this.cnh = cnh;
         this.dataNascimento = dataNascimento;
-        this.dataCadastro = dataCadastro;
-        this.usuario = usuario;
     }
 
     public Colaborador() {}
@@ -81,11 +77,11 @@ public class Colaborador {
         this.cpf = cpf;
     }
 
-    public String getRg() {
+    public int getRg() {
         return rg;
     }
 
-    public void setRg(String rg) {
+    public void setRg(int rg) {
         this.rg = rg;
     }
 
@@ -119,22 +115,6 @@ public class Colaborador {
 
     public void setDataNascimento(Timestamp dataNascimento) {
         this.dataNascimento = dataNascimento;
-    }
-
-    public Timestamp getDataCadastro() {
-        return dataCadastro;
-    }
-
-    public void setDataCadastro(Timestamp dataCadastro) {
-        this.dataCadastro = dataCadastro;
-    }
-
-    public String getUsuario() {
-        return usuario;
-    }
-
-    public void setUsuario(String usuario) {
-        this.usuario = usuario;
     }
 
     public String getCaminhoImagem() {

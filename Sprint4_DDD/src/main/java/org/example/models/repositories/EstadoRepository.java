@@ -24,9 +24,7 @@ public class EstadoRepository {
                 Estado estado = new Estado(
                         rs.getInt("ID_ESTADO"),
                         rs.getString("SG_ESTADO"),
-                        rs.getString("NM_ESTADO"),
-                        rs.getTimestamp("DT_CADASTRO"),
-                        rs.getString("NM_USUARIO")
+                        rs.getString("NM_ESTADO")
                 );
 
                 estados.add(estado);
@@ -57,9 +55,7 @@ public class EstadoRepository {
                     Estado estado = new Estado(
                             rs.getInt("ID_ESTADO"),
                             rs.getString("SG_ESTADO"),
-                            rs.getString("NM_ESTADO"),
-                            rs.getTimestamp("DT_CADASTRO"),
-                            rs.getString("NM_USUARIO")
+                            rs.getString("NM_ESTADO")
                     );
 
                     return Optional.ofNullable(estado);
@@ -81,7 +77,7 @@ public class EstadoRepository {
     }
 
     public void add(Estado estado) throws SQLException {
-        String query = "INSERT INTO T_PA_ESTADO (ID_ESTADO, SG_ESTADO, NM_ESTADO, DT_CADASTRO, NM_USUARIO) VALUES (?, ?, ?, ?, ?)";
+        String query = "INSERT INTO T_PA_ESTADO (ID_ESTADO, SG_ESTADO, NM_ESTADO, DT_CADASTRO, NM_USUARIO) VALUES (?, ?, ?, SYSDATE, USER)";
 
         try (Connection connection = DataBaseFactory.getConnection();
              PreparedStatement ps = connection.prepareStatement(query)) {
@@ -89,8 +85,6 @@ public class EstadoRepository {
             ps.setInt(1, estado.getId());
             ps.setString(2, estado.getSigla());
             ps.setString(3, estado.getNome());
-            ps.setTimestamp(4, estado.getDataCadastro());
-            ps.setString(5, estado.getUsuario());
 
             ps.executeUpdate();
         } catch (SQLException e) {
@@ -99,16 +93,14 @@ public class EstadoRepository {
     }
 
     public void update(Estado estado) throws SQLException {
-        String query = "UPDATE T_PA_ESTADO SET SG_ESTADO = ?, NM_ESTADO = ?, DT_CADASTRO = ?, NM_USUARIO = ? WHERE ID_ESTADO = ?";
+        String query = "UPDATE T_PA_ESTADO SET SG_ESTADO = ?, NM_ESTADO = ? WHERE ID_ESTADO = ?";
 
         try (Connection connection = DataBaseFactory.getConnection();
              PreparedStatement ps = connection.prepareStatement(query)) {
 
             ps.setString(1, estado.getSigla());
             ps.setString(2, estado.getNome());
-            ps.setTimestamp(3, estado.getDataCadastro());
-            ps.setString(4, estado.getUsuario());
-            ps.setInt(5, estado.getId());
+            ps.setInt(3, estado.getId());
 
             ps.executeUpdate();
         } catch (SQLException e) {

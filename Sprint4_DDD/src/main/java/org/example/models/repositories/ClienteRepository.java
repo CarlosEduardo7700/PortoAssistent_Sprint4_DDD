@@ -28,14 +28,12 @@ public class ClienteRepository {
                         rs.getString("IMG_CLIENTE"),
                         generoRepository.find(rs.getInt("ID_GENERO")).orElse(null),
                         rs.getString("NOME_CLIENTE"),
-                        rs.getString("CPF_CLIENTE"),
-                        rs.getString("RG_CLIENTE"),
+                        rs.getInt("CPF_CLIENTE"),
+                        rs.getInt("RG_CLIENTE"),
                         rs.getTimestamp("DT_NASCIMENTO_CLIENTE"),
                         rs.getString("CNH_CLIENTE"),
                         rs.getString("EMAIL_CLIENTE"),
-                        rs.getString("SENHA_CLIENTE"),
-                        rs.getTimestamp("DT_CADASTRO"),
-                        rs.getString("NM_USUARIO")
+                        rs.getString("SENHA_CLIENTE")
                 );
 
                 clientes.add(cliente);
@@ -68,14 +66,12 @@ public class ClienteRepository {
                             rs.getString("IMG_CLIENTE"),
                             generoRepository.find(rs.getInt("ID_GENERO")).orElse(null),
                             rs.getString("NOME_CLIENTE"),
-                            rs.getString("CPF_CLIENTE"),
-                            rs.getString("RG_CLIENTE"),
+                            rs.getInt("CPF_CLIENTE"),
+                            rs.getInt("RG_CLIENTE"),
                             rs.getTimestamp("DT_NASCIMENTO_CLIENTE"),
                             rs.getString("CNH_CLIENTE"),
                             rs.getString("EMAIL_CLIENTE"),
-                            rs.getString("SENHA_CLIENTE"),
-                            rs.getTimestamp("DT_CADASTRO"),
-                            rs.getString("NM_USUARIO")
+                            rs.getString("SENHA_CLIENTE")
                     );
 
                     return Optional.ofNullable(cliente);
@@ -97,23 +93,20 @@ public class ClienteRepository {
     }
 
     public void add(Cliente cliente) throws SQLException {
-        String query = "INSERT INTO T_PA_CLIENTE (ID_CLIENTE, IMG_CLIENTE, ID_GENERO, NM_CLIENTE, CPF_CLIENTE, RG_CLIENTE, EMAIL_CLIENTE, SENHA_CLIENTE, CNH_CLIENTE, DT_NASCIMENTO_CLIENTE, DT_CADASTRO, NM_USUARIO) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        String query = "INSERT INTO T_PA_CLIENTE (ID_CLIENTE, IMG_CLIENTE, ID_GENERO, NM_CLIENTE, CPF_CLIENTE, RG_CLIENTE, EMAIL_CLIENTE, SENHA_CLIENTE, CNH_CLIENTE, DT_NASCIMENTO_CLIENTE, DT_CADASTRO, NM_USUARIO) VALUES (SQ_PA_CLIENTE.nextval(), ?, ?, ?, ?, ?, ?, ?, ?, ?, SYSDATE, USER)";
 
         try (Connection connection = DataBaseFactory.getConnection();
              PreparedStatement ps = connection.prepareStatement(query)) {
 
-            ps.setInt(1, cliente.getId());
-            ps.setString(2, cliente.getCaminhoImagem());
-            ps.setInt(3, cliente.getGenero().getId());
-            ps.setString(4, cliente.getNome());
-            ps.setString(5, cliente.getCpf());
-            ps.setString(6, cliente.getRg());
-            ps.setString(7, cliente.getEmail());
-            ps.setString(8, cliente.getSenha());
-            ps.setString(9, cliente.getCnh());
-            ps.setTimestamp(10, cliente.getDataNascimento());
-            ps.setTimestamp(11, cliente.getDataCadastro());
-            ps.setString(12, cliente.getUsuario());
+            ps.setString(1, cliente.getCaminhoImagem());
+            ps.setInt(2, cliente.getGenero().getId());
+            ps.setString(3, cliente.getNome());
+            ps.setInt(4, cliente.getCpf());
+            ps.setInt(5, cliente.getRg());
+            ps.setString(6, cliente.getEmail());
+            ps.setString(7, cliente.getSenha());
+            ps.setString(8, cliente.getCnh());
+            ps.setTimestamp(9, cliente.getDataNascimento());
 
             ps.executeUpdate();
         } catch (SQLException e) {
@@ -122,7 +115,7 @@ public class ClienteRepository {
     }
 
     public void update(Cliente cliente) throws SQLException {
-        String query = "UPDATE T_PA_CLIENTE SET IMG_CLIENTE = ?, ID_GENERO = ?, NM_CLIENTE = ?, CPF_CLIENTE = ?, RG_CLIENTE = ?, EMAIL_CLIENTE = ?, SENHA_CLIENTE = ?, CNH_CLIENTE = ?, DT_NASCIMENTO_CLIENTE = ?, DT_CADASTRO = ?, NM_USUARIO = ? WHERE ID_CLIENTE = ?";
+        String query = "UPDATE T_PA_CLIENTE SET IMG_CLIENTE = ?, ID_GENERO = ?, NM_CLIENTE = ?, CPF_CLIENTE = ?, RG_CLIENTE = ?, EMAIL_CLIENTE = ?, SENHA_CLIENTE = ?, CNH_CLIENTE = ?, DT_NASCIMENTO_CLIENTE = ? WHERE ID_CLIENTE = ?";
 
         try (Connection connection = DataBaseFactory.getConnection();
              PreparedStatement ps = connection.prepareStatement(query)) {
@@ -130,15 +123,13 @@ public class ClienteRepository {
             ps.setString(1, cliente.getCaminhoImagem());
             ps.setInt(2, cliente.getGenero().getId());
             ps.setString(3, cliente.getNome());
-            ps.setString(4, cliente.getCpf());
-            ps.setString(5, cliente.getRg());
+            ps.setInt(4, cliente.getCpf());
+            ps.setInt(5, cliente.getRg());
             ps.setString(6, cliente.getEmail());
             ps.setString(7, cliente.getSenha());
             ps.setString(8, cliente.getCnh());
             ps.setTimestamp(9, cliente.getDataNascimento());
-            ps.setTimestamp(10, cliente.getDataCadastro());
-            ps.setString(11, cliente.getUsuario());
-            ps.setInt(12, cliente.getId());
+            ps.setInt(10, cliente.getId());
 
             ps.executeUpdate();
         } catch (SQLException e) {

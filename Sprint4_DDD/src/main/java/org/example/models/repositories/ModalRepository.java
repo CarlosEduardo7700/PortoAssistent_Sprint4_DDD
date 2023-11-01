@@ -94,21 +94,20 @@ public class ModalRepository {
     }
 
     public void add(Modal modal) throws SQLException {
-        String query = "INSERT INTO T_PA_MODAL (ID_MODAL, IMG_MODAL, ID_TIPO_MODAL, ID_MEDIDA, MODELO_MODAL, PLACA_MODAL, MARCA_MODAL, ANO_MODAL, DT_CADASTRO, NM_USUARIO) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        String query = "INSERT INTO T_PA_MODAL (ID_MODAL, IMG_MODAL, ID_TIPO_MODAL, ID_MEDIDA, MODELO_MODAL, PLACA_MODAL, MARCA_MODAL, ANO_MODAL, DT_CADASTRO, NM_USUARIO) VALUES (SQ_PA_MODAL.nextval(), ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
         try (Connection connection = DataBaseFactory.getConnection();
              PreparedStatement ps = connection.prepareStatement(query)) {
 
-            ps.setInt(1, modal.getId());
-            ps.setString(2, modal.getCaminhaImagem());
-            ps.setInt(3, modal.getTipoModal().getId());
-            ps.setInt(4, modal.getMedidaModal().getId());
-            ps.setString(5, modal.getModelo());
-            ps.setString(6, modal.getPlaca());
-            ps.setString(7, modal.getMarca());
-            ps.setInt(8, modal.getAnoFabricacao());
-            ps.setTimestamp(9, modal.getDataCadastro());
-            ps.setString(10, modal.getUsuario());
+            ps.setString(1, modal.getCaminhaImagem());
+            ps.setInt(2, modal.getTipoModal().getId());
+            ps.setInt(3, modal.getMedidaModal().getId());
+            ps.setString(4, modal.getModelo());
+            ps.setString(5, modal.getPlaca());
+            ps.setString(6, modal.getMarca());
+            ps.setInt(7, modal.getAnoFabricacao());
+            ps.setTimestamp(8, modal.getDataCadastro());
+            ps.setString(9, modal.getUsuario());
 
             ps.executeUpdate();
         } catch (SQLException e) {

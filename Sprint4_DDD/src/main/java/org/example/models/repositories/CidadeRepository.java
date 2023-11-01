@@ -28,9 +28,7 @@ public class CidadeRepository {
                         estadoRepository.find(rs.getInt("ID_ESTADO")).orElse(null),
                         rs.getString("NM_CIDADE"),
                         rs.getInt("CD_IBGE"),
-                        rs.getInt("NR_DDD"),
-                        rs.getTimestamp("DT_CADASTRO"),
-                        rs.getString("NM_USUARIO")
+                        rs.getInt("NR_DDD")
                 );
 
                 cidades.add(cidade);
@@ -63,9 +61,7 @@ public class CidadeRepository {
                             estadoRepository.find(rs.getInt("ID_ESTADO")).orElse(null),
                             rs.getString("NM_CIDADE"),
                             rs.getInt("CD_IBGE"),
-                            rs.getInt("NR_DDD"),
-                            rs.getTimestamp("DT_CADASTRO"),
-                            rs.getString("NM_USUARIO")
+                            rs.getInt("NR_DDD")
                     );
 
                     return Optional.ofNullable(cidade);
@@ -87,7 +83,7 @@ public class CidadeRepository {
     }
 
     public void add(Cidade cidade) throws SQLException {
-        String query = "INSERT INTO T_PA_CIDADE (ID_CIDADE, ID_ESTADO, NM_CIDADE, CD_IBGE, NR_DDD, DT_CADASTRO, NM_USUARIO) VALUES (?, ?, ?, ?, ?, ?, ?)";
+        String query = "INSERT INTO T_PA_CIDADE (ID_CIDADE, ID_ESTADO, NM_CIDADE, CD_IBGE, NR_DDD, DT_CADASTRO, NM_USUARIO) VALUES (?, ?, ?, ?, ?, SYSDATE, USER)";
 
         try (Connection connection = DataBaseFactory.getConnection();
              PreparedStatement ps = connection.prepareStatement(query)) {
@@ -97,8 +93,6 @@ public class CidadeRepository {
             ps.setString(3, cidade.getNome());
             ps.setInt(4, cidade.getIbgeCodigo());
             ps.setInt(5, cidade.getDdd());
-            ps.setTimestamp(6, cidade.getDataCadastro());
-            ps.setString(7, cidade.getUsuario());
 
             ps.executeUpdate();
         } catch (SQLException e) {
@@ -107,7 +101,7 @@ public class CidadeRepository {
     }
 
     public void update(Cidade cidade) throws SQLException {
-        String query = "UPDATE T_PA_CIDADE SET ID_ESTADO = ?, NM_CIDADE = ?, CD_IBGE = ?, NR_DDD = ?, DT_CADASTRO = ?, NM_USUARIO = ? WHERE ID_CIDADE = ?";
+        String query = "UPDATE T_PA_CIDADE SET ID_ESTADO = ?, NM_CIDADE = ?, CD_IBGE = ?, NR_DDD = ? WHERE ID_CIDADE = ?";
 
         try (Connection connection = DataBaseFactory.getConnection();
              PreparedStatement ps = connection.prepareStatement(query)) {
@@ -116,9 +110,7 @@ public class CidadeRepository {
             ps.setString(2, cidade.getNome());
             ps.setInt(3, cidade.getIbgeCodigo());
             ps.setInt(4, cidade.getDdd());
-            ps.setTimestamp(5, cidade.getDataCadastro());
-            ps.setString(6, cidade.getUsuario());
-            ps.setInt(7, cidade.getId());
+            ps.setInt(5, cidade.getId());
 
             ps.executeUpdate();
         } catch (SQLException e) {

@@ -87,7 +87,7 @@ public class TelefoneClienteRepository {
     }
 
     public void add(TelefoneCliente telefoneCliente) throws SQLException {
-        String query = "INSERT INTO T_PA_TELEFONE_CLIENTE (ID_CLIENTE, TP_TELEFONE_CLIE, NUM_TELEFONE_CLIE, DDD_TELEFONE_CLIE, DDI_TELEFONE_CLIE, DT_CADASTRO, NM_USUARIO) VALUES (?, ?, ?, ?, ?, ?, ?)";
+        String query = "INSERT INTO T_PA_TELEFONE_CLIENTE (ID_CLIENTE, TP_TELEFONE_CLIE, NUM_TELEFONE_CLIE, DDD_TELEFONE_CLIE, DDI_TELEFONE_CLIE, DT_CADASTRO, NM_USUARIO) VALUES (?, ?, ?, ?, ?, SYSDATE, USER)";
 
         try (Connection connection = DataBaseFactory.getConnection();
              PreparedStatement ps = connection.prepareStatement(query)) {
@@ -97,8 +97,6 @@ public class TelefoneClienteRepository {
             ps.setString(3, telefoneCliente.getNumero());
             ps.setString(4, telefoneCliente.getDdd());
             ps.setString(5, telefoneCliente.getDdi());
-            ps.setTimestamp(6, telefoneCliente.getDataCadastro());
-            ps.setString(7, telefoneCliente.getUsuario());
 
             ps.executeUpdate();
         } catch (SQLException e) {
