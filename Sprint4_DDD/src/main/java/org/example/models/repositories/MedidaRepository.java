@@ -27,9 +27,7 @@ public class MedidaRepository {
                         rs.getDouble("LARGURA"),
                         rs.getDouble("COMPRIMENTO"),
                         rs.getDouble("PESO"),
-                        rs.getDouble("PESO_SUPORTADO"),
-                        rs.getTimestamp("DT_CADASTRO"),
-                        rs.getString("NM_USUARIO")
+                        rs.getDouble("PESO_SUPORTADO")
                 );
 
                 medidas.add(medida);
@@ -63,9 +61,7 @@ public class MedidaRepository {
                             rs.getDouble("LARGURA"),
                             rs.getDouble("COMPRIMENTO"),
                             rs.getDouble("PESO"),
-                            rs.getDouble("PESO_SUPORTADO"),
-                            rs.getTimestamp("DT_CADASTRO"),
-                            rs.getString("NM_USUARIO")
+                            rs.getDouble("PESO_SUPORTADO")
                     );
 
                     return Optional.ofNullable(medida);
@@ -106,7 +102,7 @@ public class MedidaRepository {
     }
 
     public void update(Medida medida) throws SQLException {
-        String query = "UPDATE T_PA_MEDIDA SET ALTURA = ?, LARGURA = ?, COMPRIMENTO = ?, PESO = ?, PESO_SUPORTADO = ?, DT_CADASTRO = ?, NM_USUARIO = ? WHERE ID_MEDIDA = ?";
+        String query = "UPDATE T_PA_MEDIDA SET ALTURA = ?, LARGURA = ?, COMPRIMENTO = ?, PESO = ?, PESO_SUPORTADO = ? WHERE ID_MEDIDA = ?";
 
         try (Connection connection = DataBaseFactory.getConnection();
              PreparedStatement ps = connection.prepareStatement(query)) {
@@ -116,9 +112,7 @@ public class MedidaRepository {
             ps.setDouble(3, medida.getComprimento());
             ps.setDouble(4, medida.getPesoVeiculo());
             ps.setDouble(5, medida.getPesoSuportadoModal());
-            ps.setTimestamp(6, medida.getDataCadastro());
-            ps.setString(7, medida.getUsuario());
-            ps.setInt(8, medida.getId());
+            ps.setInt(6, medida.getId());
 
             ps.executeUpdate();
         } catch (SQLException e) {

@@ -24,9 +24,7 @@ public class Tipo_EixoRepository {
                 Tipo_Eixo tipoEixo = new Tipo_Eixo(
                         rs.getInt("ID_TIPO_EIXO"),
                         rs.getString("NOME_TIPO_EIXO"),
-                        rs.getString("DESC_TIPO_EIXO"),
-                        rs.getTimestamp("DT_CADASTRO"),
-                        rs.getString("NM_USUARIO")
+                        rs.getString("DESC_TIPO_EIXO")
                 );
 
                 tipos_eixos.add(tipoEixo);
@@ -57,9 +55,7 @@ public class Tipo_EixoRepository {
                     Tipo_Eixo tipoEixo = new Tipo_Eixo(
                             rs.getInt("ID_TIPO_EIXO"),
                             rs.getString("NOME_TIPO_EIXO"),
-                            rs.getString("DESC_TIPO_EIXO"),
-                            rs.getTimestamp("DT_CADASTRO"),
-                            rs.getString("NM_USUARIO")
+                            rs.getString("DESC_TIPO_EIXO")
                     );
 
                     return Optional.ofNullable(tipoEixo);
@@ -97,16 +93,14 @@ public class Tipo_EixoRepository {
     }
 
     public void update(Tipo_Eixo tipoEixo) throws SQLException {
-        String query = "UPDATE T_PA_TIPO_EIXO SET NOME_TIPO_EIXO = ?, DESC_TIPO_EIXO = ?, DT_CADASTRO = ?, NM_USUARIO = ? WHERE ID_TIPO_EIXO = ?";
+        String query = "UPDATE T_PA_TIPO_EIXO SET NOME_TIPO_EIXO = ?, DESC_TIPO_EIXO = ? WHERE ID_TIPO_EIXO = ?";
 
         try (Connection connection = DataBaseFactory.getConnection();
              PreparedStatement ps = connection.prepareStatement(query)) {
 
             ps.setString(1, tipoEixo.getNome());
             ps.setString(2, tipoEixo.getDescricao());
-            ps.setTimestamp(3, tipoEixo.getDataCadastro());
-            ps.setString(4, tipoEixo.getUsuario());
-            ps.setInt(5, tipoEixo.getId());
+            ps.setInt(3, tipoEixo.getId());
 
             ps.executeUpdate();
         } catch (SQLException e) {

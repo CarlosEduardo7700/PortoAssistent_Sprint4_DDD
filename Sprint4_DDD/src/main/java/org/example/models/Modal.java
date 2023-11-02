@@ -13,14 +13,13 @@ public class Modal {
     private String placa;
     private String marca;
     private int anoFabricacao;
-    private Timestamp dataCadastro;
-    private String usuario;
 
 
 
     // Construtor
 
-    public Modal(int id, String caminhaImagem, Tipo_Modal tipoModal, Medida medidaModal, String modelo, String placa, String marca, int anoFabricacao, Timestamp dataCadastro, String usuario) {
+
+    public Modal(int id, String caminhaImagem, Tipo_Modal tipoModal, Medida medidaModal, String modelo, String placa, String marca, int anoFabricacao) {
         this.id = id;
         this.caminhaImagem = caminhaImagem;
         this.tipoModal = tipoModal;
@@ -29,8 +28,6 @@ public class Modal {
         this.placa = placa;
         this.marca = marca;
         this.anoFabricacao = anoFabricacao;
-        this.dataCadastro = dataCadastro;
-        this.usuario = usuario;
     }
 
     public Modal() {}
@@ -95,22 +92,6 @@ public class Modal {
 
     public void setAnoFabricacao(int anoFabricacao) {
         this.anoFabricacao = anoFabricacao;
-    }
-
-    public Timestamp getDataCadastro() {
-        return dataCadastro;
-    }
-
-    public void setDataCadastro(Timestamp dataCadastro) {
-        this.dataCadastro = dataCadastro;
-    }
-
-    public String getUsuario() {
-        return usuario;
-    }
-
-    public void setUsuario(String usuario) {
-        this.usuario = usuario;
     }
 
     public String getCaminhaImagem() {

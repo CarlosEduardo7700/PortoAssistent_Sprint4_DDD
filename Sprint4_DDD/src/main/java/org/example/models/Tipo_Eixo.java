@@ -8,20 +8,17 @@ public class Tipo_Eixo {
     private int id;
     private String nome;
     private String descricao;
-    private Timestamp dataCadastro;
-    private String usuario;
 
 
 
 
     // Construtor
-    public Tipo_Eixo(int idEixo, String nomeTipoEixo, String descTipoEixo, Timestamp dtCadastro, String nomeUsuario) {
-        this.id = idEixo;
-        this.nome = nomeTipoEixo;
-        this.descricao = descTipoEixo;
-        this.dataCadastro = dtCadastro;
-        this.usuario = nomeUsuario;
+    public Tipo_Eixo(int id, String nome, String descricao) {
+        this.id = id;
+        this.nome = nome;
+        this.descricao = descricao;
     }
+
     public Tipo_Eixo() {}
 
 
@@ -53,21 +50,5 @@ public class Tipo_Eixo {
 
     public void setDescricao(String descricao) {
         this.descricao = descricao;
-    }
-
-    public Timestamp getDataCadastro() {
-        return dataCadastro;
-    }
-
-    public void setDataCadastro(Timestamp dataCadastro) {
-        this.dataCadastro = dataCadastro;
-    }
-
-    public String getUsuario() {
-        return usuario;
-    }
-
-    public void setUsuario(String usuario) {
-        this.usuario = usuario;
     }
 }

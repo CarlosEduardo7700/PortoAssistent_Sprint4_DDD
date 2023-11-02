@@ -19,8 +19,6 @@ public class Veiculo {
     private int quantidadeEixos;
     private String renavan;
     private int numChassi;
-    private Timestamp dataCadastro;
-    private String usuario;
 
 
 
@@ -28,8 +26,8 @@ public class Veiculo {
     // Construtor
 
 
-    public Veiculo(int idVeiculo, String caminhoImagem, Tipo_Eixo tipoEixo, Tipo_Chassi tipoChassi, Medida medidaVeiculo, int apolice, String modelo, String cor, String marca, String placa, int anoFabricacao, int quantidadeEixos, String renavan, int numChassi, Timestamp dtCadastro, String nomeUsuario) {
-        this.id = idVeiculo;
+    public Veiculo(int id, String caminhoImagem, Tipo_Eixo tipoEixo, Tipo_Chassi tipoChassi, Medida medidaVeiculo, int apolice, String modelo, String cor, String marca, String placa, int anoFabricacao, int quantidadeEixos, String renavan, int numChassi) {
+        this.id = id;
         this.caminhoImagem = caminhoImagem;
         this.tipoEixo = tipoEixo;
         this.tipoChassi = tipoChassi;
@@ -43,8 +41,6 @@ public class Veiculo {
         this.quantidadeEixos = quantidadeEixos;
         this.renavan = renavan;
         this.numChassi = numChassi;
-        this.dataCadastro = dtCadastro;
-        this.usuario = nomeUsuario;
     }
 
     public Veiculo() {}
@@ -141,20 +137,6 @@ public class Veiculo {
     }
     public void setRenavan(String renavan) {
         this.renavan = renavan;
-    }
-
-    public Timestamp getDataCadastro() {
-        return dataCadastro;
-    }
-    public void setDataCadastro(Timestamp dataCadastro) {
-        this.dataCadastro = dataCadastro;
-    }
-
-    public String getUsuario() {
-        return usuario;
-    }
-    public void setUsuario(String usuario) {
-        this.usuario = usuario;
     }
 
     public String getCaminhoImagem() {

@@ -8,20 +8,18 @@ public class Tipo_Chassi {
     private int id;
     private String nome;
     private String descricao;
-    private Timestamp dataCadastro;
-    private String usuario;
 
 
 
 
     // Construtor
-    public Tipo_Chassi(int idChassi, String nomeTipoChassi, String descTipoChassi, Timestamp dtCadastro, String nomeUsuario) {
-        this.id = idChassi;
-        this.nome = nomeTipoChassi;
-        this.descricao = descTipoChassi;
-        this.dataCadastro = dtCadastro;
-        this.usuario = nomeUsuario;
+
+    public Tipo_Chassi(int id, String nome, String descricao) {
+        this.id = id;
+        this.nome = nome;
+        this.descricao = descricao;
     }
+
     public Tipo_Chassi() {}
 
 
@@ -54,19 +52,4 @@ public class Tipo_Chassi {
         this.descricao = descricao;
     }
 
-    public Timestamp getDataCadastro() {
-        return dataCadastro;
-    }
-
-    public void setDataCadastro(Timestamp dataCadastro) {
-        this.dataCadastro = dataCadastro;
-    }
-
-    public String getUsuario() {
-        return usuario;
-    }
-
-    public void setUsuario(String usuario) {
-        this.usuario = usuario;
-    }
 }

@@ -11,23 +11,21 @@ public class Medida {
     private double comprimento;
     private double pesoVeiculo;
     private double pesoSuportadoModal;
-    private Timestamp dataCadastro;
-    private String usuario;
 
 
 
 
     //Construtor
-    public Medida(int id, double altura, double largura, double comprimento, double pesoVeiculo, double pesoSuportadoModal, Timestamp dataCadastro, String usuario) {
+
+    public Medida(int id, double altura, double largura, double comprimento, double pesoVeiculo, double pesoSuportadoModal) {
         this.id = id;
         this.altura = altura;
         this.largura = largura;
         this.comprimento = comprimento;
         this.pesoVeiculo = pesoVeiculo;
         this.pesoSuportadoModal = pesoSuportadoModal;
-        this.dataCadastro = dataCadastro;
-        this.usuario = usuario;
     }
+
     public Medida() {}
 
 
@@ -85,21 +83,5 @@ public class Medida {
 
     public void setPesoSuportadoModal(double pesoSuportadoModal) {
         this.pesoSuportadoModal = pesoSuportadoModal;
-    }
-
-    public Timestamp getDataCadastro() {
-        return dataCadastro;
-    }
-
-    public void setDataCadastro(Timestamp dataCadastro) {
-        this.dataCadastro = dataCadastro;
-    }
-
-    public String getUsuario() {
-        return usuario;
-    }
-
-    public void setUsuario(String usuario) {
-        this.usuario = usuario;
     }
 }

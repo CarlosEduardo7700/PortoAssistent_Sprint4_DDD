@@ -10,22 +10,17 @@ public class TelefoneColaborador {
     private String numero;
     private String ddd;
     private String ddi;
-    private Timestamp dataCadastro;
-    private String usuario;
 
 
 
 
     // Construtor
-
-    public TelefoneColaborador(Colaborador colaborador, String tipo, String numero, String ddd, String ddi, Timestamp dataCadastro, String nomeUsuario) {
+    public TelefoneColaborador(Colaborador colaborador, String tipo, String numero, String ddd, String ddi) {
         this.colaborador = colaborador;
         this.tipo = tipo;
         this.numero = numero;
         this.ddd = ddd;
         this.ddi = ddi;
-        this.dataCadastro = dataCadastro;
-        this.usuario = nomeUsuario;
     }
 
     public TelefoneColaborador() {}
@@ -75,22 +70,6 @@ public class TelefoneColaborador {
 
     public void setDdi(String ddi) {
         this.ddi = ddi;
-    }
-
-    public Timestamp getDataCadastro() {
-        return dataCadastro;
-    }
-
-    public void setDataCadastro(Timestamp dataCadastro) {
-        this.dataCadastro = dataCadastro;
-    }
-
-    public String getUsuario() {
-        return usuario;
-    }
-
-    public void setUsuario(String usuario) {
-        this.usuario = usuario;
     }
 }
 

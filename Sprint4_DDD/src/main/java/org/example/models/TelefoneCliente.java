@@ -10,21 +10,19 @@ public class TelefoneCliente {
     private String numero;
     private String ddd;
     private String ddi;
-    private Timestamp dataCadastro;
-    private String usuario;
 
 
 
 
     // Construtor
-    public TelefoneCliente(Cliente cliente, String tipo, String numero, String ddd, String ddi, Timestamp dataCadastro, String usuario) {
+
+
+    public TelefoneCliente(Cliente cliente, String tipo, String numero, String ddd, String ddi) {
         this.cliente = cliente;
         this.tipo = tipo;
         this.numero = numero;
         this.ddd = ddd;
         this.ddi = ddi;
-        this.dataCadastro = dataCadastro;
-        this.usuario = usuario;
     }
 
     public TelefoneCliente() {}
@@ -75,20 +73,5 @@ public class TelefoneCliente {
         this.ddi = ddi;
     }
 
-    public Timestamp getDataCadastro() {
-        return dataCadastro;
-    }
-
-    public void setDataCadastro(Timestamp dataCadastro) {
-        this.dataCadastro = dataCadastro;
-    }
-
-    public String getUsuario() {
-        return usuario;
-    }
-
-    public void setUsuario(String usuario) {
-        this.usuario = usuario;
-    }
 }
 

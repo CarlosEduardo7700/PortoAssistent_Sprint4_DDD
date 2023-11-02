@@ -32,9 +32,7 @@ public class ModalRepository {
                         rs.getString("MODELO_MODAL"),
                         rs.getString("PLACA_MODAL"),
                         rs.getString("MARCA_MODAL"),
-                        rs.getInt("ANO_MODAL"),
-                        rs.getTimestamp("DT_CADASTRO"),
-                        rs.getString("NM_USUARIO")
+                        rs.getInt("ANO_MODAL")
                 );
 
                 modais.add(modal);
@@ -70,9 +68,7 @@ public class ModalRepository {
                             rs.getString("MODELO_MODAL"),
                             rs.getString("PLACA_MODAL"),
                             rs.getString("MARCA_MODAL"),
-                            rs.getInt("ANO_MODAL"),
-                            rs.getTimestamp("DT_CADASTRO"),
-                            rs.getString("NM_USUARIO")
+                            rs.getInt("ANO_MODAL")
                     );
 
                     return Optional.ofNullable(modal);
@@ -106,8 +102,6 @@ public class ModalRepository {
             ps.setString(5, modal.getPlaca());
             ps.setString(6, modal.getMarca());
             ps.setInt(7, modal.getAnoFabricacao());
-            ps.setTimestamp(8, modal.getDataCadastro());
-            ps.setString(9, modal.getUsuario());
 
             ps.executeUpdate();
         } catch (SQLException e) {
@@ -116,7 +110,7 @@ public class ModalRepository {
     }
 
     public void update(Modal modal) throws SQLException {
-        String query = "UPDATE T_PA_MODAL SET IMG_MODAL = ?, ID_TIPO_MODAL = ?, ID_MEDIDA = ?, MODELO_MODAL = ?, PLACA_MODAL = ?, MARCA_MODAL = ?, ANO_MODAL = ?, DT_CADASTRO = ?, NM_USUARIO = ? WHERE ID_MODAL = ?";
+        String query = "UPDATE T_PA_MODAL SET IMG_MODAL = ?, ID_TIPO_MODAL = ?, ID_MEDIDA = ?, MODELO_MODAL = ?, PLACA_MODAL = ?, MARCA_MODAL = ?, ANO_MODAL = ? WHERE ID_MODAL = ?";
 
         try (Connection connection = DataBaseFactory.getConnection();
              PreparedStatement ps = connection.prepareStatement(query)) {
@@ -128,9 +122,7 @@ public class ModalRepository {
             ps.setString(5, modal.getPlaca());
             ps.setString(6, modal.getMarca());
             ps.setInt(7, modal.getAnoFabricacao());
-            ps.setTimestamp(8, modal.getDataCadastro());
-            ps.setString(9, modal.getUsuario());
-            ps.setInt(10, modal.getId());
+            ps.setInt(8, modal.getId());
 
             ps.executeUpdate();
         } catch (SQLException e) {

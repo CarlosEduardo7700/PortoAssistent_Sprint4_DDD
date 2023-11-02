@@ -27,9 +27,7 @@ public class LogradouroRepository {
                         rs.getInt("ID_LOGRADOURO"),
                         bairroRepository.find(rs.getInt("ID_BAIRRO")).orElse(null),
                         rs.getString("NM_LOGRADOURO"),
-                        rs.getString("NR_CEP"),
-                        rs.getTimestamp("DT_CADASTRO"),
-                        rs.getString("NM_USUARIO")
+                        rs.getString("NR_CEP")
                 );
 
                 logradouros.add(logradouro);
@@ -61,9 +59,7 @@ public class LogradouroRepository {
                             rs.getInt("ID_LOGRADOURO"),
                             bairroRepository.find(rs.getInt("ID_BAIRRO")).orElse(null),
                             rs.getString("NM_LOGRADOURO"),
-                            rs.getString("NR_CEP"),
-                            rs.getTimestamp("DT_CADASTRO"),
-                            rs.getString("NM_USUARIO")
+                            rs.getString("NR_CEP")
                     );
 
                     return Optional.ofNullable(logradouro);
@@ -101,7 +97,7 @@ public class LogradouroRepository {
     }
 
     public void update(Logradouro logradouro) throws SQLException {
-        String query = "UPDATE T_PA_LOGRADOURO SET ID_BAIRRO = ?, NM_LOGRADOURO = ?, NR_CEP = ?, DT_CADASTRO = ?, NM_USUARIO = ? WHERE ID_LOGRADOURO = ?";
+        String query = "UPDATE T_PA_LOGRADOURO SET ID_BAIRRO = ?, NM_LOGRADOURO = ?, NR_CEP = ? WHERE ID_LOGRADOURO = ?";
 
         try (Connection connection = DataBaseFactory.getConnection();
              PreparedStatement ps = connection.prepareStatement(query)) {
@@ -109,9 +105,7 @@ public class LogradouroRepository {
             ps.setInt(1, logradouro.getBairro().getId());
             ps.setString(2, logradouro.getNome());
             ps.setString(3, logradouro.getCep());
-            ps.setTimestamp(4, logradouro.getDataCadastro());
-            ps.setString(5, logradouro.getUsuario());
-            ps.setInt(6, logradouro.getId());
+            ps.setInt(4, logradouro.getId());
 
             ps.executeUpdate();
         } catch (SQLException e) {

@@ -9,22 +9,20 @@ public class Logradouro {
     private Bairro bairro;
     private String nome;
     private String cep;
-    private Timestamp dataCadastro;
-    private String usuario;
 
 
 
 
 
     // Construtor
-    public Logradouro(int id, Bairro bairro, String nome, String cep, Timestamp dataCadastro, String usuario) {
+
+    public Logradouro(int id, Bairro bairro, String nome, String cep) {
         this.id = id;
         this.bairro = bairro;
         this.nome = nome;
         this.cep = cep;
-        this.dataCadastro = dataCadastro;
-        this.usuario = usuario;
     }
+
     public Logradouro() {}
 
 
@@ -60,19 +58,5 @@ public class Logradouro {
     }
     public void setCep(String cep) {
         this.cep = cep;
-    }
-
-    public Timestamp getDataCadastro() {
-        return dataCadastro;
-    }
-    public void setDataCadastro(Timestamp dataCadastro) {
-        this.dataCadastro = dataCadastro;
-    }
-
-    public String getUsuario() {
-        return usuario;
-    }
-    public void setUsuario(String usuario) {
-        this.usuario = usuario;
     }
 }

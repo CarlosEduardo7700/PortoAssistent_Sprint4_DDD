@@ -23,9 +23,7 @@ public class Tipo_ModalRepository {
             while(rs.next()){
                 Tipo_Modal tipoModal = new Tipo_Modal(
                         rs.getInt("ID_TIPO_MODAL"),
-                        rs.getString("NM_TIPO_MODAL"),
-                        rs.getTimestamp("DT_CADASTRO"),
-                        rs.getString("NM_USUARIO")
+                        rs.getString("NM_TIPO_MODAL")
                 );
 
                 tipos_modais.add(tipoModal);
@@ -55,9 +53,7 @@ public class Tipo_ModalRepository {
                 if(rs.next()) {
                     Tipo_Modal tipoModal = new Tipo_Modal(
                             rs.getInt("ID_TIPO_MODAL"),
-                            rs.getString("NM_TIPO_MODAL"),
-                            rs.getTimestamp("DT_CADASTRO"),
-                            rs.getString("NM_USUARIO")
+                            rs.getString("NM_TIPO_MODAL")
                     );
 
                     return Optional.ofNullable(tipoModal);
@@ -94,15 +90,13 @@ public class Tipo_ModalRepository {
     }
 
     public void update(Tipo_Modal tipoModal) throws SQLException {
-        String query = "UPDATE T_PA_TIPO_MODAL SET NM_TIPO_MODAL = ?, DT_CADASTRO = ?, NM_USUARIO = ? WHERE ID_TIPO_MODAL = ?";
+        String query = "UPDATE T_PA_TIPO_MODAL SET NM_TIPO_MODAL = ? WHERE ID_TIPO_MODAL = ?";
 
         try (Connection connection = DataBaseFactory.getConnection();
              PreparedStatement ps = connection.prepareStatement(query)) {
 
             ps.setString(1, tipoModal.getNome());
-            ps.setTimestamp(2, tipoModal.getDataCadastro());
-            ps.setString(3, tipoModal.getUsuario());
-            ps.setInt(4, tipoModal.getId());
+            ps.setInt(2, tipoModal.getId());
 
             ps.executeUpdate();
         } catch (SQLException e) {

@@ -36,9 +36,7 @@ public class VeiculoRepository {
                         rs.getInt("ANO_VEICULO"),
                         rs.getInt("QUANTIDADE_EIXOS_VEICULO"),
                         rs.getString("RENAVAN_VEICULO"),
-                        rs.getInt("NR_CHASSI"),
-                        rs.getTimestamp("DT_CADASTRO"),
-                        rs.getString("NM_USUARIO")
+                        rs.getInt("NR_CHASSI")
                 );
 
                 veiculos.add(veiculo);
@@ -80,9 +78,7 @@ public class VeiculoRepository {
                             rs.getInt("ANO_VEICULO"),
                             rs.getInt("QUANTIDADE_EIXOS_VEICULO"),
                             rs.getString("RENAVAN_VEICULO"),
-                            rs.getInt("NR_CHASSI"),
-                            rs.getTimestamp("DT_CADASTRO"),
-                            rs.getString("NM_USUARIO")
+                            rs.getInt("NR_CHASSI")
                     );
 
                     return Optional.ofNullable(veiculo);
@@ -130,7 +126,7 @@ public class VeiculoRepository {
     }
 
     public void update(Veiculo veiculo) throws SQLException {
-        String query = "UPDATE T_PA_VEICULO SET IMG_VEICULO = ?, ID_TIPO_EIXO = ?, ID_TIPO_CHASSI = ?, ID_MEDIDA = ?, APOLICE_VEICULO = ?, MODELO_VEICULO = ?, COR_VEICULO = ?, MARCA_VEICULO = ?, PLACA_VEICULO = ?, ANO_VEICULO = ?, QUANTIDADE_EIXOS_VEICULO = ?, RENAVAN_VEICULO = ?, NR_CHASSI = ?, DT_CADASTRO = ?, NM_USUARIO = ? WHERE ID_VEICULO = ?";
+        String query = "UPDATE T_PA_VEICULO SET IMG_VEICULO = ?, ID_TIPO_EIXO = ?, ID_TIPO_CHASSI = ?, ID_MEDIDA = ?, APOLICE_VEICULO = ?, MODELO_VEICULO = ?, COR_VEICULO = ?, MARCA_VEICULO = ?, PLACA_VEICULO = ?, ANO_VEICULO = ?, QUANTIDADE_EIXOS_VEICULO = ?, RENAVAN_VEICULO = ?, NR_CHASSI = ? WHERE ID_VEICULO = ?";
 
         try (Connection connection = DataBaseFactory.getConnection();
              PreparedStatement ps = connection.prepareStatement(query)) {
@@ -148,9 +144,7 @@ public class VeiculoRepository {
             ps.setInt(11, veiculo.getQuantidadeEixos());
             ps.setString(12, veiculo.getRenavan());
             ps.setInt(13, veiculo.getNumChassi());
-            ps.setTimestamp(14, veiculo.getDataCadastro());
-            ps.setString(15, veiculo.getUsuario());
-            ps.setInt(16, veiculo.getId());
+            ps.setInt(14, veiculo.getId());
 
             ps.executeUpdate();
         } catch (SQLException e) {

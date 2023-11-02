@@ -24,9 +24,7 @@ public class Tipo_ChassiRepository {
                 Tipo_Chassi tipoChassi = new Tipo_Chassi(
                         rs.getInt("ID_TIPO_CHASSI"),
                         rs.getString("NOME_TIPO_CHASSI"),
-                        rs.getString("DESC_TIPO_CHASSI"),
-                        rs.getTimestamp("DT_CADASTRO"),
-                        rs.getString("NM_USUARIO")
+                        rs.getString("DESC_TIPO_CHASSI")
                 );
 
                 tipos_chassis.add(tipoChassi);
@@ -57,9 +55,7 @@ public class Tipo_ChassiRepository {
                     Tipo_Chassi tipoChassi = new Tipo_Chassi(
                             rs.getInt("ID_TIPO_CHASSI"),
                             rs.getString("NOME_TIPO_CHASSI"),
-                            rs.getString("DESC_TIPO_CHASSI"),
-                            rs.getTimestamp("DT_CADASTRO"),
-                            rs.getString("NM_USUARIO")
+                            rs.getString("DESC_TIPO_CHASSI")
                     );
 
                     return Optional.ofNullable(tipoChassi);
@@ -97,16 +93,14 @@ public class Tipo_ChassiRepository {
     }
 
     public void update(Tipo_Chassi tipoChassi) throws SQLException {
-        String query = "UPDATE T_PA_TIPO_CHASSI SET NOME_TIPO_CHASSI = ?, DESC_TIPO_CHASSI = ?, DT_CADASTRO = ?, NM_USUARIO = ? WHERE ID_TIPO_CHASSI = ?";
+        String query = "UPDATE T_PA_TIPO_CHASSI SET NOME_TIPO_CHASSI = ?, DESC_TIPO_CHASSI = ? WHERE ID_TIPO_CHASSI = ?";
 
         try (Connection connection = DataBaseFactory.getConnection();
              PreparedStatement ps = connection.prepareStatement(query)) {
 
             ps.setString(1, tipoChassi.getNome());
             ps.setString(2, tipoChassi.getDescricao());
-            ps.setTimestamp(3, tipoChassi.getDataCadastro());
-            ps.setString(4, tipoChassi.getUsuario());
-            ps.setInt(5, tipoChassi.getId());
+            ps.setInt(3, tipoChassi.getId());
 
             ps.executeUpdate();
         } catch (SQLException e) {
