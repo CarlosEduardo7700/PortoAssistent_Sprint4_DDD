@@ -33,8 +33,8 @@ public class ChamadaRepository {
                         colaboradorRepository.find(rs.getInt("ID_COLABORADOR")).orElse(null),
                         veiculoRepository.find(rs.getInt("ID_VEICULO")).orElse(null),
                         modalRepository.find(rs.getInt("ID_MODAL")).orElse(null),
-                        rs.getTimestamp("DT_INICIO_CHAMADA"),
-                        rs.getTimestamp("DT_FIM_CHAMADA"),
+                        rs.getString("DT_INICIO_CHAMADA"),
+                        rs.getString("DT_FIM_CHAMADA"),
                         rs.getString("LOCAL_CHAMADA"),
                         rs.getString("DESTINO_CHAMADA"),
                         rs.getString("DS_LOCAL_CHAMADA"),
@@ -73,8 +73,8 @@ public class ChamadaRepository {
                             colaboradorRepository.find(rs.getInt("ID_COLABORADOR")).orElse(null),
                             veiculoRepository.find(rs.getInt("ID_VEICULO")).orElse(null),
                             modalRepository.find(rs.getInt("ID_MODAL")).orElse(null),
-                            rs.getTimestamp("DT_INICIO_CHAMADA"),
-                            rs.getTimestamp("DT_FIM_CHAMADA"),
+                            rs.getString("DT_INICIO_CHAMADA"),
+                            rs.getString("DT_FIM_CHAMADA"),
                             rs.getString("LOCAL_CHAMADA"),
                             rs.getString("DESTINO_CHAMADA"),
                             rs.getString("DS_LOCAL_CHAMADA"),
@@ -100,7 +100,7 @@ public class ChamadaRepository {
     }
 
     public void add(Chamada chamada) throws SQLException {
-        String query = "INSERT INTO T_PA_CHAMADA (ID_CHAMADA, IMG_CHAMADA, ID_CLIENTE, ID_COLABORADOR, ID_VEICULO, ID_MODAL, DT_INICIO_CHAMADA, DT_FIM_CHAMADA, LOCAL_CHAMADA, DESTINO_CHAMADA, DS_LOCAL_CHAMADA, DS_PROB_CHAMADA, DT_CADASTRO, NM_USUARIO) VALUES (SQ_PA_CHAMADA.nextval(), ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, SYSDATE, USER)";
+        String query = "INSERT INTO T_PA_CHAMADA (ID_CHAMADA, IMG_CHAMADA, ID_CLIENTE, ID_COLABORADOR, ID_VEICULO, ID_MODAL, DT_INICIO_CHAMADA, DT_FIM_CHAMADA, LOCAL_CHAMADA, DESTINO_CHAMADA, DS_LOCAL_CHAMADA, DS_PROB_CHAMADA, DT_CADASTRO, NM_USUARIO) VALUES (SQ_PA_CHAMADA.nextval(), ?, ?, ?, ?, ?, TO_DATE(?, 'DD/MM/YYYY'), TO_DATE(?, 'DD/MM/YYYY'), ?, ?, ?, ?, SYSDATE, USER)";
 
         try (Connection connection = DataBaseFactory.getConnection();
              PreparedStatement ps = connection.prepareStatement(query)) {
@@ -110,8 +110,8 @@ public class ChamadaRepository {
             ps.setInt(3, chamada.getColaborador().getId());
             ps.setInt(4, chamada.getVeiculo().getId());
             ps.setInt(5, chamada.getModal().getId());
-            ps.setTimestamp(6, chamada.getDataInicio());
-            ps.setTimestamp(7, chamada.getDataFim());
+            ps.setString(6, chamada.getDataInicio());
+            ps.setString(7, chamada.getDataFim());
             ps.setString(8, chamada.getLocal());
             ps.setString(9, chamada.getDestino());
             ps.setString(10, chamada.getDescLocal());
@@ -124,7 +124,7 @@ public class ChamadaRepository {
     }
 
     public void update(Chamada chamada) throws SQLException {
-        String query = "UPDATE T_PA_CHAMADA SET IMG_CHAMADA = ?, ID_CLIENTE = ?, ID_COLABORADOR = ?, ID_VEICULO = ?, ID_MODAL = ?, DT_INICIO_CHAMADA = ?, DT_FIM_CHAMADA = ?, LOCAL_CHAMADA = ?, DESTINO_CHAMADA = ?, DS_LOCAL_CHAMADA = ?, DS_PROB_CHAMADA = ? WHERE ID_CHAMADA = ?";
+        String query = "UPDATE T_PA_CHAMADA SET IMG_CHAMADA = ?, ID_CLIENTE = ?, ID_COLABORADOR = ?, ID_VEICULO = ?, ID_MODAL = ?, DT_INICIO_CHAMADA = TO_DATE(?, 'DD/MM/YYYY'), DT_FIM_CHAMADA = TO_DATE(?, 'DD/MM/YYYY'), LOCAL_CHAMADA = ?, DESTINO_CHAMADA = ?, DS_LOCAL_CHAMADA = ?, DS_PROB_CHAMADA = ? WHERE ID_CHAMADA = ?";
 
         try (Connection connection = DataBaseFactory.getConnection();
              PreparedStatement ps = connection.prepareStatement(query)) {
@@ -134,8 +134,8 @@ public class ChamadaRepository {
             ps.setInt(3, chamada.getColaborador().getId());
             ps.setInt(4, chamada.getVeiculo().getId());
             ps.setInt(5, chamada.getModal().getId());
-            ps.setTimestamp(6, chamada.getDataInicio());
-            ps.setTimestamp(7, chamada.getDataFim());
+            ps.setString(6, chamada.getDataInicio());
+            ps.setString(7, chamada.getDataFim());
             ps.setString(8, chamada.getLocal());
             ps.setString(9, chamada.getDestino());
             ps.setString(10, chamada.getDescLocal());

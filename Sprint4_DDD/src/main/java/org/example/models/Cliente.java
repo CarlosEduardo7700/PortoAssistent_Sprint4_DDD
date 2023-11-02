@@ -11,7 +11,7 @@ public class Cliente {
     private String nome;
     private int cpf;
     private int rg;
-    private Timestamp dataNascimento;
+    private String dataNascimento;
     private String cnh;
     private String email;
     private String senha;
@@ -22,7 +22,7 @@ public class Cliente {
     // Construtor
 
 
-    public Cliente(int id, String caminhoImagem, Genero genero, String nome, int cpf, int rg, Timestamp dataNascimento, String cnh, String email, String senha) {
+    public Cliente(int id, String caminhoImagem, Genero genero, String nome, int cpf, int rg, String dataNascimento, String cnh, String email, String senha) {
         this.id = id;
         this.caminhoImagem = caminhoImagem;
         this.genero = genero;
@@ -69,11 +69,11 @@ public class Cliente {
         this.nome = nome;
     }
 
-    public Timestamp getDataNascimento() {
+    public String getDataNascimento() {
         return dataNascimento;
     }
 
-    public void setDataNascimento(Timestamp dataNascimento) {
+    public void setDataNascimento(String dataNascimento) {
         this.dataNascimento = dataNascimento;
     }
 

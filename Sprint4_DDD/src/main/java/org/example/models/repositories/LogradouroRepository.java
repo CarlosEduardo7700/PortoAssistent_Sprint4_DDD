@@ -25,9 +25,9 @@ public class LogradouroRepository {
             while(rs.next()){
                 Logradouro logradouro = new Logradouro(
                         rs.getInt("ID_LOGRADOURO"),
-                        bairroRepository.find(rs.getInt("ID_BAIRRO")).orElse(null),
+                        bairroRepository.find(rs.getInt("T_PA_BAIRRO_ID_BAIRRO")).orElse(null),
                         rs.getString("NM_LOGRADOURO"),
-                        rs.getString("NR_CEP")
+                        rs.getInt("NR_CEP")
                 );
 
                 logradouros.add(logradouro);
@@ -57,9 +57,9 @@ public class LogradouroRepository {
                 if(rs.next()) {
                     Logradouro logradouro = new Logradouro(
                             rs.getInt("ID_LOGRADOURO"),
-                            bairroRepository.find(rs.getInt("ID_BAIRRO")).orElse(null),
+                            bairroRepository.find(rs.getInt("T_PA_BAIRRO_ID_BAIRRO")).orElse(null),
                             rs.getString("NM_LOGRADOURO"),
-                            rs.getString("NR_CEP")
+                            rs.getInt("NR_CEP")
                     );
 
                     return Optional.ofNullable(logradouro);
@@ -81,14 +81,14 @@ public class LogradouroRepository {
     }
 
     public void add(Logradouro logradouro) throws SQLException {
-        String query = "INSERT INTO T_PA_LOGRADOURO (ID_LOGRADOURO, ID_BAIRRO, NM_LOGRADOURO, NR_CEP, DT_CADASTRO, NM_USUARIO) VALUES (SQ_PA_LOGRADOURO.nextval(), ?, ?, ?, SYSDATE, USER)";
+        String query = "INSERT INTO T_PA_LOGRADOURO (ID_LOGRADOURO, T_PA_BAIRRO_ID_BAIRRO, NM_LOGRADOURO, NR_CEP, DT_CADASTRO, NM_USUARIO) VALUES (SQ_PA_LOGRADOURO.nextval(), ?, ?, ?, SYSDATE, USER)";
 
         try (Connection connection = DataBaseFactory.getConnection();
              PreparedStatement ps = connection.prepareStatement(query)) {
 
             ps.setInt(1, logradouro.getBairro().getId());
             ps.setString(2, logradouro.getNome());
-            ps.setString(3, logradouro.getCep());
+            ps.setInt(3, logradouro.getCep());
 
             ps.executeUpdate();
         } catch (SQLException e) {
@@ -97,14 +97,14 @@ public class LogradouroRepository {
     }
 
     public void update(Logradouro logradouro) throws SQLException {
-        String query = "UPDATE T_PA_LOGRADOURO SET ID_BAIRRO = ?, NM_LOGRADOURO = ?, NR_CEP = ? WHERE ID_LOGRADOURO = ?";
+        String query = "UPDATE T_PA_LOGRADOURO SET T_PA_BAIRRO_ID_BAIRRO = ?, NM_LOGRADOURO = ?, NR_CEP = ? WHERE ID_LOGRADOURO = ?";
 
         try (Connection connection = DataBaseFactory.getConnection();
              PreparedStatement ps = connection.prepareStatement(query)) {
 
             ps.setInt(1, logradouro.getBairro().getId());
             ps.setString(2, logradouro.getNome());
-            ps.setString(3, logradouro.getCep());
+            ps.setInt(3, logradouro.getCep());
             ps.setInt(4, logradouro.getId());
 
             ps.executeUpdate();

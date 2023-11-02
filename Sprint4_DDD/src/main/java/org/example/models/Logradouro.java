@@ -8,7 +8,7 @@ public class Logradouro {
     private int id;
     private Bairro bairro;
     private String nome;
-    private String cep;
+    private int cep;
 
 
 
@@ -16,7 +16,7 @@ public class Logradouro {
 
     // Construtor
 
-    public Logradouro(int id, Bairro bairro, String nome, String cep) {
+    public Logradouro(int id, Bairro bairro, String nome, int cep) {
         this.id = id;
         this.bairro = bairro;
         this.nome = nome;
@@ -53,10 +53,10 @@ public class Logradouro {
         this.nome = nome;
     }
 
-    public String getCep() {
+    public int getCep() {
         return cep;
     }
-    public void setCep(String cep) {
+    public void setCep(int cep) {
         this.cep = cep;
     }
 }

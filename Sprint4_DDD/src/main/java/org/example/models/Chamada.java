@@ -10,8 +10,8 @@ public class Chamada {
     private Colaborador colaborador;
     private Veiculo veiculo;
     private Modal modal;
-    private Timestamp dataInicio;
-    private Timestamp dataFim;
+    private String dataInicio;
+    private String dataFim;
     private String local;
     private String destino;
     private String descLocal;
@@ -23,7 +23,7 @@ public class Chamada {
     // Construtor
 
 
-    public Chamada(int id, String caminhosImagens, Cliente cliente, Colaborador colaborador, Veiculo veiculo, Modal modal, Timestamp dataInicio, Timestamp dataFim, String local, String destino, String descLocal, String descProblema) {
+    public Chamada(int id, String caminhosImagens, Cliente cliente, Colaborador colaborador, Veiculo veiculo, Modal modal, String dataInicio, String dataFim, String local, String destino, String descLocal, String descProblema) {
         this.id = id;
         this.caminhosImagens = caminhosImagens;
         this.cliente = cliente;
@@ -68,19 +68,19 @@ public class Chamada {
         this.modal = modal;
     }
 
-    public Timestamp getDataInicio() {
+    public String getDataInicio() {
         return dataInicio;
     }
 
-    public void setDataInicio(Timestamp dataInicio) {
+    public void setDataInicio(String dataInicio) {
         this.dataInicio = dataInicio;
     }
 
-    public Timestamp getDataFim() {
+    public String getDataFim() {
         return dataFim;
     }
 
-    public void setDataFim(Timestamp dataFim) {
+    public void setDataFim(String dataFim) {
         this.dataFim = dataFim;
     }
 

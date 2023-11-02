@@ -28,7 +28,7 @@ public class ModalRepository {
                         rs.getInt("ID_MODAL"),
                         rs.getString("IMG_MODAL"),
                         tipoModalRepository.find(rs.getInt("ID_TIPO_MODAL")).orElse(null),
-                        medidaRepository.find(rs.getInt("ID_MEDIDA")).orElse(null),
+                        medidaRepository.find(rs.getInt("T_PA_MEDIDA_ID_MEDIDA")).orElse(null),
                         rs.getString("MODELO_MODAL"),
                         rs.getString("PLACA_MODAL"),
                         rs.getString("MARCA_MODAL"),
@@ -64,7 +64,7 @@ public class ModalRepository {
                             rs.getInt("ID_MODAL"),
                             rs.getString("IMG_MODAL"),
                             tipoModalRepository.find(rs.getInt("ID_TIPO_MODAL")).orElse(null),
-                            medidaRepository.find(rs.getInt("ID_MEDIDA")).orElse(null),
+                            medidaRepository.find(rs.getInt("T_PA_MEDIDA_ID_MEDIDA")).orElse(null),
                             rs.getString("MODELO_MODAL"),
                             rs.getString("PLACA_MODAL"),
                             rs.getString("MARCA_MODAL"),
@@ -90,7 +90,7 @@ public class ModalRepository {
     }
 
     public void add(Modal modal) throws SQLException {
-        String query = "INSERT INTO T_PA_MODAL (ID_MODAL, IMG_MODAL, ID_TIPO_MODAL, ID_MEDIDA, MODELO_MODAL, PLACA_MODAL, MARCA_MODAL, ANO_MODAL, DT_CADASTRO, NM_USUARIO) VALUES (SQ_PA_MODAL.nextval(), ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        String query = "INSERT INTO T_PA_MODAL (ID_MODAL, IMG_MODAL, ID_TIPO_MODAL, T_PA_MEDIDA_ID_MEDIDA, MODELO_MODAL, PLACA_MODAL, MARCA_MODAL, ANO_MODAL, DT_CADASTRO, NM_USUARIO) VALUES (SQ_PA_MODAL.nextval(), ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
         try (Connection connection = DataBaseFactory.getConnection();
              PreparedStatement ps = connection.prepareStatement(query)) {
@@ -110,7 +110,7 @@ public class ModalRepository {
     }
 
     public void update(Modal modal) throws SQLException {
-        String query = "UPDATE T_PA_MODAL SET IMG_MODAL = ?, ID_TIPO_MODAL = ?, ID_MEDIDA = ?, MODELO_MODAL = ?, PLACA_MODAL = ?, MARCA_MODAL = ?, ANO_MODAL = ? WHERE ID_MODAL = ?";
+        String query = "UPDATE T_PA_MODAL SET IMG_MODAL = ?, ID_TIPO_MODAL = ?, T_PA_MEDIDA_ID_MEDIDA = ?, MODELO_MODAL = ?, PLACA_MODAL = ?, MARCA_MODAL = ?, ANO_MODAL = ? WHERE ID_MODAL = ?";
 
         try (Connection connection = DataBaseFactory.getConnection();
              PreparedStatement ps = connection.prepareStatement(query)) {

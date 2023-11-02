@@ -15,14 +15,14 @@ public class Colaborador {
     private String email;
     private String senha;
     private String cnh;
-    private Timestamp dataNascimento;
+    private String dataNascimento;
 
 
 
     // Construtor
 
 
-    public Colaborador(int id, String caminhoImagem, Genero genero, String nome, String cpf, int rg, String telefone, String email, String senha, String cnh, Timestamp dataNascimento) {
+    public Colaborador(int id, String caminhoImagem, Genero genero, String nome, String cpf, int rg, String telefone, String email, String senha, String cnh, String dataNascimento) {
         this.id = id;
         this.caminhoImagem = caminhoImagem;
         this.genero = genero;
@@ -109,11 +109,11 @@ public class Colaborador {
         this.cnh = cnh;
     }
 
-    public Timestamp getDataNascimento() {
+    public String getDataNascimento() {
         return dataNascimento;
     }
 
-    public void setDataNascimento(Timestamp dataNascimento) {
+    public void setDataNascimento(String dataNascimento) {
         this.dataNascimento = dataNascimento;
     }
 

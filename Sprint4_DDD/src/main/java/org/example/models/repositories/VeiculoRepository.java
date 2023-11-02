@@ -27,7 +27,7 @@ public class VeiculoRepository {
                         rs.getString("IMG_VEICULO"),
                         tipoEixoRepository.find(rs.getInt("ID_TIPO_EIXO")).orElse(null),
                         tipoChassiRepository.find(rs.getInt("ID_TIPO_CHASSI")).orElse(null),
-                        medidaRepository.find(rs.getInt("ID_MEDIDA")).orElse(null),
+                        medidaRepository.find(rs.getInt("T_PA_MEDIDA_ID_MEDIDA")).orElse(null),
                         rs.getInt("APOLICE_VEICULO"),
                         rs.getString("MODELO_VEICULO"),
                         rs.getString("COR_VEICULO"),
@@ -69,7 +69,7 @@ public class VeiculoRepository {
                             rs.getString("IMG_VEICULO"),
                             tipoEixoRepository.find(rs.getInt("ID_TIPO_EIXO")).orElse(null),
                             tipoChassiRepository.find(rs.getInt("ID_TIPO_CHASSI")).orElse(null),
-                            medidaRepository.find(rs.getInt("ID_MEDIDA")).orElse(null),
+                            medidaRepository.find(rs.getInt("T_PA_MEDIDA_ID_MEDIDA")).orElse(null),
                             rs.getInt("APOLICE_VEICULO"),
                             rs.getString("MODELO_VEICULO"),
                             rs.getString("COR_VEICULO"),
@@ -100,7 +100,7 @@ public class VeiculoRepository {
     }
 
     public void add(Veiculo veiculo) throws SQLException {
-        String query = "INSERT INTO T_PA_VEICULO (ID_VEICULO, IMG_VEICULO, ID_TIPO_EIXO, ID_TIPO_CHASSI, ID_MEDIDA, APOLICE_VEICULO, MODELO_VEICULO, COR_VEICULO, MARCA_VEICULO, PLACA_VEICULO, ANO_VEICULO, QUANTIDADE_EIXOS_VEICULO, RENAVAN_VEICULO, NR_CHASSI, DT_CADASTRO, NM_USUARIO) VALUES (SQ_PA_VEICULO.nextval(), ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, SYSDATE, USER)";
+        String query = "INSERT INTO T_PA_VEICULO (ID_VEICULO, IMG_VEICULO, ID_TIPO_EIXO, ID_TIPO_CHASSI, T_PA_MEDIDA_ID_MEDIDA, APOLICE_VEICULO, MODELO_VEICULO, COR_VEICULO, MARCA_VEICULO, PLACA_VEICULO, ANO_VEICULO, QUANTIDADE_EIXOS_VEICULO, RENAVAN_VEICULO, NR_CHASSI, DT_CADASTRO, NM_USUARIO) VALUES (SQ_PA_VEICULO.nextval(), ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, SYSDATE, USER)";
 
         try (Connection connection = DataBaseFactory.getConnection();
              PreparedStatement ps = connection.prepareStatement(query)) {
@@ -126,7 +126,7 @@ public class VeiculoRepository {
     }
 
     public void update(Veiculo veiculo) throws SQLException {
-        String query = "UPDATE T_PA_VEICULO SET IMG_VEICULO = ?, ID_TIPO_EIXO = ?, ID_TIPO_CHASSI = ?, ID_MEDIDA = ?, APOLICE_VEICULO = ?, MODELO_VEICULO = ?, COR_VEICULO = ?, MARCA_VEICULO = ?, PLACA_VEICULO = ?, ANO_VEICULO = ?, QUANTIDADE_EIXOS_VEICULO = ?, RENAVAN_VEICULO = ?, NR_CHASSI = ? WHERE ID_VEICULO = ?";
+        String query = "UPDATE T_PA_VEICULO SET IMG_VEICULO = ?, ID_TIPO_EIXO = ?, ID_TIPO_CHASSI = ?, T_PA_MEDIDA_ID_MEDIDA = ?, APOLICE_VEICULO = ?, MODELO_VEICULO = ?, COR_VEICULO = ?, MARCA_VEICULO = ?, PLACA_VEICULO = ?, ANO_VEICULO = ?, QUANTIDADE_EIXOS_VEICULO = ?, RENAVAN_VEICULO = ?, NR_CHASSI = ? WHERE ID_VEICULO = ?";
 
         try (Connection connection = DataBaseFactory.getConnection();
              PreparedStatement ps = connection.prepareStatement(query)) {

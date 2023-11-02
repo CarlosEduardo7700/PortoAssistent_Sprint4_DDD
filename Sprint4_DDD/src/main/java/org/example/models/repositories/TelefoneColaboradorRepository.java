@@ -26,8 +26,8 @@ public class TelefoneColaboradorRepository {
                 TelefoneColaborador telefoneColaborador = new TelefoneColaborador(
                         colaboradorRepository.find(rs.getInt("ID_COLABORADOR")).orElse(null),
                         rs.getString("TP_TELEFONE_COLAB"),
-                        rs.getString("NUM_TELEFONE_COLAB"),
-                        rs.getString("DDD_TELEFONE_COLAB"),
+                        rs.getInt("NUM_TELEFONE_COLAB"),
+                        rs.getInt("DDD_TELEFONE_COLAB"),
                         rs.getString("DDI_TELEFONE_COLAB")
                 );
 
@@ -59,8 +59,8 @@ public class TelefoneColaboradorRepository {
                     TelefoneColaborador telefoneColaborador = new TelefoneColaborador(
                             colaboradorRepository.find(rs.getInt("ID_COLABORADOR")).orElse(null),
                             rs.getString("TP_TELEFONE_COLAB"),
-                            rs.getString("NUM_TELEFONE_COLAB"),
-                            rs.getString("DDD_TELEFONE_COLAB"),
+                            rs.getInt("NUM_TELEFONE_COLAB"),
+                            rs.getInt("DDD_TELEFONE_COLAB"),
                             rs.getString("DDI_TELEFONE_COLAB")
                     );
 
@@ -90,8 +90,8 @@ public class TelefoneColaboradorRepository {
 
             ps.setInt(1, telefoneColaborador.getColaborador().getId());
             ps.setString(2, telefoneColaborador.getTipo());
-            ps.setString(3, telefoneColaborador.getNumero());
-            ps.setString(4, telefoneColaborador.getDdd());
+            ps.setInt(3, telefoneColaborador.getNumero());
+            ps.setInt(4, telefoneColaborador.getDdd());
             ps.setString(5, telefoneColaborador.getDdi());
 
             ps.executeUpdate();
@@ -107,8 +107,8 @@ public class TelefoneColaboradorRepository {
              PreparedStatement ps = connection.prepareStatement(query)) {
 
             ps.setString(1, telefoneColaborador.getTipo());
-            ps.setString(2, telefoneColaborador.getNumero());
-            ps.setString(3, telefoneColaborador.getDdd());
+            ps.setInt(2, telefoneColaborador.getNumero());
+            ps.setInt(3, telefoneColaborador.getDdd());
             ps.setString(4, telefoneColaborador.getDdi());
             ps.setInt(5, telefoneColaborador.getColaborador().getId());
 

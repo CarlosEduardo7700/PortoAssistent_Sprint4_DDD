@@ -7,15 +7,15 @@ public class TelefoneColaborador {
     // Atributos
     private Colaborador colaborador;
     private String tipo;
-    private String numero;
-    private String ddd;
+    private int numero;
+    private int ddd;
     private String ddi;
 
 
 
 
     // Construtor
-    public TelefoneColaborador(Colaborador colaborador, String tipo, String numero, String ddd, String ddi) {
+    public TelefoneColaborador(Colaborador colaborador, String tipo, int numero, int ddd, String ddi) {
         this.colaborador = colaborador;
         this.tipo = tipo;
         this.numero = numero;
@@ -48,19 +48,19 @@ public class TelefoneColaborador {
         this.tipo = tipo;
     }
 
-    public String getNumero() {
+    public int getNumero() {
         return numero;
     }
 
-    public void setNumero(String numero) {
+    public void setNumero(int numero) {
         this.numero = numero;
     }
 
-    public String getDdd() {
+    public int getDdd() {
         return ddd;
     }
 
-    public void setDdd(String ddd) {
+    public void setDdd(int ddd) {
         this.ddd = ddd;
     }
 

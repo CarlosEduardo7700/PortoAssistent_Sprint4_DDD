@@ -34,7 +34,7 @@ public class ColaboradorRepository {
                         rs.getString("EMAIL_COLABORADOR"),
                         rs.getString("SENHA_COLABORADOR"),
                         rs.getString("CNH_COLABORADOR"),
-                        rs.getTimestamp("DT_NASCIMENTO_COLABORADOR")
+                        rs.getString("DT_NASCIMENTO_COLABORADOR")
                 );
 
                 colaboradores.add(colaborador);
@@ -73,7 +73,7 @@ public class ColaboradorRepository {
                             rs.getString("EMAIL_COLABORADOR"),
                             rs.getString("SENHA_COLABORADOR"),
                             rs.getString("CNH_COLABORADOR"),
-                            rs.getTimestamp("DT_NASCIMENTO_COLABORADOR")
+                            rs.getString("DT_NASCIMENTO_COLABORADOR")
                     );
 
                     return Optional.ofNullable(colaborador);
@@ -95,7 +95,7 @@ public class ColaboradorRepository {
     }
 
     public void add(Colaborador colaborador) throws SQLException {
-        String query = "INSERT INTO T_PA_COLABORADOR (ID_COLABORADOR, IMG_COLABORADOR, ID_GENERO, NM_COLABORADOR, CPF_COLABORADOR, RG_COLABORADOR, TEL_COLABORADOR, EMAIL_COLABORADOR, SENHA_COLABORADOR, CNH_COLABORADOR, DT_NASCIMENTO_COLABORADOR, DT_CADASTRO, NM_USUARIO) VALUES (SQ_PA_COLABORADOR.nextval(), ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, SYSDATE, USER)";
+        String query = "INSERT INTO T_PA_COLABORADOR (ID_COLABORADOR, IMG_COLABORADOR, ID_GENERO, NM_COLABORADOR, CPF_COLABORADOR, RG_COLABORADOR, TEL_COLABORADOR, EMAIL_COLABORADOR, SENHA_COLABORADOR, CNH_COLABORADOR, DT_NASCIMENTO_COLABORADOR, DT_CADASTRO, NM_USUARIO) VALUES (SQ_PA_COLABORADOR.nextval(), ?, ?, ?, ?, ?, ?, ?, ?, ?, TO_DATE(?, 'DD/MM/YYYY'), SYSDATE, USER)";
 
         try (Connection connection = DataBaseFactory.getConnection();
              PreparedStatement ps = connection.prepareStatement(query)) {
@@ -109,7 +109,7 @@ public class ColaboradorRepository {
             ps.setString(7, colaborador.getEmail());
             ps.setString(8, colaborador.getSenha());
             ps.setString(9, colaborador.getCnh());
-            ps.setTimestamp(10, colaborador.getDataNascimento());
+            ps.setString(10, colaborador.getDataNascimento());
 
             ps.executeUpdate();
         } catch (SQLException e) {
@@ -118,7 +118,7 @@ public class ColaboradorRepository {
     }
 
     public void update(Colaborador colaborador) throws SQLException {
-        String query = "UPDATE T_PA_COLABORADOR SET IMG_COLABORADOR = ?, ID_GENERO = ?, NM_COLABORADOR = ?, CPF_COLABORADOR = ?, RG_COLABORADOR = ?, TEL_COLABORADOR = ?, EMAIL_COLABORADOR = ?, SENHA_COLABORADOR = ?, CNH_COLABORADOR = ?, DT_NASCIMENTO_COLABORADOR = ? WHERE ID_COLABORADOR = ?";
+        String query = "UPDATE T_PA_COLABORADOR SET IMG_COLABORADOR = ?, ID_GENERO = ?, NM_COLABORADOR = ?, CPF_COLABORADOR = ?, RG_COLABORADOR = ?, TEL_COLABORADOR = ?, EMAIL_COLABORADOR = ?, SENHA_COLABORADOR = ?, CNH_COLABORADOR = ?, DT_NASCIMENTO_COLABORADOR = TO_DATE(?, 'DD/MM/YYYY') WHERE ID_COLABORADOR = ?";
 
         try (Connection connection = DataBaseFactory.getConnection();
              PreparedStatement ps = connection.prepareStatement(query)) {
@@ -132,7 +132,7 @@ public class ColaboradorRepository {
             ps.setString(7, colaborador.getEmail());
             ps.setString(8, colaborador.getSenha());
             ps.setString(9, colaborador.getCnh());
-            ps.setTimestamp(10, colaborador.getDataNascimento());
+            ps.setString(10, colaborador.getDataNascimento());
             ps.setInt(11, colaborador.getId());
 
             ps.executeUpdate();

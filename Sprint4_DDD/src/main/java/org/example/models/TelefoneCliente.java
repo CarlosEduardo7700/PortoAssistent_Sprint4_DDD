@@ -7,8 +7,8 @@ public class TelefoneCliente {
     // Atributos
     private Cliente cliente;
     private String tipo;
-    private String numero;
-    private String ddd;
+    private int numero;
+    private int ddd;
     private String ddi;
 
 
@@ -17,7 +17,7 @@ public class TelefoneCliente {
     // Construtor
 
 
-    public TelefoneCliente(Cliente cliente, String tipo, String numero, String ddd, String ddi) {
+    public TelefoneCliente(Cliente cliente, String tipo, int numero, int ddd, String ddi) {
         this.cliente = cliente;
         this.tipo = tipo;
         this.numero = numero;
@@ -49,19 +49,19 @@ public class TelefoneCliente {
         this.tipo = tipo;
     }
 
-    public String getNumero() {
+    public int getNumero() {
         return numero;
     }
 
-    public void setNumero(String numero) {
+    public void setNumero(int numero) {
         this.numero = numero;
     }
 
-    public String getDdd() {
+    public int getDdd() {
         return ddd;
     }
 
-    public void setDdd(String ddd) {
+    public void setDdd(int ddd) {
         this.ddd = ddd;
     }
 

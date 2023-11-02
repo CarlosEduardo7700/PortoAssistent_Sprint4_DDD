@@ -25,7 +25,7 @@ public class EnderecoClienteRepository {
 
             while(rs.next()){
                 EnderecoCliente enderecoCliente = new EnderecoCliente(
-                        clienteRepository.find(rs.getInt("ID_CLIENTE")).orElse(null),
+                        clienteRepository.find(rs.getInt("T_PA_CLIENTE_ID_CLIENTE")).orElse(null),
                         logradouroRepository.find(rs.getInt("ID_LOGRADOURO")).orElse(null),
                         rs.getInt("NR_LOGRADOURO"),
                         rs.getString("DS_LOGRADOURO")
@@ -48,7 +48,7 @@ public class EnderecoClienteRepository {
     }
 
     public Optional<EnderecoCliente> findByCliente(int idCliente) throws SQLException {
-        String query = "SELECT * FROM T_PA_ENDERECO_CLIENTE WHERE ID_CLIENTE = ?";
+        String query = "SELECT * FROM T_PA_ENDERECO_CLIENTE WHERE T_PA_CLIENTE_ID_CLIENTE = ?";
 
         try(Connection connection = DataBaseFactory.getConnection();
             PreparedStatement ps = connection.prepareStatement(query)){
@@ -57,7 +57,7 @@ public class EnderecoClienteRepository {
             try(ResultSet rs = ps.executeQuery()){
                 if(rs.next()) {
                     EnderecoCliente enderecoCliente = new EnderecoCliente(
-                            clienteRepository.find(rs.getInt("ID_CLIENTE")).orElse(null),
+                            clienteRepository.find(rs.getInt("T_PA_CLIENTE_ID_CLIENTE")).orElse(null),
                             logradouroRepository.find(rs.getInt("ID_LOGRADOURO")).orElse(null),
                             rs.getInt("NR_LOGRADOURO"),
                             rs.getString("DS_LOGRADOURO")
@@ -82,7 +82,7 @@ public class EnderecoClienteRepository {
     }
 
     public void add(EnderecoCliente enderecoCliente) throws SQLException {
-        String query = "INSERT INTO T_PA_ENDERECO_CLIENTE (ID_CLIENTE, ID_LOGRADOURO, NR_LOGRADOURO, DS_LOGRADOURO, DT_CADASTRO, NM_USUARIO) VALUES (?, ?, ?, ?, SYSDATE, USER)";
+        String query = "INSERT INTO T_PA_ENDERECO_CLIENTE (T_PA_CLIENTE_ID_CLIENTE, ID_LOGRADOURO, NR_LOGRADOURO, DS_LOGRADOURO, DT_CADASTRO, NM_USUARIO) VALUES (?, ?, ?, ?, SYSDATE, USER)";
 
         try (Connection connection = DataBaseFactory.getConnection();
              PreparedStatement ps = connection.prepareStatement(query)) {
@@ -99,7 +99,7 @@ public class EnderecoClienteRepository {
     }
 
     public void updateByIdCliente(EnderecoCliente enderecoCliente) throws SQLException {
-        String query = "UPDATE T_PA_ENDERECO_CLIENTE SET ID_LOGRADOURO = ?, NR_LOGRADOURO = ?, DS_LOGRADOURO = ? WHERE ID_CLIENTE = ?";
+        String query = "UPDATE T_PA_ENDERECO_CLIENTE SET ID_LOGRADOURO = ?, NR_LOGRADOURO = ?, DS_LOGRADOURO = ? WHERE T_PA_CLIENTE_ID_CLIENTE = ?";
 
         try (Connection connection = DataBaseFactory.getConnection();
              PreparedStatement ps = connection.prepareStatement(query)) {
@@ -116,7 +116,7 @@ public class EnderecoClienteRepository {
     }
 
     public void deleteByIdCliente(int idCliente) throws SQLException {
-        String query = "DELETE FROM T_PA_ENDERECO_CLIENTE WHERE ID_CLIENTE = ?";
+        String query = "DELETE FROM T_PA_ENDERECO_CLIENTE WHERE T_PA_CLIENTE_ID_CLIENTE = ?";
 
         try (Connection connection = DataBaseFactory.getConnection();
              PreparedStatement ps = connection.prepareStatement(query)) {

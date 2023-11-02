@@ -26,8 +26,8 @@ public class TelefoneClienteRepository {
                 TelefoneCliente telefoneCliente = new TelefoneCliente(
                         clienteRepository.find(rs.getInt("ID_CLIENTE")).orElse(null),
                         rs.getString("TP_TELEFONE_CLIE"),
-                        rs.getString("NUM_TELEFONE_CLIE"),
-                        rs.getString("DDD_TELEFONE_CLIE"),
+                        rs.getInt("NUM_TELEFONE_CLIE"),
+                        rs.getInt("DDD_TELEFONE_CLIE"),
                         rs.getString("DDI_TELEFONE_CLIE")
                 );
 
@@ -59,8 +59,8 @@ public class TelefoneClienteRepository {
                     TelefoneCliente telefoneCliente = new TelefoneCliente(
                             clienteRepository.find(rs.getInt("ID_CLIENTE")).orElse(null),
                             rs.getString("TP_TELEFONE_CLIE"),
-                            rs.getString("NUM_TELEFONE_CLIE"),
-                            rs.getString("DDD_TELEFONE_CLIE"),
+                            rs.getInt("NUM_TELEFONE_CLIE"),
+                            rs.getInt("DDD_TELEFONE_CLIE"),
                             rs.getString("DDI_TELEFONE_CLIE")
                     );
 
@@ -90,8 +90,8 @@ public class TelefoneClienteRepository {
 
             ps.setInt(1, telefoneCliente.getCliente().getId());
             ps.setString(2, telefoneCliente.getTipo());
-            ps.setString(3, telefoneCliente.getNumero());
-            ps.setString(4, telefoneCliente.getDdd());
+            ps.setInt(3, telefoneCliente.getNumero());
+            ps.setInt(4, telefoneCliente.getDdd());
             ps.setString(5, telefoneCliente.getDdi());
 
             ps.executeUpdate();
@@ -107,8 +107,8 @@ public class TelefoneClienteRepository {
              PreparedStatement ps = connection.prepareStatement(query)) {
 
             ps.setString(1, telefoneCliente.getTipo());
-            ps.setString(2, telefoneCliente.getNumero());
-            ps.setString(3, telefoneCliente.getDdd());
+            ps.setInt(2, telefoneCliente.getNumero());
+            ps.setInt(3, telefoneCliente.getDdd());
             ps.setString(4, telefoneCliente.getDdi());
             ps.setInt(5, telefoneCliente.getCliente().getId());
 
