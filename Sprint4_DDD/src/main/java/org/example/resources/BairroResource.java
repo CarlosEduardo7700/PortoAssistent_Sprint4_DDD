@@ -13,13 +13,12 @@ import java.util.Optional;
 
 @Path("/bairro")
 public class BairroResource {
-    private BairroRepository repository = new BairroRepository();
     private BairroService service = new BairroService();
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public List<Bairro> getAll() throws SQLException {
-        return repository.findAll();
+    public Response getAll() throws SQLException {
+        return service.getAllService();
     }
 
     @GET
@@ -32,8 +31,7 @@ public class BairroResource {
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     public Response insert(Bairro bairro) throws SQLException {
-        repository.add(bairro);
-        return Response.status(Response.Status.CREATED).build();
+        return service.insertService(bairro);
     }
 
     @PUT
@@ -41,23 +39,12 @@ public class BairroResource {
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     public Response update(@PathParam("id") int id, Bairro bairro) throws SQLException {
-        if (repository.find(id).isPresent()) {
-            bairro.setId(id);
-            repository.update(bairro);
-            Optional<Bairro> bairroAtualizado = repository.find(id);
-            return Response.status(Response.Status.OK).entity(bairroAtualizado).build();
-        }
-
-        return Response.status(Response.Status.NOT_FOUND).entity(bairro).build();
+        return service.updateService(id, bairro);
     }
 
     @DELETE
     @Path("{id}")
     public Response delete(@PathParam("id") int id) throws SQLException {
-        if (repository.find(id).isPresent()) {
-            repository.delete(id);
-            return Response.status(Response.Status.OK).build();
-        }
-        return Response.status(Response.Status.NOT_FOUND).build();
+        return service.deleteService(id);
     }
 }

@@ -81,7 +81,7 @@ public class LogradouroRepository {
     }
 
     public void add(Logradouro logradouro) throws SQLException {
-        String query = "INSERT INTO T_PA_LOGRADOURO (ID_LOGRADOURO, T_PA_BAIRRO_ID_BAIRRO, NM_LOGRADOURO, NR_CEP, DT_CADASTRO, NM_USUARIO) VALUES (SQ_PA_LOGRADOURO.nextval(), ?, ?, ?, SYSDATE, USER)";
+        String query = "INSERT INTO T_PA_LOGRADOURO (ID_LOGRADOURO, T_PA_BAIRRO_ID_BAIRRO, NM_LOGRADOURO, NR_CEP, DT_CADASTRO, NM_USUARIO) VALUES (SQ_PA_LOGRADOURO.nextval, ?, ?, ?, SYSDATE, USER)";
 
         try (Connection connection = DataBaseFactory.getConnection();
              PreparedStatement ps = connection.prepareStatement(query)) {

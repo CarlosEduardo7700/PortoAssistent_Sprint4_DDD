@@ -14,7 +14,6 @@ public class Bairro {
 
 
     // Construtor
-
     public Bairro(int id, Cidade cidade, String nome, String zona) {
         this.id = id;
         this.cidade = cidade;

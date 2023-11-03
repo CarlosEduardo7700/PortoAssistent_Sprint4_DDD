@@ -10,7 +10,7 @@ public class Colaborador {
     private Genero genero;
     private String nome;
     private String cpf;
-    private int rg;
+    private Long rg;
     private String telefone;
     private String email;
     private String senha;
@@ -22,7 +22,7 @@ public class Colaborador {
     // Construtor
 
 
-    public Colaborador(int id, String caminhoImagem, Genero genero, String nome, String cpf, int rg, String telefone, String email, String senha, String cnh, String dataNascimento) {
+    public Colaborador(int id, String caminhoImagem, Genero genero, String nome, String cpf, Long rg, String telefone, String email, String senha, String cnh, String dataNascimento) {
         this.id = id;
         this.caminhoImagem = caminhoImagem;
         this.genero = genero;
@@ -77,11 +77,11 @@ public class Colaborador {
         this.cpf = cpf;
     }
 
-    public int getRg() {
+    public Long getRg() {
         return rg;
     }
 
-    public void setRg(int rg) {
+    public void setRg(Long rg) {
         this.rg = rg;
     }
 

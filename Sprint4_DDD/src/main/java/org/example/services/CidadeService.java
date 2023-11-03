@@ -1,51 +1,50 @@
 package org.example.services;
 
-import jakarta.ws.rs.PathParam;
 import jakarta.ws.rs.core.Response;
 import org.example.models.Bairro;
-import org.example.models.Estado;
-import org.example.models.repositories.BairroRepository;
+import org.example.models.Cidade;
+import org.example.models.repositories.CidadeRepository;
 
 import java.sql.SQLException;
 import java.util.List;
 import java.util.Optional;
 
-public class BairroService {
-    private BairroRepository repository = new BairroRepository();
+public class CidadeService {
+    private CidadeRepository repository = new CidadeRepository();
 
     public Response getAllService() throws SQLException {
-        List<Bairro> bairros = repository.findAll();
+        List<Cidade> cidades = repository.findAll();
 
-        if (bairros.isEmpty()) {
+        if (cidades.isEmpty()) {
             return Response.status(Response.Status.NOT_FOUND)
                     .entity("Nenhuma informação encontrada!").build();
         }
 
-        return Response.status(Response.Status.OK).entity(bairros).build();
+        return Response.status(Response.Status.OK).entity(cidades).build();
     }
 
 
 
     public Response getByIdService(int id) throws SQLException {
-        Bairro bairro = repository.find(id).orElse(null);
+        Cidade cidade = repository.find(id).orElse(null);
 
-        if (bairro == null) {
+        if (cidade == null) {
             return Response.status(Response.Status.NOT_FOUND)
                     .entity("A informação solicitada não foi encontrada!").build();
         }
 
-        return Response.status(Response.Status.OK).entity(bairro).build();
+        return Response.status(Response.Status.OK).entity(cidade).build();
     }
 
 
 
-    public Response insertService(Bairro bairro) throws SQLException {
+    public Response insertService(Cidade cidade) throws SQLException {
 
-        if (bairro == null) {
+        if (cidade == null) {
             return Response.status(Response.Status.BAD_REQUEST)
                     .entity("Dados inválidos! Reveja os dados da sua solicitação.").build();
         } else {
-            repository.add(bairro);
+            repository.add(cidade);
 
             return Response.status(Response.Status.CREATED).build();
         }
@@ -53,12 +52,12 @@ public class BairroService {
 
 
 
-    public Response updateService(int id, Bairro bairro) throws SQLException {
+    public Response updateService(int id, Cidade cidade) throws SQLException {
         if (repository.find(id).isPresent()) {
-            bairro.setId(id);
-            repository.update(bairro);
-            Optional<Bairro> bairroAtualizado = repository.find(id);
-            return Response.status(Response.Status.OK).entity(bairroAtualizado).build();
+            cidade.setId(id);
+            repository.update(cidade);
+            Optional<Cidade> cidadeAtualizada = repository.find(id);
+            return Response.status(Response.Status.OK).entity(cidadeAtualizada).build();
         }
 
         return Response.status(Response.Status.NOT_FOUND).entity("Informação não encontrada!").build();

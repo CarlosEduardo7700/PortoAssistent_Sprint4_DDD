@@ -13,7 +13,6 @@ import java.util.Optional;
 
 @Path("/estado")
 public class EstadoResource {
-    private EstadoRepository repository = new EstadoRepository();
     private EstadoService service = new EstadoService();
 
     @GET

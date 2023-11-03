@@ -1,51 +1,51 @@
 package org.example.services;
 
-import jakarta.ws.rs.PathParam;
 import jakarta.ws.rs.core.Response;
-import org.example.models.Bairro;
-import org.example.models.Estado;
-import org.example.models.repositories.BairroRepository;
+import org.example.models.Cidade;
+import org.example.models.Logradouro;
+import org.example.models.repositories.CidadeRepository;
+import org.example.models.repositories.LogradouroRepository;
 
 import java.sql.SQLException;
 import java.util.List;
 import java.util.Optional;
 
-public class BairroService {
-    private BairroRepository repository = new BairroRepository();
+public class LogradouroService {
+    private LogradouroRepository repository = new LogradouroRepository();
 
     public Response getAllService() throws SQLException {
-        List<Bairro> bairros = repository.findAll();
+        List<Logradouro> logradouros = repository.findAll();
 
-        if (bairros.isEmpty()) {
+        if (logradouros.isEmpty()) {
             return Response.status(Response.Status.NOT_FOUND)
                     .entity("Nenhuma informação encontrada!").build();
         }
 
-        return Response.status(Response.Status.OK).entity(bairros).build();
+        return Response.status(Response.Status.OK).entity(logradouros).build();
     }
 
 
 
     public Response getByIdService(int id) throws SQLException {
-        Bairro bairro = repository.find(id).orElse(null);
+        Logradouro logradouro = repository.find(id).orElse(null);
 
-        if (bairro == null) {
+        if (logradouro == null) {
             return Response.status(Response.Status.NOT_FOUND)
                     .entity("A informação solicitada não foi encontrada!").build();
         }
 
-        return Response.status(Response.Status.OK).entity(bairro).build();
+        return Response.status(Response.Status.OK).entity(logradouro).build();
     }
 
 
 
-    public Response insertService(Bairro bairro) throws SQLException {
+    public Response insertService(Logradouro logradouro) throws SQLException {
 
-        if (bairro == null) {
+        if (logradouro == null) {
             return Response.status(Response.Status.BAD_REQUEST)
                     .entity("Dados inválidos! Reveja os dados da sua solicitação.").build();
         } else {
-            repository.add(bairro);
+            repository.add(logradouro);
 
             return Response.status(Response.Status.CREATED).build();
         }
@@ -53,12 +53,12 @@ public class BairroService {
 
 
 
-    public Response updateService(int id, Bairro bairro) throws SQLException {
+    public Response updateService(int id, Logradouro logradouro) throws SQLException {
         if (repository.find(id).isPresent()) {
-            bairro.setId(id);
-            repository.update(bairro);
-            Optional<Bairro> bairroAtualizado = repository.find(id);
-            return Response.status(Response.Status.OK).entity(bairroAtualizado).build();
+            logradouro.setId(id);
+            repository.update(logradouro);
+            Optional<Logradouro> logradouroAtualizado = repository.find(id);
+            return Response.status(Response.Status.OK).entity(logradouroAtualizado).build();
         }
 
         return Response.status(Response.Status.NOT_FOUND).entity("Informação não encontrada!").build();
@@ -73,4 +73,5 @@ public class BairroService {
         }
         return Response.status(Response.Status.NOT_FOUND).entity("Informação não encontrada!").build();
     }
+
 }
