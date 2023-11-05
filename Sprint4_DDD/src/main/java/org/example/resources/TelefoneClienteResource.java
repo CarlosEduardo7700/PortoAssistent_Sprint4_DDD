@@ -5,6 +5,7 @@ import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
 import org.example.models.TelefoneCliente;
 import org.example.models.repositories.TelefoneClienteRepository;
+import org.example.services.TelefoneClienteService;
 
 import java.sql.SQLException;
 import java.util.List;
@@ -12,27 +13,25 @@ import java.util.Optional;
 
 @Path("/telefone-cliente")
 public class TelefoneClienteResource {
-    private TelefoneClienteRepository repository = new TelefoneClienteRepository();
+    private TelefoneClienteService service = new TelefoneClienteService();
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public List<TelefoneCliente> getAll() throws SQLException {
-        return repository.findAll();
+    public Response getAll() throws SQLException {
+        return service.getAllService();
     }
 
     @GET
     @Path("{id}")
     @Produces(MediaType.APPLICATION_JSON)
-    public TelefoneCliente getById(@PathParam("id") int id) throws SQLException {
-        TelefoneCliente telefoneCliente = repository.find(id).orElse(null);
-        return telefoneCliente;
+    public Response getById(@PathParam("id") int id) throws SQLException {
+        return service.getByIdService(id);
     }
 
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     public Response insert(TelefoneCliente telefoneCliente) throws SQLException {
-        repository.add(telefoneCliente);
-        return Response.status(Response.Status.CREATED).build();
+        return service.insertService(telefoneCliente);
     }
 
     @PUT
@@ -40,24 +39,13 @@ public class TelefoneClienteResource {
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     public Response update(@PathParam("id") int id, TelefoneCliente telefoneCliente) throws SQLException {
-        if (repository.find(id).isPresent()) {
-            telefoneCliente.getCliente().setId(id);
-            repository.update(telefoneCliente);
-            Optional<TelefoneCliente> telefoneClienteAtualizado = repository.find(id);
-            return Response.status(Response.Status.OK).entity(telefoneClienteAtualizado).build();
-        }
-
-        return Response.status(Response.Status.NOT_FOUND).entity(telefoneCliente).build();
+        return service.updateService(id, telefoneCliente);
     }
 
     @DELETE
     @Path("{id}")
     public Response delete(@PathParam("id") int id) throws SQLException {
-        if (repository.find(id).isPresent()) {
-            repository.delete(id);
-            return Response.status(Response.Status.OK).build();
-        }
-        return Response.status(Response.Status.NOT_FOUND).build();
+        return service.deleteService(id);
     }
 
 }
