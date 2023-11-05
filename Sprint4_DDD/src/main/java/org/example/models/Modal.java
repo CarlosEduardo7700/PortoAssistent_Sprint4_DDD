@@ -1,12 +1,10 @@
 package org.example.models;
 
-import java.sql.Timestamp;
-
 public class Modal {
 
     // Atributos
     private int id;
-    private String caminhaImagem;
+    private String caminhoImagem;
     private Tipo_Modal tipoModal;
     private Medida medidaModal;
     private String modelo;
@@ -19,9 +17,9 @@ public class Modal {
     // Construtor
 
 
-    public Modal(int id, String caminhaImagem, Tipo_Modal tipoModal, Medida medidaModal, String modelo, String placa, String marca, int anoFabricacao) {
+    public Modal(int id, String caminhoImagem, Tipo_Modal tipoModal, Medida medidaModal, String modelo, String placa, String marca, int anoFabricacao) {
         this.id = id;
-        this.caminhaImagem = caminhaImagem;
+        this.caminhoImagem = caminhoImagem;
         this.tipoModal = tipoModal;
         this.medidaModal = medidaModal;
         this.modelo = modelo;
@@ -94,11 +92,11 @@ public class Modal {
         this.anoFabricacao = anoFabricacao;
     }
 
-    public String getCaminhaImagem() {
-        return caminhaImagem;
+    public String getCaminhoImagem() {
+        return caminhoImagem;
     }
 
-    public void setCaminhaImagem(String caminhaImagem) {
-        this.caminhaImagem = caminhaImagem;
+    public void setCaminhoImagem(String caminhoImagem) {
+        this.caminhoImagem = caminhoImagem;
     }
 }

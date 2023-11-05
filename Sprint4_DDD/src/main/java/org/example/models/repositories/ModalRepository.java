@@ -90,12 +90,12 @@ public class ModalRepository {
     }
 
     public void add(Modal modal) throws SQLException {
-        String query = "INSERT INTO T_PA_MODAL (ID_MODAL, IMG_MODAL, ID_TIPO_MODAL, T_PA_MEDIDA_ID_MEDIDA, MODELO_MODAL, PLACA_MODAL, MARCA_MODAL, ANO_MODAL, DT_CADASTRO, NM_USUARIO) VALUES (SQ_PA_MODAL.nextval, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        String query = "INSERT INTO T_PA_MODAL (ID_MODAL, IMG_MODAL, ID_TIPO_MODAL, T_PA_MEDIDA_ID_MEDIDA, MODELO_MODAL, PLACA_MODAL, MARCA_MODAL, ANO_MODAL, DT_CADASTRO, NM_USUARIO) VALUES (SQ_PA_MODAL.nextval, ?, ?, ?, ?, ?, ?, ?, SYSDATE, USER)";
 
         try (Connection connection = DataBaseFactory.getConnection();
              PreparedStatement ps = connection.prepareStatement(query)) {
 
-            ps.setString(1, modal.getCaminhaImagem());
+            ps.setString(1, modal.getCaminhoImagem());
             ps.setInt(2, modal.getTipoModal().getId());
             ps.setInt(3, modal.getMedidaModal().getId());
             ps.setString(4, modal.getModelo());
@@ -115,7 +115,7 @@ public class ModalRepository {
         try (Connection connection = DataBaseFactory.getConnection();
              PreparedStatement ps = connection.prepareStatement(query)) {
 
-            ps.setString(1, modal.getCaminhaImagem());
+            ps.setString(1, modal.getCaminhoImagem());
             ps.setInt(2, modal.getTipoModal().getId());
             ps.setInt(3, modal.getMedidaModal().getId());
             ps.setString(4, modal.getModelo());
