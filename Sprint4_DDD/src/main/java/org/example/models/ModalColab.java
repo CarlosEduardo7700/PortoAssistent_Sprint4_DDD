@@ -9,6 +9,8 @@ public class ModalColab {
         this.colaborador = colaborador;
     }
 
+    public ModalColab(){}
+
     public Modal getModal() {
         return modal;
     }

@@ -9,6 +9,8 @@ public class VeicCliente {
         this.veiculo = veiculo;
     }
 
+    public VeicCliente(){}
+
     public Cliente getCliente() {
         return cliente;
     }
