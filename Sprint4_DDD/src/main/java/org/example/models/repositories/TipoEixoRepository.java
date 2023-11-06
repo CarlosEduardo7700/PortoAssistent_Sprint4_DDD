@@ -1,7 +1,7 @@
 package org.example.models.repositories;
 
 import org.example.infrascture.database.DataBaseFactory;
-import org.example.models.Tipo_Eixo;
+import org.example.models.TipoEixo;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -11,9 +11,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-public class Tipo_EixoRepository {
-    public List<Tipo_Eixo> findAll() throws SQLException {
-        List<Tipo_Eixo> tipos_eixos = new ArrayList<Tipo_Eixo>();
+public class TipoEixoRepository {
+    public List<TipoEixo> findAll() throws SQLException {
+        List<TipoEixo> tipos_eixos = new ArrayList<TipoEixo>();
         String query = "SELECT * FROM T_PA_TIPO_EIXO";
 
         try (Connection connection = DataBaseFactory.getConnection();
@@ -21,7 +21,7 @@ public class Tipo_EixoRepository {
              ResultSet rs = ps.executeQuery()) {
 
             while(rs.next()){
-                Tipo_Eixo tipoEixo = new Tipo_Eixo(
+                TipoEixo tipoEixo = new TipoEixo(
                         rs.getInt("ID_TIPO_EIXO"),
                         rs.getString("NOME_TIPO_EIXO"),
                         rs.getString("DESC_TIPO_EIXO")
@@ -43,7 +43,7 @@ public class Tipo_EixoRepository {
         }
     }
 
-    public Optional<Tipo_Eixo> find(int id) throws SQLException {
+    public Optional<TipoEixo> find(int id) throws SQLException {
         String query = "SELECT * FROM T_PA_TIPO_EIXO WHERE ID_TIPO_EIXO = ?";
 
         try(Connection connection = DataBaseFactory.getConnection();
@@ -52,7 +52,7 @@ public class Tipo_EixoRepository {
             ps.setInt(1, id);
             try(ResultSet rs = ps.executeQuery()){
                 if(rs.next()) {
-                    Tipo_Eixo tipoEixo = new Tipo_Eixo(
+                    TipoEixo tipoEixo = new TipoEixo(
                             rs.getInt("ID_TIPO_EIXO"),
                             rs.getString("NOME_TIPO_EIXO"),
                             rs.getString("DESC_TIPO_EIXO")
@@ -76,7 +76,7 @@ public class Tipo_EixoRepository {
         return Optional.empty();
     }
 
-    public void add(Tipo_Eixo tipoEixo) throws SQLException {
+    public void add(TipoEixo tipoEixo) throws SQLException {
         String query = "INSERT INTO T_PA_TIPO_EIXO (ID_TIPO_EIXO, NOME_TIPO_EIXO, DESC_TIPO_EIXO, DT_CADASTRO, NM_USUARIO) VALUES (?, ?, ?, SYSDATE, USER)";
 
         try (Connection connection = DataBaseFactory.getConnection();
@@ -92,7 +92,7 @@ public class Tipo_EixoRepository {
         }
     }
 
-    public void update(Tipo_Eixo tipoEixo) throws SQLException {
+    public void update(TipoEixo tipoEixo) throws SQLException {
         String query = "UPDATE T_PA_TIPO_EIXO SET NOME_TIPO_EIXO = ?, DESC_TIPO_EIXO = ? WHERE ID_TIPO_EIXO = ?";
 
         try (Connection connection = DataBaseFactory.getConnection();

@@ -1,14 +1,12 @@
 package org.example.models;
 
-import java.sql.Timestamp;
-
 public class Veiculo {
 
     // Atributos
     private int id;
     private String caminhoImagem;
-    private Tipo_Eixo tipoEixo;
-    private Tipo_Chassi tipoChassi;
+    private TipoEixo tipoEixo;
+    private TipoChassi tipoChassi;
     private Medida medidaVeiculo;
     private int apolice;
     private String modelo;
@@ -26,7 +24,7 @@ public class Veiculo {
     // Construtor
 
 
-    public Veiculo(int id, String caminhoImagem, Tipo_Eixo tipoEixo, Tipo_Chassi tipoChassi, Medida medidaVeiculo, int apolice, String modelo, String cor, String marca, String placa, int anoFabricacao, int quantidadeEixos, String renavan, int numChassi) {
+    public Veiculo(int id, String caminhoImagem, TipoEixo tipoEixo, TipoChassi tipoChassi, Medida medidaVeiculo, int apolice, String modelo, String cor, String marca, String placa, int anoFabricacao, int quantidadeEixos, String renavan, int numChassi) {
         this.id = id;
         this.caminhoImagem = caminhoImagem;
         this.tipoEixo = tipoEixo;
@@ -62,17 +60,17 @@ public class Veiculo {
         this.id = id;
     }
 
-    public Tipo_Eixo getTipoEixo() {
+    public TipoEixo getTipoEixo() {
         return tipoEixo;
     }
-    public void setTipoEixo(Tipo_Eixo tipoEixo) {
+    public void setTipoEixo(TipoEixo tipoEixo) {
         this.tipoEixo = tipoEixo;
     }
 
-    public Tipo_Chassi getTipoChassi() {
+    public TipoChassi getTipoChassi() {
         return tipoChassi;
     }
-    public void setTipoChassi(Tipo_Chassi tipoChassi) {
+    public void setTipoChassi(TipoChassi tipoChassi) {
         this.tipoChassi = tipoChassi;
     }
 

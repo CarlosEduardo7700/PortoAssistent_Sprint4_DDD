@@ -1,7 +1,7 @@
 package org.example.models.repositories;
 
 import org.example.infrascture.database.DataBaseFactory;
-import org.example.models.Modal_Colab;
+import org.example.models.ModalColab;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -11,12 +11,12 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-public class Modal_ColabRepository {
+public class ModalColabRepository {
     private ModalRepository modalRepository = new ModalRepository();
     private ColaboradorRepository colaboradorRepository = new ColaboradorRepository();
 
-    public List<Modal_Colab> findAll() throws SQLException {
-        List<Modal_Colab> modaisColabs = new ArrayList<Modal_Colab>();
+    public List<ModalColab> findAll() throws SQLException {
+        List<ModalColab> modaisColabs = new ArrayList<ModalColab>();
         String query = "SELECT * FROM T_PA_MODAL_COLAB";
 
         try (Connection connection = DataBaseFactory.getConnection();
@@ -24,7 +24,7 @@ public class Modal_ColabRepository {
              ResultSet rs = ps.executeQuery()) {
 
             while(rs.next()){
-                Modal_Colab modalColab = new Modal_Colab(
+                ModalColab modalColab = new ModalColab(
                         modalRepository.find(rs.getInt("ID_MODAL")).orElse(null),
                         colaboradorRepository.find(rs.getInt("ID_COLABORADOR")).orElse(null)
                 );
@@ -45,7 +45,7 @@ public class Modal_ColabRepository {
         }
     }
 
-    public Optional<Modal_Colab> find(int id) throws SQLException {
+    public Optional<ModalColab> find(int id) throws SQLException {
         String query = "SELECT * FROM T_PA_MODAL_COLAB WHERE ID_COLABORADOR = ?";
 
         try(Connection connection = DataBaseFactory.getConnection();
@@ -54,7 +54,7 @@ public class Modal_ColabRepository {
             ps.setInt(1, id);
             try(ResultSet rs = ps.executeQuery()){
                 if(rs.next()) {
-                    Modal_Colab modalColab = new Modal_Colab(
+                    ModalColab modalColab = new ModalColab(
                             modalRepository.find(rs.getInt("ID_MODAL")).orElse(null),
                             colaboradorRepository.find(rs.getInt("ID_COLABORADOR")).orElse(null)
                     );
@@ -77,7 +77,7 @@ public class Modal_ColabRepository {
         return Optional.empty();
     }
 
-    public void add(Modal_Colab modalColab) throws SQLException {
+    public void add(ModalColab modalColab) throws SQLException {
         String query = "INSERT INTO T_PA_MODAL_COLAB (ID_COLABORADOR, ID_MODAL) VALUES (?, ?)";
 
         try (Connection connection = DataBaseFactory.getConnection();
@@ -92,7 +92,7 @@ public class Modal_ColabRepository {
         }
     }
 
-    public void update(Modal_Colab modalColab) throws SQLException {
+    public void update(ModalColab modalColab) throws SQLException {
         String query = "UPDATE T_PA_MODAL_COLAB SET ID_MODAL = ? WHERE ID_COLABORADOR = ?";
 
         try (Connection connection = DataBaseFactory.getConnection();

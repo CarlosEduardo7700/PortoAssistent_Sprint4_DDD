@@ -1,7 +1,7 @@
 package org.example.models.repositories;
 
 import org.example.infrascture.database.DataBaseFactory;
-import org.example.models.Veic_Cliente;
+import org.example.models.VeicCliente;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -11,12 +11,12 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-public class Veic_ClienteRepository {
+public class VeicClienteRepository {
     private VeiculoRepository veiculoRepository = new VeiculoRepository();
     private ClienteRepository clienteRepository = new ClienteRepository();
 
-    public List<Veic_Cliente> findAll() throws SQLException {
-        List<Veic_Cliente> veicClientes = new ArrayList<Veic_Cliente>();
+    public List<VeicCliente> findAll() throws SQLException {
+        List<VeicCliente> veicClientes = new ArrayList<VeicCliente>();
         String query = "SELECT * FROM T_PA_VEIC_CLIENT";
 
         try (Connection connection = DataBaseFactory.getConnection();
@@ -24,7 +24,7 @@ public class Veic_ClienteRepository {
              ResultSet rs = ps.executeQuery()) {
 
             while(rs.next()){
-                Veic_Cliente veicCliente = new Veic_Cliente(
+                VeicCliente veicCliente = new VeicCliente(
                         clienteRepository.find(rs.getInt("ID_CLIENTE")).orElse(null),
                         veiculoRepository.find(rs.getInt("ID_VEICULO")).orElse(null)
                 );
@@ -45,7 +45,7 @@ public class Veic_ClienteRepository {
         }
     }
 
-    public Optional<Veic_Cliente> find(int id) throws SQLException {
+    public Optional<VeicCliente> find(int id) throws SQLException {
         String query = "SELECT * FROM T_PA_VEIC_CLIENT WHERE ID_CLIENTE = ?";
 
         try(Connection connection = DataBaseFactory.getConnection();
@@ -54,7 +54,7 @@ public class Veic_ClienteRepository {
             ps.setInt(1, id);
             try(ResultSet rs = ps.executeQuery()){
                 if(rs.next()) {
-                    Veic_Cliente veicCliente = new Veic_Cliente(
+                    VeicCliente veicCliente = new VeicCliente(
                             clienteRepository.find(rs.getInt("ID_CLIENTE")).orElse(null),
                             veiculoRepository.find(rs.getInt("ID_VEICULO")).orElse(null)
                     );
@@ -77,7 +77,7 @@ public class Veic_ClienteRepository {
         return Optional.empty();
     }
 
-    public void add(Veic_Cliente veicCliente) throws SQLException {
+    public void add(VeicCliente veicCliente) throws SQLException {
         String query = "INSERT INTO T_PA_VEIC_CLIENT (ID_CLIENTE, ID_VEICULO) VALUES (?, ?)";
 
         try (Connection connection = DataBaseFactory.getConnection();
@@ -92,7 +92,7 @@ public class Veic_ClienteRepository {
         }
     }
 
-    public void update(Veic_Cliente veicCliente) throws SQLException {
+    public void update(VeicCliente veicCliente) throws SQLException {
         String query = "UPDATE T_PA_VEIC_CLIENT SET ID_VEICULO = ? WHERE ID_CLIENTE = ?";
 
         try (Connection connection = DataBaseFactory.getConnection();

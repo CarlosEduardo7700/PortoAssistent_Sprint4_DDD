@@ -5,7 +5,7 @@ public class Modal {
     // Atributos
     private int id;
     private String caminhoImagem;
-    private Tipo_Modal tipoModal;
+    private TipoModal tipoModal;
     private Medida medidaModal;
     private String modelo;
     private String placa;
@@ -17,7 +17,7 @@ public class Modal {
     // Construtor
 
 
-    public Modal(int id, String caminhoImagem, Tipo_Modal tipoModal, Medida medidaModal, String modelo, String placa, String marca, int anoFabricacao) {
+    public Modal(int id, String caminhoImagem, TipoModal tipoModal, Medida medidaModal, String modelo, String placa, String marca, int anoFabricacao) {
         this.id = id;
         this.caminhoImagem = caminhoImagem;
         this.tipoModal = tipoModal;
@@ -44,11 +44,11 @@ public class Modal {
         this.id = id;
     }
 
-    public Tipo_Modal getTipoModal() {
+    public TipoModal getTipoModal() {
         return tipoModal;
     }
 
-    public void setTipoModal(Tipo_Modal tipoModal) {
+    public void setTipoModal(TipoModal tipoModal) {
         this.tipoModal = tipoModal;
     }
 

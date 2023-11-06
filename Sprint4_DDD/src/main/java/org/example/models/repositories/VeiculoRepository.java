@@ -9,8 +9,8 @@ import java.util.List;
 import java.util.Optional;
 
 public class VeiculoRepository {
-    private Tipo_EixoRepository tipoEixoRepository = new Tipo_EixoRepository();
-    private Tipo_ChassiRepository tipoChassiRepository = new Tipo_ChassiRepository();
+    private TipoEixoRepository tipoEixoRepository = new TipoEixoRepository();
+    private TipoChassiRepository tipoChassiRepository = new TipoChassiRepository();
     private MedidaRepository medidaRepository = new MedidaRepository();
 
     public List<Veiculo> findAll() throws SQLException {

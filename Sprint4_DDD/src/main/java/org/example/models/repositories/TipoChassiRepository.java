@@ -1,7 +1,7 @@
 package org.example.models.repositories;
 
 import org.example.infrascture.database.DataBaseFactory;
-import org.example.models.Tipo_Modal;
+import org.example.models.TipoChassi;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -11,25 +11,26 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-public class Tipo_ModalRepository {
-    public List<Tipo_Modal> findAll() throws SQLException {
-        List<Tipo_Modal> tipos_modais = new ArrayList<Tipo_Modal>();
-        String query = "SELECT * FROM T_PA_TIPO_MODAL";
+public class TipoChassiRepository {
+    public List<TipoChassi> findAll() throws SQLException {
+        List<TipoChassi> tipos_chassis = new ArrayList<TipoChassi>();
+        String query = "SELECT * FROM T_PA_TIPO_CHASSI";
 
         try (Connection connection = DataBaseFactory.getConnection();
              PreparedStatement ps = connection.prepareStatement(query);
              ResultSet rs = ps.executeQuery()) {
 
             while(rs.next()){
-                Tipo_Modal tipoModal = new Tipo_Modal(
-                        rs.getInt("ID_TIPO_MODAL"),
-                        rs.getString("NM_TIPO_MODAL")
+                TipoChassi tipoChassi = new TipoChassi(
+                        rs.getInt("ID_TIPO_CHASSI"),
+                        rs.getString("NOME_TIPO_CHASSI"),
+                        rs.getString("DESC_TIPO_CHASSI")
                 );
 
-                tipos_modais.add(tipoModal);
+                tipos_chassis.add(tipoChassi);
             }
 
-            return tipos_modais;
+            return tipos_chassis;
         }
         catch (SQLException e) {
             if(e.getErrorCode() == 1017) {
@@ -42,8 +43,8 @@ public class Tipo_ModalRepository {
         }
     }
 
-    public Optional<Tipo_Modal> find(int id) throws SQLException {
-        String query = "SELECT * FROM T_PA_TIPO_MODAL WHERE ID_TIPO_MODAL = ?";
+    public Optional<TipoChassi> find(int id) throws SQLException {
+        String query = "SELECT * FROM T_PA_TIPO_CHASSI WHERE ID_TIPO_CHASSI = ?";
 
         try(Connection connection = DataBaseFactory.getConnection();
             PreparedStatement ps = connection.prepareStatement(query)){
@@ -51,12 +52,13 @@ public class Tipo_ModalRepository {
             ps.setInt(1, id);
             try(ResultSet rs = ps.executeQuery()){
                 if(rs.next()) {
-                    Tipo_Modal tipoModal = new Tipo_Modal(
-                            rs.getInt("ID_TIPO_MODAL"),
-                            rs.getString("NM_TIPO_MODAL")
+                    TipoChassi tipoChassi = new TipoChassi(
+                            rs.getInt("ID_TIPO_CHASSI"),
+                            rs.getString("NOME_TIPO_CHASSI"),
+                            rs.getString("DESC_TIPO_CHASSI")
                     );
 
-                    return Optional.ofNullable(tipoModal);
+                    return Optional.ofNullable(tipoChassi);
                 }
             } catch (Exception e) {
                 throw new RuntimeException(e);
@@ -74,14 +76,15 @@ public class Tipo_ModalRepository {
         return Optional.empty();
     }
 
-    public void add(Tipo_Modal tipoModal) throws SQLException {
-        String query = "INSERT INTO T_PA_TIPO_MODAL (ID_TIPO_MODAL, NM_TIPO_MODAL, DT_CADASTRO, NM_USUARIO) VALUES (?, ?, SYSDATE, USER)";
+    public void add(TipoChassi tipoChassi) throws SQLException {
+        String query = "INSERT INTO T_PA_TIPO_CHASSI (ID_TIPO_CHASSI, NOME_TIPO_CHASSI, DESC_TIPO_CHASSI, DT_CADASTRO, NM_USUARIO) VALUES (?, ?, ?, SYSDATE, USER)";
 
         try (Connection connection = DataBaseFactory.getConnection();
              PreparedStatement ps = connection.prepareStatement(query)) {
 
-            ps.setInt(1, tipoModal.getId());
-            ps.setString(2, tipoModal.getNome());
+            ps.setInt(1, tipoChassi.getId());
+            ps.setString(2, tipoChassi.getNome());
+            ps.setString(3, tipoChassi.getDescricao());
 
             ps.executeUpdate();
         } catch (SQLException e) {
@@ -89,14 +92,15 @@ public class Tipo_ModalRepository {
         }
     }
 
-    public void update(Tipo_Modal tipoModal) throws SQLException {
-        String query = "UPDATE T_PA_TIPO_MODAL SET NM_TIPO_MODAL = ? WHERE ID_TIPO_MODAL = ?";
+    public void update(TipoChassi tipoChassi) throws SQLException {
+        String query = "UPDATE T_PA_TIPO_CHASSI SET NOME_TIPO_CHASSI = ?, DESC_TIPO_CHASSI = ? WHERE ID_TIPO_CHASSI = ?";
 
         try (Connection connection = DataBaseFactory.getConnection();
              PreparedStatement ps = connection.prepareStatement(query)) {
 
-            ps.setString(1, tipoModal.getNome());
-            ps.setInt(2, tipoModal.getId());
+            ps.setString(1, tipoChassi.getNome());
+            ps.setString(2, tipoChassi.getDescricao());
+            ps.setInt(3, tipoChassi.getId());
 
             ps.executeUpdate();
         } catch (SQLException e) {
@@ -105,7 +109,7 @@ public class Tipo_ModalRepository {
     }
 
     public void delete(int id) throws SQLException {
-        String query = "DELETE FROM T_PA_TIPO_MODAL WHERE ID_TIPO_MODAL = ?";
+        String query = "DELETE FROM T_PA_TIPO_CHASSI WHERE ID_TIPO_CHASSI = ?";
 
         try (Connection connection = DataBaseFactory.getConnection();
              PreparedStatement ps = connection.prepareStatement(query)) {

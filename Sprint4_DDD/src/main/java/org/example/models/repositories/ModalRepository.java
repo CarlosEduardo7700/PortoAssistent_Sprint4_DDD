@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.Optional;
 
 public class ModalRepository {
-    private Tipo_ModalRepository tipoModalRepository = new Tipo_ModalRepository();
+    private TipoModalRepository tipoModalRepository = new TipoModalRepository();
     private MedidaRepository medidaRepository = new MedidaRepository();
 
     public List<Modal> findAll() throws SQLException {

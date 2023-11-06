@@ -3,34 +3,34 @@ package org.example.resources;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
-import org.example.models.Veic_Cliente;
-import org.example.models.repositories.Veic_ClienteRepository;
+import org.example.models.VeicCliente;
+import org.example.models.repositories.VeicClienteRepository;
 
 import java.sql.SQLException;
 import java.util.List;
 import java.util.Optional;
 
 @Path("/veiculo-cliente")
-public class Veic_ClienteResouce {
-    private Veic_ClienteRepository repository = new Veic_ClienteRepository();
+public class VeicClienteResouce {
+    private VeicClienteRepository repository = new VeicClienteRepository();
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public List<Veic_Cliente> getAll() throws SQLException {
+    public List<VeicCliente> getAll() throws SQLException {
         return repository.findAll();
     }
 
     @GET
     @Path("{id}")
     @Produces(MediaType.APPLICATION_JSON)
-    public Veic_Cliente getById(@PathParam("id") int id) throws SQLException {
-        Veic_Cliente veicCliente = repository.find(id).orElse(null);
+    public VeicCliente getById(@PathParam("id") int id) throws SQLException {
+        VeicCliente veicCliente = repository.find(id).orElse(null);
         return veicCliente;
     }
 
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
-    public Response insert(Veic_Cliente veicCliente) throws SQLException {
+    public Response insert(VeicCliente veicCliente) throws SQLException {
         repository.add(veicCliente);
         return Response.status(Response.Status.CREATED).build();
     }
@@ -39,11 +39,11 @@ public class Veic_ClienteResouce {
     @Path("{id}")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public Response update(@PathParam("id") int id, Veic_Cliente veicCliente) throws SQLException {
+    public Response update(@PathParam("id") int id, VeicCliente veicCliente) throws SQLException {
         if (repository.find(id).isPresent()) {
             veicCliente.getCliente().setId(id);
             repository.update(veicCliente);
-            Optional<Veic_Cliente> veicClienteAtualizado = repository.find(id);
+            Optional<VeicCliente> veicClienteAtualizado = repository.find(id);
             return Response.status(Response.Status.OK).entity(veicClienteAtualizado).build();
         }
 
