@@ -30,6 +30,7 @@ public class ClienteResource {
 
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
     public Response insert(Cliente cliente) throws SQLException {
         return service.insertService(cliente);
     }

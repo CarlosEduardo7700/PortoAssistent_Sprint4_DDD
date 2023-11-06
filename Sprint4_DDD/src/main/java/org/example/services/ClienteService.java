@@ -47,7 +47,7 @@ public class ClienteService {
         } else {
             repository.add(cliente);
 
-            return Response.status(Response.Status.CREATED).build();
+            return Response.status(Response.Status.CREATED).entity(cliente).build();
         }
     }
 
