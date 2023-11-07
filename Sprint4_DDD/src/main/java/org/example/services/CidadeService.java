@@ -1,7 +1,6 @@
 package org.example.services;
 
 import jakarta.ws.rs.core.Response;
-import org.example.models.Bairro;
 import org.example.models.Cidade;
 import org.example.models.repositories.CidadeRepository;
 

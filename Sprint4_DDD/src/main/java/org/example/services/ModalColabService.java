@@ -2,9 +2,7 @@ package org.example.services;
 
 import jakarta.ws.rs.core.Response;
 import org.example.models.ModalColab;
-import org.example.models.VeicCliente;
 import org.example.models.repositories.ModalColabRepository;
-import org.example.models.repositories.VeicClienteRepository;
 
 import java.sql.SQLException;
 import java.util.List;

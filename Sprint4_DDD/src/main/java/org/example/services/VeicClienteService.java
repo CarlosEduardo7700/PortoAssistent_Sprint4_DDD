@@ -1,9 +1,7 @@
 package org.example.services;
 
 import jakarta.ws.rs.core.Response;
-import org.example.models.TipoChassi;
 import org.example.models.VeicCliente;
-import org.example.models.repositories.TipoChassiRepository;
 import org.example.models.repositories.VeicClienteRepository;
 
 import java.sql.SQLException;

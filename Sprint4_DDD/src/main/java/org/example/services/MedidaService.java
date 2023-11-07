@@ -2,9 +2,7 @@ package org.example.services;
 
 import jakarta.ws.rs.core.Response;
 import org.example.models.Medida;
-import org.example.models.TelefoneColaborador;
 import org.example.models.repositories.MedidaRepository;
-import org.example.models.repositories.TelefoneColaboradorRepository;
 
 import java.sql.SQLException;
 import java.util.List;

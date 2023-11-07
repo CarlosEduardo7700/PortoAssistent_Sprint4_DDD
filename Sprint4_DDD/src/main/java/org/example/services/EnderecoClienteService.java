@@ -2,9 +2,7 @@ package org.example.services;
 
 import jakarta.ws.rs.core.Response;
 import org.example.models.EnderecoCliente;
-import org.example.models.EnderecoColaborador;
 import org.example.models.repositories.EnderecoClienteRepository;
-import org.example.models.repositories.EnderecoColaboradorRepository;
 
 import java.sql.SQLException;
 import java.util.List;

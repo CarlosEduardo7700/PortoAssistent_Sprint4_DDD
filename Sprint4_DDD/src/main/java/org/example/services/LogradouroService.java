@@ -1,9 +1,7 @@
 package org.example.services;
 
 import jakarta.ws.rs.core.Response;
-import org.example.models.Cidade;
 import org.example.models.Logradouro;
-import org.example.models.repositories.CidadeRepository;
 import org.example.models.repositories.LogradouroRepository;
 
 import java.sql.SQLException;

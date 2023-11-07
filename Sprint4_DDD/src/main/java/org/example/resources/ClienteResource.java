@@ -28,6 +28,14 @@ public class ClienteResource {
         return service.getByIdService(id);
     }
 
+    @GET
+    @Path("/login")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response login(@QueryParam("email") String email,
+                               @QueryParam("senha") String senha) throws SQLException {
+        return service.LoginService(email, senha);
+    }
+
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)

@@ -1,9 +1,7 @@
 package org.example.services;
 
 import jakarta.ws.rs.core.Response;
-import org.example.models.Colaborador;
 import org.example.models.EnderecoColaborador;
-import org.example.models.repositories.ColaboradorRepository;
 import org.example.models.repositories.EnderecoColaboradorRepository;
 
 import java.sql.SQLException;

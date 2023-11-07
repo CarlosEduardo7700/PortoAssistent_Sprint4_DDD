@@ -1,9 +1,7 @@
 package org.example.services;
 
 import jakarta.ws.rs.core.Response;
-import org.example.models.TelefoneCliente;
 import org.example.models.TelefoneColaborador;
-import org.example.models.repositories.TelefoneClienteRepository;
 import org.example.models.repositories.TelefoneColaboradorRepository;
 
 import java.sql.SQLException;

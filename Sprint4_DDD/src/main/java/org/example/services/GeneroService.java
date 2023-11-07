@@ -2,9 +2,7 @@ package org.example.services;
 
 import jakarta.ws.rs.core.Response;
 import org.example.models.Genero;
-import org.example.models.Logradouro;
 import org.example.models.repositories.GeneroRepository;
-import org.example.models.repositories.LogradouroRepository;
 
 import java.sql.SQLException;
 import java.util.List;

@@ -2,9 +2,7 @@ package org.example.services;
 
 import jakarta.ws.rs.core.Response;
 import org.example.models.Cliente;
-import org.example.models.Logradouro;
 import org.example.models.repositories.ClienteRepository;
-import org.example.models.repositories.LogradouroRepository;
 
 import java.sql.SQLException;
 import java.util.List;
@@ -35,6 +33,25 @@ public class ClienteService {
         }
 
         return Response.status(Response.Status.OK).entity(cliente).build();
+    }
+
+
+
+
+    public Response LoginService(String email, String senha) throws SQLException {
+        Cliente cliente = repository.findByEmail(email).orElse(null);
+
+        if (cliente == null) {
+            return Response.status(Response.Status.NOT_FOUND)
+                    .entity("Email não encontrado! Tente novamente.").build();
+        } else {
+            if (senha.equals(cliente.getSenha())) {
+                return Response.status(Response.Status.ACCEPTED).entity(cliente).build();
+            } else {
+                return Response.status(Response.Status.NOT_ACCEPTABLE)
+                        .entity("Senha incorreta! Tente novamente.").build();
+            }
+        }
     }
 
 

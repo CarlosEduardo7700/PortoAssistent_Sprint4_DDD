@@ -1,9 +1,7 @@
 package org.example.services;
 
 import jakarta.ws.rs.core.Response;
-import org.example.models.Medida;
 import org.example.models.Modal;
-import org.example.models.repositories.MedidaRepository;
 import org.example.models.repositories.ModalRepository;
 
 import java.sql.SQLException;

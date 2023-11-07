@@ -1,8 +1,6 @@
 package org.example.services;
 
-import jakarta.ws.rs.PathParam;
 import jakarta.ws.rs.core.Response;
-import org.example.models.Bairro;
 import org.example.models.Estado;
 import org.example.models.repositories.EstadoRepository;
 
