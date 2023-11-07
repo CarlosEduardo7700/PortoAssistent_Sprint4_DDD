@@ -38,14 +38,14 @@ public class ClienteService {
 
 
 
-    public Response LoginService(String email, String senha) throws SQLException {
-        Cliente cliente = repository.findByEmail(email).orElse(null);
+    public Response LoginService(Cliente credenciais) throws SQLException {
+        Cliente cliente = repository.findByEmail(credenciais.getEmail()).orElse(null);
 
         if (cliente == null) {
             return Response.status(Response.Status.NOT_FOUND)
                     .entity("Email não encontrado! Tente novamente.").build();
         } else {
-            if (senha.equals(cliente.getSenha())) {
+            if (credenciais.getSenha().equals(cliente.getSenha())) {
                 return Response.status(Response.Status.ACCEPTED).entity(cliente).build();
             } else {
                 return Response.status(Response.Status.NOT_ACCEPTABLE)

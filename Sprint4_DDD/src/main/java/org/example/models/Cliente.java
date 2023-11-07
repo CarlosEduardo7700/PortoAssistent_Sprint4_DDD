@@ -1,7 +1,5 @@
 package org.example.models;
 
-import java.sql.Timestamp;
-
 public class Cliente {
 
     // Atributos

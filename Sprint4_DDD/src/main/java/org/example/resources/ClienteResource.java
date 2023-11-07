@@ -4,12 +4,9 @@ import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
 import org.example.models.Cliente;
-import org.example.models.repositories.ClienteRepository;
 import org.example.services.ClienteService;
 
 import java.sql.SQLException;
-import java.util.List;
-import java.util.Optional;
 
 @Path("/cliente")
 public class ClienteResource {
@@ -28,12 +25,12 @@ public class ClienteResource {
         return service.getByIdService(id);
     }
 
-    @GET
+    @POST
     @Path("/login")
+    @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public Response login(@QueryParam("email") String email,
-                               @QueryParam("senha") String senha) throws SQLException {
-        return service.LoginService(email, senha);
+    public Response login(Cliente cliente) throws SQLException {
+        return service.LoginService(cliente);
     }
 
     @POST
