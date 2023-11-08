@@ -1,6 +1,6 @@
 package org.example.models.repositories;
 
-import org.example.infrascture.database.DataBaseFactory;
+import org.example.infrastructure.database.DataBaseFactory;
 import org.example.models.Cliente;
 
 import java.sql.Connection;
