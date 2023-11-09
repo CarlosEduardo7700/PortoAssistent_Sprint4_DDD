@@ -3,6 +3,7 @@ package org.example.resources;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
+import org.example.models.Cliente;
 import org.example.models.Colaborador;
 import org.example.models.repositories.ColaboradorRepository;
 import org.example.services.ColaboradorService;
@@ -26,6 +27,14 @@ public class ColaboradorResource {
     @Produces(MediaType.APPLICATION_JSON)
     public Response getById(@PathParam("id") int id) throws SQLException {
         return service.getByIdService(id);
+    }
+
+    @POST
+    @Path("/login")
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response login(Colaborador colaborador) throws SQLException {
+        return service.LoginService(colaborador);
     }
 
     @POST

@@ -1,6 +1,7 @@
 package org.example.models.repositories;
 
 import org.example.infrastructure.database.DataBaseFactory;
+import org.example.models.Cliente;
 import org.example.models.Colaborador;
 
 import java.sql.Connection;
@@ -30,7 +31,6 @@ public class ColaboradorRepository {
                         rs.getString("NM_COLABORADOR"),
                         rs.getString("CPF_COLABORADOR"),
                         rs.getLong("RG_COLABORADOR"),
-                        rs.getString("TEL_COLABORADOR"),
                         rs.getString("EMAIL_COLABORADOR"),
                         rs.getString("SENHA_COLABORADOR"),
                         rs.getString("CNH_COLABORADOR"),
@@ -69,7 +69,46 @@ public class ColaboradorRepository {
                             rs.getString("NM_COLABORADOR"),
                             rs.getString("CPF_COLABORADOR"),
                             rs.getLong("RG_COLABORADOR"),
-                            rs.getString("TEL_COLABORADOR"),
+                            rs.getString("EMAIL_COLABORADOR"),
+                            rs.getString("SENHA_COLABORADOR"),
+                            rs.getString("CNH_COLABORADOR"),
+                            rs.getString("DT_NASCIMENTO_COLABORADOR")
+                    );
+
+                    return Optional.ofNullable(colaborador);
+                }
+            } catch (Exception e) {
+                throw new RuntimeException(e);
+            }
+        }
+        catch (SQLException e) {
+            if(e.getErrorCode() == 1017) { // Erro de login/senha inválido
+                throw new SQLException("Falha de autenticação ao conectar ao banco de dados.", e);
+            } else if(e.getErrorCode() == 904) { // Erro de coluna inválida
+                throw new SQLException("A query contém uma coluna inválida.", e);
+            } else {
+                throw new SQLException("Erro ao executar a query.", e);
+            }
+        }
+        return Optional.empty();
+    }
+
+    public Optional<Colaborador> findByEmail(String email) throws SQLException {
+        String query = "SELECT * FROM T_PA_COLABORADOR WHERE EMAIL_COLABORADOR = ?";
+
+        try(Connection connection = DataBaseFactory.getConnection();
+            PreparedStatement ps = connection.prepareStatement(query)){
+
+            ps.setString(1, email);
+            try(ResultSet rs = ps.executeQuery()){
+                if(rs.next()) {
+                    Colaborador colaborador = new Colaborador(
+                            rs.getInt("ID_COLABORADOR"),
+                            rs.getString("IMG_COLABORADOR"),
+                            generoRepository.find(rs.getInt("ID_GENERO")).orElse(null),
+                            rs.getString("NM_COLABORADOR"),
+                            rs.getString("CPF_COLABORADOR"),
+                            rs.getLong("RG_COLABORADOR"),
                             rs.getString("EMAIL_COLABORADOR"),
                             rs.getString("SENHA_COLABORADOR"),
                             rs.getString("CNH_COLABORADOR"),
@@ -95,7 +134,7 @@ public class ColaboradorRepository {
     }
 
     public void add(Colaborador colaborador) throws SQLException {
-        String query = "INSERT INTO T_PA_COLABORADOR (ID_COLABORADOR, IMG_COLABORADOR, ID_GENERO, NM_COLABORADOR, CPF_COLABORADOR, RG_COLABORADOR, TEL_COLABORADOR, EMAIL_COLABORADOR, SENHA_COLABORADOR, CNH_COLABORADOR, DT_NASCIMENTO_COLABORADOR, DT_CADASTRO, NM_USUARIO) VALUES (SQ_PA_COLABORADOR.nextval, ?, ?, ?, ?, ?, ?, ?, ?, ?, TO_DATE(?, 'DD/MM/YYYY'), SYSDATE, USER)";
+        String query = "INSERT INTO T_PA_COLABORADOR (ID_COLABORADOR, IMG_COLABORADOR, ID_GENERO, NM_COLABORADOR, CPF_COLABORADOR, RG_COLABORADOR, EMAIL_COLABORADOR, SENHA_COLABORADOR, CNH_COLABORADOR, DT_NASCIMENTO_COLABORADOR, DT_CADASTRO, NM_USUARIO) VALUES (SQ_PA_COLABORADOR.nextval, ?, ?, ?, ?, ?, ?, ?, ?, TO_DATE(?, 'DD/MM/YYYY'), SYSDATE, USER)";
 
         try (Connection connection = DataBaseFactory.getConnection();
              PreparedStatement ps = connection.prepareStatement(query)) {
@@ -105,11 +144,10 @@ public class ColaboradorRepository {
             ps.setString(3, colaborador.getNome());
             ps.setString(4, colaborador.getCpf());
             ps.setLong(5, colaborador.getRg());
-            ps.setString(6, colaborador.getTelefone());
-            ps.setString(7, colaborador.getEmail());
-            ps.setString(8, colaborador.getSenha());
-            ps.setString(9, colaborador.getCnh());
-            ps.setString(10, colaborador.getDataNascimento());
+            ps.setString(6, colaborador.getEmail());
+            ps.setString(7, colaborador.getSenha());
+            ps.setString(8, colaborador.getCnh());
+            ps.setString(9, colaborador.getDataNascimento());
 
             ps.executeUpdate();
         } catch (SQLException e) {
@@ -118,7 +156,7 @@ public class ColaboradorRepository {
     }
 
     public void update(Colaborador colaborador) throws SQLException {
-        String query = "UPDATE T_PA_COLABORADOR SET IMG_COLABORADOR = ?, ID_GENERO = ?, NM_COLABORADOR = ?, CPF_COLABORADOR = ?, RG_COLABORADOR = ?, TEL_COLABORADOR = ?, EMAIL_COLABORADOR = ?, SENHA_COLABORADOR = ?, CNH_COLABORADOR = ?, DT_NASCIMENTO_COLABORADOR = TO_DATE(?, 'DD/MM/YYYY') WHERE ID_COLABORADOR = ?";
+        String query = "UPDATE T_PA_COLABORADOR SET IMG_COLABORADOR = ?, ID_GENERO = ?, NM_COLABORADOR = ?, CPF_COLABORADOR = ?, RG_COLABORADOR = ?, EMAIL_COLABORADOR = ?, SENHA_COLABORADOR = ?, CNH_COLABORADOR = ?, DT_NASCIMENTO_COLABORADOR = TO_DATE(?, 'DD/MM/YYYY') WHERE ID_COLABORADOR = ?";
 
         try (Connection connection = DataBaseFactory.getConnection();
              PreparedStatement ps = connection.prepareStatement(query)) {
@@ -128,12 +166,11 @@ public class ColaboradorRepository {
             ps.setString(3, colaborador.getNome());
             ps.setString(4, colaborador.getCpf());
             ps.setLong(5, colaborador.getRg());
-            ps.setString(6, colaborador.getTelefone());
-            ps.setString(7, colaborador.getEmail());
-            ps.setString(8, colaborador.getSenha());
-            ps.setString(9, colaborador.getCnh());
-            ps.setString(10, colaborador.getDataNascimento());
-            ps.setInt(11, colaborador.getId());
+            ps.setString(6, colaborador.getEmail());
+            ps.setString(7, colaborador.getSenha());
+            ps.setString(8, colaborador.getCnh());
+            ps.setString(9, colaborador.getDataNascimento());
+            ps.setInt(10, colaborador.getId());
 
             ps.executeUpdate();
         } catch (SQLException e) {

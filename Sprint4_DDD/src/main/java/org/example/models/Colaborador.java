@@ -11,7 +11,6 @@ public class Colaborador {
     private String nome;
     private String cpf;
     private Long rg;
-    private String telefone;
     private String email;
     private String senha;
     private String cnh;
@@ -20,16 +19,13 @@ public class Colaborador {
 
 
     // Construtor
-
-
-    public Colaborador(int id, String caminhoImagem, Genero genero, String nome, String cpf, Long rg, String telefone, String email, String senha, String cnh, String dataNascimento) {
+    public Colaborador(int id, String caminhoImagem, Genero genero, String nome, String cpf, Long rg, String email, String senha, String cnh, String dataNascimento) {
         this.id = id;
         this.caminhoImagem = caminhoImagem;
         this.genero = genero;
         this.nome = nome;
         this.cpf = cpf;
         this.rg = rg;
-        this.telefone = telefone;
         this.email = email;
         this.senha = senha;
         this.cnh = cnh;
@@ -125,11 +121,4 @@ public class Colaborador {
         this.caminhoImagem = caminhoImagem;
     }
 
-    public String getTelefone() {
-        return telefone;
-    }
-
-    public void setTelefone(String telefone) {
-        this.telefone = telefone;
-    }
 }

@@ -1,6 +1,7 @@
 package org.example.services;
 
 import jakarta.ws.rs.core.Response;
+import org.example.models.Cliente;
 import org.example.models.Colaborador;
 import org.example.models.repositories.ColaboradorRepository;
 
@@ -33,6 +34,24 @@ public class ColaboradorService {
         }
 
         return Response.status(Response.Status.OK).entity(colaborador).build();
+    }
+
+
+
+    public Response LoginService(Colaborador credenciais) throws SQLException {
+        Colaborador colaborador = repository.findByEmail(credenciais.getEmail()).orElse(null);
+
+        if (colaborador == null) {
+            return Response.status(Response.Status.NOT_FOUND)
+                    .entity("Email não encontrado! Tente novamente.").build();
+        } else {
+            if (credenciais.getSenha().equals(colaborador.getSenha())) {
+                return Response.status(Response.Status.ACCEPTED).entity(colaborador).build();
+            } else {
+                return Response.status(Response.Status.NOT_ACCEPTABLE)
+                        .entity("Senha incorreta! Tente novamente.").build();
+            }
+        }
     }
 
 
