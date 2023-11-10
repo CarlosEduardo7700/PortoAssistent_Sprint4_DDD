@@ -8,7 +8,7 @@ public class Veiculo {
     private TipoEixo tipoEixo;
     private TipoChassi tipoChassi;
     private Medida medidaVeiculo;
-    private int apolice;
+    private Long apolice;
     private String modelo;
     private String cor;
     private String marca;
@@ -16,7 +16,7 @@ public class Veiculo {
     private int anoFabricacao;
     private int quantidadeEixos;
     private String renavan;
-    private int numChassi;
+    private Long numChassi;
 
 
 
@@ -24,7 +24,7 @@ public class Veiculo {
     // Construtor
 
 
-    public Veiculo(int id, String caminhoImagem, TipoEixo tipoEixo, TipoChassi tipoChassi, Medida medidaVeiculo, int apolice, String modelo, String cor, String marca, String placa, int anoFabricacao, int quantidadeEixos, String renavan, int numChassi) {
+    public Veiculo(int id, String caminhoImagem, TipoEixo tipoEixo, TipoChassi tipoChassi, Medida medidaVeiculo, Long apolice, String modelo, String cor, String marca, String placa, int anoFabricacao, int quantidadeEixos, String renavan, Long numChassi) {
         this.id = id;
         this.caminhoImagem = caminhoImagem;
         this.tipoEixo = tipoEixo;
@@ -81,10 +81,10 @@ public class Veiculo {
         this.medidaVeiculo = medidaVeiculo;
     }
 
-    public int getApolice() {
+    public Long getApolice() {
         return apolice;
     }
-    public void setApolice(int apolice) {
+    public void setApolice(Long apolice) {
         this.apolice = apolice;
     }
 
@@ -144,10 +144,10 @@ public class Veiculo {
         this.caminhoImagem = caminhoImagem;
     }
 
-    public int getNumChassi() {
+    public Long getNumChassi() {
         return numChassi;
     }
-    public void setNumChassi(int numChassi) {
+    public void setNumChassi(Long numChassi) {
         this.numChassi = numChassi;
     }
 }
